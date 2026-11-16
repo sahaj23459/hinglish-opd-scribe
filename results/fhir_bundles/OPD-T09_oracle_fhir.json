@@ -1,0 +1,365 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-OPD-T09",
+  "type": "collection",
+  "timestamp": "2026-11-16T10:30:00+05:30",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-PAT-OPD-T09",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "PAT-OPD-T09",
+        "meta": {
+          "profile": [
+            "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+          ],
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HTEST",
+              "display": "test health data (synthetic consented)"
+            }
+          ]
+        },
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-OPD-T09",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-OPD-T09",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "period": {
+          "start": "2026-11-16",
+          "end": "2026-11-16"
+        },
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/visit-sequence",
+            "valueInteger": 1
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-OPD-T09-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-OPD-T09-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "28442001",
+              "display": "Polyuria"
+            }
+          ],
+          "text": "Polyuria"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T09"
+        },
+        "recordedDate": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "baar baar peshab aata"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 13
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 34
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.874
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-dur-OPD-T09-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-dur-OPD-T09-1",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103335007",
+              "display": "Duration of clinical finding"
+            }
+          ],
+          "text": "Duration of Polyuria"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T09"
+        },
+        "focus": [
+          {
+            "reference": "Condition/cond-OPD-T09-1"
+          }
+        ],
+        "effectiveDateTime": "2026-11-16",
+        "valueQuantity": {
+          "value": 1.0,
+          "unit": "mo",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-OPD-T09-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-OPD-T09-2",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "246636008",
+              "display": "Blurred vision"
+            }
+          ],
+          "text": "Blurred vision"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T09"
+        },
+        "recordedDate": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "dhundhla dikhna shuru"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 43
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 64
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.898
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-OPD-T09-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-OPD-T09-3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "373492002",
+              "display": "Glimepiride"
+            }
+          ],
+          "text": "Glimepiride"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "context": {
+          "reference": "Encounter/enc-OPD-T09"
+        },
+        "effectiveDateTime": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "glimepiride"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 73
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 84
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-OPD-T09-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-OPD-T09-4",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "372912004",
+              "display": "Atorvastatin"
+            }
+          ],
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T09"
+        },
+        "context": {
+          "reference": "Encounter/enc-OPD-T09"
+        },
+        "effectiveDateTime": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "atorvastatin"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 114
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 126
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ],
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

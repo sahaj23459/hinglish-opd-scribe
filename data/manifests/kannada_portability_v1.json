@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "consults": [
+    {
+      "consult_id": "KN-OPD-01",
+      "language": "kn-IN",
+      "voice": "kn-IN-SapnaNeural",
+      "text_tts": "ಡಾಕ್ಟರ್ ನನಗೆ ಮೂರು ದಿನದಿಂದ ಜ್ವರ ಇದೆ ಆದರೆ ತಲೆನೋವು ಇಲ್ಲ ಪ್ಯಾರಾಸಿಟಮಾಲ್ ಒಂದೂವರೆ ಮಾತ್ರೆ",
+      "text_ref": "doctor nanage mooru dinadinda jvara ide aadare talenovu illa paracetamol onduvare maatre",
+      "gold_annotations": [
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "25064002",
+          "preferred_term": "Headache",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.5
+        }
+      ]
+    },
+    {
+      "consult_id": "KN-OPD-02",
+      "language": "kn-IN",
+      "voice": "kn-IN-GaganNeural",
+      "text_tts": "ನನಗೆ ಕೆಮ್ಮು ಮತ್ತು ಶೀತ ಇದೆ ಆದರೆ ಜ್ವರ ಇಲ್ಲ ಆಂಟಿಬಯೋಟಿಕ್ ಬೇಡ",
+      "text_ref": "nanage kemmu mattu sheeta ide aadare jvara illa antibiotic beda",
+      "gold_annotations": [
+        {
+          "snomed_code": "49727002",
+          "preferred_term": "Cough",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "82272006",
+          "preferred_term": "Common cold",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "255631004",
+          "preferred_term": "Antibiotic",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "KN-OPD-03",
+      "language": "kn-IN",
+      "voice": "kn-IN-SapnaNeural",
+      "text_tts": "ನನಗೆ ಸಕ್ಕರೆ ಕಾಯಿಲೆ ಮತ್ತು ತಲೆಸುತ್ತು ಇದೆ ಮೆಟ್ಫಾರ್ಮಿನ್ ಎರಡು ಮಾತ್ರೆ",
+      "text_ref": "nanage sakkare kaayile mattu talesuttu ide metformin eradu maatre",
+      "gold_annotations": [
+        {
+          "snomed_code": "44054006",
+          "preferred_term": "Diabetes mellitus type 2",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "404640003",
+          "preferred_term": "Dizziness",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372567009",
+          "preferred_term": "Metformin",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 2.0
+        }
+      ]
+    },
+    {
+      "consult_id": "KN-OPD-04",
+      "language": "kn-IN",
+      "voice": "kn-IN-GaganNeural",
+      "text_tts": "ನನಗೆ ಹೊಟ್ಟೆ ಉಬ್ಬರ ಮತ್ತು ಎದೆ ಉರಿ ಇದೆ ಆದರೆ ವಾಂತಿ ಇಲ್ಲ",
+      "text_ref": "nanage hotte ubbara mattu ede uri ide aadare vaanti illa",
+      "gold_annotations": [
+        {
+          "snomed_code": "162076009",
+          "preferred_term": "Abdominal bloating",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "16331000",
+          "preferred_term": "Heartburn",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "422400008",
+          "preferred_term": "Vomiting",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "KN-OPD-05",
+      "language": "kn-IN",
+      "voice": "kn-IN-SapnaNeural",
+      "text_tts": "ನನಗೆ ಎರಡು ದಿನದಿಂದ ಭೇದಿ ಇದೆ ಆದರೆ ಜ್ವರ ಇಲ್ಲ",
+      "text_ref": "nanage eradu dinadinda bhedi ide aadare jvara illa",
+      "gold_annotations": [
+        {
+          "snomed_code": "62315008",
+          "preferred_term": "Diarrhea",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    }
+  ]
+}

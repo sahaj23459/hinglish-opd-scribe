@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hinglish OPD Scribe — Clinical FHIR & Severity Demo</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --panel: #ffffff;
+    --border: #e2e8f0;
+    --ink: #0f172a;
+    --muted: #475569;
+    --brand: #0f4c81;
+    --brand-soft: #e0f2fe;
+    --ok: #059669;
+    --ok-soft: #dcfce7;
+    --warn: #d97706;
+    --warn-soft: #fef3c7;
+    --crit: #dc2626;
+    --crit-soft: #fee2e2;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  header {
+    background: #0f172a;
+    color: #fff;
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #38bdf8;
+  }
+  header h1 { margin: 0; font-size: 19px; letter-spacing: -0.01em; }
+  header .sub { font-size: 12.5px; color: #94a3b8; margin-top: 2px; }
+  .safety-pill {
+    background: rgba(56, 189, 248, 0.16);
+    border: 1px solid #38bdf8;
+    color: #e0f2fe;
+    font-size: 11.5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 28px 0;
+    background: #f1f5f9;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: transparent;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+  }
+  .tab-btn.active {
+    background: var(--panel);
+    color: var(--brand);
+    border-color: var(--border);
+  }
+  main { max-width: 1340px; margin: 0 auto; padding: 20px 28px 40px; }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+  .grid-2 { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 18px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+  }
+  .card h2 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  label { font-size: 12px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 4px; }
+  select, textarea, input[type="text"] {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #fff;
+    color: var(--ink);
+  }
+  textarea { min-height: 82px; resize: vertical; }
+  .row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+  .row > div { flex: 1; min-width: 180px; }
+  audio { width: 100%; height: 36px; margin-top: 4px; }
+  .btn {
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-sm {
+    padding: 4px 10px;
+    font-size: 11.5px;
+    border-radius: 5px;
+  }
+  .btn-confirm { background: var(--ok); color: #fff; border: none; cursor: pointer; }
+  .btn-reject { background: #64748b; color: #fff; border: none; cursor: pointer; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .b-aff { background: var(--ok-soft); color: #065f46; }
+  .b-neg { background: var(--crit-soft); color: #991b1b; }
+  .b-amb { background: var(--warn-soft); color: #92400e; }
+  .b-fam { background: #ede9fe; color: #5b21b6; }
+  .concept-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #fcfdff;
+  }
+  .concept-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .code-chip { font-family: var(--mono); font-size: 11.5px; background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+  pre {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    overflow: auto;
+    max-height: 360px;
+    margin: 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; }
+  th { background: #f1f5f9; font-weight: 700; color: #1e293b; }
+  .delta-NEW { border-left: 4px solid #0284c7; padding-left: 10px; margin-bottom: 8px; }
+  .delta-RESOLVED { border-left: 4px solid #059669; padding-left: 10px; margin-bottom: 8px; }
+  .delta-PROGRESSION_ALERT { border-left: 4px solid #dc2626; padding-left: 10px; margin-bottom: 8px; background: #fff5f5; padding: 8px 10px; border-radius: 0 6px 6px 0; }
+  .delta-MEDICATION_CHANGED, .delta-MEDICATION_STOPPED { border-left: 4px solid #d97706; padding-left: 10px; margin-bottom: 8px; }
+  .delta-PERSISTENT { border-left: 4px solid #64748b; padding-left: 10px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Hinglish OPD Scribe — SNOMED CT, HL7 FHIR R4 &amp; Clinical Severity Sandbox</h1>
+    <div class="sub">Computing for Medicine (Monsoon 2026) · Synthetic Consented Benchmark Only · 0% Real Patient PHI</div>
+  </div>
+  <div class="safety-pill">106 Verified SNOMED Codes · Constrained Retrieval (0% Code Hallucination)</div>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('scribe', this)">1. Live OPD Scribe &amp; One-Tap Doctor Confirmation</button>
+  <button class="tab-btn" onclick="switchTab('longitudinal', this)">2. Longitudinal Multi-Visit FHIR Memory</button>
+  <button class="tab-btn" onclick="switchTab('benchmark', this)">3. WER vs. Clinical Severity Benchmark Results</button>
+</div>
+
+<main>
+  <!-- TAB 1: LIVE OPD SCRIBE -->
+  <div id="tab-scribe" class="tab-pane active">
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h2>
+            <span>Step 1: Select Benchmark Consult or Type Any Hinglish / Kannada Utterance</span>
+            <span class="badge b-aff" id="consent-badge">Voice Consent: VERIFIED</span>
+          </h2>
+          <div class="row">
+            <div>
+              <label>Preset Held-Out Consult</label>
+              <select id="preset-select" onchange="loadPresetConsult()"></select>
+            </div>
+            <div>
+              <label>Acoustic Condition (16 kHz WAV)</label>
+              <select id="cond-select" onchange="updateAudioSource()">
+                <option value="clean">Clean Studio Role-Play</option>
+                <option value="noisy_10db" selected>Noisy Indian OPD (+10 dB SNR)</option>
+                <option value="noisy_3db">Crowded Govt OPD (+3 dB SNR)</option>
+                <option value="overlap_10db">Multi-Speaker Overlap (+10 dB)</option>
+              </select>
+            </div>
+          </div>
+          <label>Play Benchmark Audio (`data/audio/...`)</label>
+          <audio id="audio-player" controls></audio>
+          <div style="margin-top: 12px;">
+            <label>Live Transcript Input (Edit freely — PHI is auto-redacted before SNOMED linking!)</label>
+            <textarea id="live-input" oninput="runLivePipeline()"></textarea>
+          </div>
+          <div style="margin-top:8px; font-size:12px; color:#475569;">
+            <strong>PHI Redaction Preview:</strong> <span id="redacted-preview" style="font-family:var(--mono);"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>
+            <span>Step 2: Constrained SNOMED CT Concept Linking &amp; Attribute Extraction</span>
+            <span id="concept-count" class="code-chip">0 concepts</span>
+          </h2>
+          <div id="concepts-list"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Step 3: Span-Grounded English Clinical Note</h2>
+          <div id="grounded-note" style="font-size:13.5px;"></div>
+        </div>
+        <div class="card">
+          <h2>
+            <span>Step 4: ABDM-Aligned HL7 FHIR R4 Bundle (`Condition`, `Observation`, `MedicationStatement`)</span>
+            <span class="badge b-aff">FHIR R4 VALID</span>
+          </h2>
+          <pre id="fhir-json"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: LONGITUDINAL MEMORY -->
+  <div id="tab-longitudinal" class="tab-pane">
+    <div class="card">
+      <h2>
+        <span>Longitudinal Multi-Visit FHIR Change Summary (Synthea-Style Trajectories)</span>
+        <select id="patient-select" style="max-width:460px;" onchange="renderLongitudinal()"></select>
+      </h2>
+      <div id="longitudinal-view"></div>
+    </div>
+  </div>
+
+  <!-- TAB 3: BENCHMARK RESULTS -->
+  <div id="tab-benchmark" class="tab-pane">
+    <div class="card">
+      <h2>Hypothesis Test: Plain WER vs. Clinical Severity-Weighted Error Across ASR Arms (320 Runs)</h2>
+      <div id="hypothesis-banner" style="margin-bottom:12px; padding:10px 14px; background:#eff6ff; border-left:4px solid #2563eb; font-size:13px;"></div>
+      <table id="bench-table">
+        <thead>
+          <tr>
+            <th>ASR Experimental Arm</th>
+            <th>Raw WER (%)</th>
+            <th>Script-Normalized WER (%)</th>
+            <th>SNOMED Concept F1 (%)</th>
+            <th>Critical Clinical Error Rate (%)</th>
+            <th>Clinical Severity Score (CSS)</th>
+            <th>p95 Latency (s)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h2>Oracle Transcript Ablation (NLP Grounding Isolation)</h2>
+        <table id="oracle-table">
+          <thead>
+            <tr>
+              <th>Linking Mode</th>
+              <th>SNOMED F1 (%)</th>
+              <th>Hallucinated Codes</th>
+              <th>Critical Error Rate (%)</th>
+              <th>Severity Score</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Documented Real ASR Failure &amp; Divergence Cases</h2>
+        <div id="failures-list" style="max-height:320px; overflow:auto; font-size:12.5px;"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const APP_DATA = {"lexicon": [{"snomed_code": "386661006", "preferred_term": "Fever", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "pyrexia", "synonyms": ["bukhar", "jvara", "halka bukhar", "fever", "badan garam", "ಜ್ವರ", "tez bukhar"]}, {"snomed_code": "43724002", "preferred_term": "Chill", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "pyrexia", "synonyms": ["kapkapi", "thand lagna", "thand lag kar bukhar", "chills", "shivering"]}, {"snomed_code": "84229001", "preferred_term": "Fatigue", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "malaise", "synonyms": ["kamzori", "thakan", "fatigue", "weakness"], "ambiguous_triggers": ["badan tootna", "badan toot raha"]}, {"snomed_code": "13791008", "preferred_term": "Asthenia", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "malaise", "synonyms": ["bahut kamzori", "uthne ki himmat nahi", "debility"]}, {"snomed_code": "271807003", "preferred_term": "Eruption of skin", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "derm", "sub_branch": "exanthem", "synonyms": ["daane", "lal daane", "rash", "skin rash", "sharir par daane"]}, {"snomed_code": "52613005", "preferred_term": "Excessive sweating", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "autonomic", "synonyms": ["paseena aana", "raat ko paseena", "thandha paseena"]}, {"snomed_code": "89362005", "preferred_term": "Weight loss", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "nutrition", "synonyms": ["wazan kam hona", "weight loss", "wazan ghat gaya"]}, {"snomed_code": "161838008", "preferred_term": "Loss of appetite", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "gi", "sub_branch": "appetite", "synonyms": ["bhookh nahi lagti", "bhookh kam hona", "khane ka man nahi", "loss of appetite"]}, {"snomed_code": "38362002", "preferred_term": "Dengue", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "vector_borne", "synonyms": ["dengue", "dengue bukhar"]}, {"snomed_code": "61462000", "preferred_term": "Malaria", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "vector_borne", "synonyms": ["malaria", "malaria bukhar"]}, {"snomed_code": "4834000", "preferred_term": "Typhoid fever", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "systemic", "sub_branch": "enteric_infection", "synonyms": ["typhoid", "motijhara"]}, {"snomed_code": "195662009", "preferred_term": "Acute viral pharyngitis", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["viral throat infection", "viral pharyngitis", "gale ka viral"]}, {"snomed_code": "49727002", "preferred_term": "Cough", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "cough", "synonyms": ["khansi", "kemmu", "cough", "ಕೆಮ್ಮು"]}, {"snomed_code": "11833005", "preferred_term": "Dry cough", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "cough", "synonyms": ["sukhi khansi", "dry cough"]}, {"snomed_code": "28743005", "preferred_term": "Productive cough", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "cough", "synonyms": ["balgam wali khansi", "wet cough", "balgam aana"]}, {"snomed_code": "82272006", "preferred_term": "Common cold", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["common cold", "cold", "ಶೀತ", "zukam", "sheeta", "sardi zukam"]}, {"snomed_code": "64531003", "preferred_term": "Nasal discharge", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["naak behna", "runny nose", "naak se pani"]}, {"snomed_code": "68235000", "preferred_term": "Nasal congestion", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["naak band", "blocked nose", "band naak"]}, {"snomed_code": "162397003", "preferred_term": "Pain in throat", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["gale mein dard", "gale mein kharash", "throat pain", "sore throat", "gala kharab"]}, {"snomed_code": "50219008", "preferred_term": "Hoarse voice", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "upper_respiratory", "synonyms": ["awaaz baith gayi", "hoarse voice"]}, {"snomed_code": "267036007", "preferred_term": "Dyspnea", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "lower_respiratory", "synonyms": ["saans phoolna", "saans phoolti", "saans lene mein takleef", "breathlessness", "shortness of breath"]}, {"snomed_code": "56018004", "preferred_term": "Wheezing", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "lower_respiratory", "synonyms": ["wheezing", "saans mein seeti"]}, {"snomed_code": "195967001", "preferred_term": "Asthma", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "lower_respiratory", "synonyms": ["dama", "asthma"]}, {"snomed_code": "233604007", "preferred_term": "Pneumonia", "semantic_tag": "disorder", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "lower_respiratory", "synonyms": ["pneumonia", "phephde mein infection"]}, {"snomed_code": "16001004", "preferred_term": "Otalgia", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "respiratory", "sub_branch": "ent", "synonyms": ["kaan mein dard", "ear pain"]}, {"snomed_code": "398979000", "preferred_term": "Red eye", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "neuro", "sub_branch": "ophthalmic", "synonyms": ["aankh lal hona", "red eye"]}, {"snomed_code": "36955009", "preferred_term": "Loss of taste", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "neuro", "sub_branch": "sensory", "synonyms": ["swaad nahi aata", "loss of taste"]}, {"snomed_code": "44169009", "preferred_term": "Loss of sense of smell", "semantic_tag": "finding", "clinical_domain": "acute_febrile_amr", "organ_branch": "neuro", "sub_branch": "sensory", "synonyms": ["khushboo nahi aati", "loss of smell"]}, {"snomed_code": "44054006", "preferred_term": "Diabetes mellitus type 2", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["madhumeh", "sugar ki bimari", "ಸಕ್ಕರೆ ಕಾಯಿಲೆ", "type 2 diabetes", "diabetes", "sakkare kaayile"]}, {"snomed_code": "80394007", "preferred_term": "Hyperglycemia", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["sugar high", "sugar badh gayi", "high blood sugar", "fasting sugar high"], "ambiguous_triggers": ["sugar badha"]}, {"snomed_code": "302866003", "preferred_term": "Hypoglycemia", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["sugar low", "sugar gir gayi", "low blood sugar"]}, {"snomed_code": "38341003", "preferred_term": "Hypertensive disorder", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "blood_pressure", "synonyms": ["bp high", "bp", "high bp", "bp ki bimari", "ಬಿಪಿ", "hypertension", "uchch raktchaap"]}, {"snomed_code": "45007003", "preferred_term": "Low blood pressure", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "blood_pressure", "synonyms": ["bp low", "low bp", "hypotension"]}, {"snomed_code": "29857009", "preferred_term": "Chest pain", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "ischemic", "synonyms": ["seene mein dard", "chhati mein dard", "chest pain"]}, {"snomed_code": "80313002", "preferred_term": "Palpitations", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "arrhythmia", "synonyms": ["dhadkan tez", "dil ki dhadkan badhna", "palpitations"], "ambiguous_triggers": ["ghabrahat"]}, {"snomed_code": "56265001", "preferred_term": "Heart disease", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "ischemic", "synonyms": ["heart problem", "dil ki bimari", "heart disease", "cardiac problem"]}, {"snomed_code": "13644009", "preferred_term": "Hypercholesterolemia", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "lipid", "synonyms": ["high cholesterol", "cholesterol badha hua"]}, {"snomed_code": "247355005", "preferred_term": "Edema of foot", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "cardiac", "sub_branch": "fluid_overload", "synonyms": ["paer mein sujan", "paeron mein sujan", "pedal edema", "ankle swelling"]}, {"snomed_code": "28442001", "preferred_term": "Polyuria", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["baar baar peshab", "zyada peshab aana", "polyuria"]}, {"snomed_code": "62106007", "preferred_term": "Nocturia", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["raat ko baar baar peshab", "nocturia"]}, {"snomed_code": "161832001", "preferred_term": "Polydipsia", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "endocrine", "sub_branch": "glycemic", "synonyms": ["zyada pyaas lagna", "gala sookhna", "polydipsia"]}, {"snomed_code": "302226006", "preferred_term": "Peripheral neuropathy", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "neuropathy", "synonyms": ["paer mein jhanjhanahat", "paeron mein jhanjhanahat", "tingling in feet", "peripheral neuropathy"]}, {"snomed_code": "44077006", "preferred_term": "Numbness", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "neuropathy", "synonyms": ["sunnapan", "paer sunn hona", "numbness"]}, {"snomed_code": "246636008", "preferred_term": "Blurred vision", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "ophthalmic", "synonyms": ["dhundhla dikhna", "blurred vision", "nazar dhundhli"]}, {"snomed_code": "404640003", "preferred_term": "Dizziness", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "vestibular", "synonyms": ["dizziness", "sar ghoomna", "talesuttu", "ತಲೆಸುತ್ತು"], "ambiguous_triggers": ["chakkar aana", "chakkar"]}, {"snomed_code": "399153001", "preferred_term": "Vertigo", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "vestibular", "synonyms": ["kamra ghoomna", "spinning vertigo"]}, {"snomed_code": "271594007", "preferred_term": "Syncope", "semantic_tag": "finding", "clinical_domain": "cardiometabolic", "organ_branch": "neuro", "sub_branch": "vestibular", "synonyms": ["behosh hona", "fainting", "chakkar kha kar girna"]}, {"snomed_code": "236425005", "preferred_term": "Chronic kidney disease", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "systemic", "sub_branch": "renal", "synonyms": ["kidney ki bimari", "ckd", "gurde kamzor"]}, {"snomed_code": "271737000", "preferred_term": "Anemia", "semantic_tag": "disorder", "clinical_domain": "cardiometabolic", "organ_branch": "systemic", "sub_branch": "hematologic", "synonyms": ["khoon ki kami", "anemia", "low hemoglobin"]}, {"snomed_code": "25064002", "preferred_term": "Headache", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "neuro", "sub_branch": "headache", "synonyms": ["ತಲೆನೋವು", "sir dard", "headache", "talenovu", "sir mein dard"]}, {"snomed_code": "37796009", "preferred_term": "Migraine", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "neuro", "sub_branch": "headache", "synonyms": ["migraine", "aadhe sir ka dard"]}, {"snomed_code": "193462001", "preferred_term": "Insomnia", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "neuro", "sub_branch": "sleep", "synonyms": ["neend nahi aati", "insomnia", "raat ko neend kharab"]}, {"snomed_code": "162076009", "preferred_term": "Abdominal bloating", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["pet bhari lagna", "pet phoolna", "ಹೊಟ್ಟೆ ಉಬ್ಬರ", "abdominal bloating", "hotte ubbara"], "ambiguous_triggers": ["gas banti hai", "pet mein gas", "gas"]}, {"snomed_code": "249497008", "preferred_term": "Flatulence", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["flatulence", "gas paas hona"]}, {"snomed_code": "16331000", "preferred_term": "Heartburn", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["heartburn", "pet mein jalan", "ede uri", "seene mein jalan", "ಎದೆ ಉರಿ", "acidity"]}, {"snomed_code": "249496004", "preferred_term": "Eructation", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["khatti dakar", "dakar aana", "sour belching"]}, {"snomed_code": "162031009", "preferred_term": "Indigestion", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["badhazmi", "khana hazam nahi hota", "indigestion"]}, {"snomed_code": "21522001", "preferred_term": "Abdominal pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "gi_pain", "synonyms": ["pet mein dard", "pet dard", "pet mein marod", "abdominal pain"]}, {"snomed_code": "79922009", "preferred_term": "Epigastric pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "gi_pain", "synonyms": ["upar pet mein dard", "epigastric pain"]}, {"snomed_code": "422587007", "preferred_term": "Nausea", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "emesis", "synonyms": ["ji machlana", "matli", "nausea", "ulti jaisa lagna"]}, {"snomed_code": "422400008", "preferred_term": "Vomiting", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "emesis", "synonyms": ["ulti hona", "vomiting", "vaanti", "ulti", "ವಾಂತಿ"]}, {"snomed_code": "62315008", "preferred_term": "Diarrhea", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "bowel", "synonyms": ["ಭೇದಿ", "loose motion", "diarrhea", "bhedi", "patle dast", "dast"]}, {"snomed_code": "14760008", "preferred_term": "Constipation", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "bowel", "synonyms": ["qabz", "pet saaf nahi hota", "constipation"]}, {"snomed_code": "4556007", "preferred_term": "Gastritis", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["gastritis", "pet mein sujan"]}, {"snomed_code": "235595009", "preferred_term": "Gastroesophageal reflux disease", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "dyspepsia_gas", "synonyms": ["gerd", "acid reflux"]}, {"snomed_code": "40739000", "preferred_term": "Dysphagia", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "esophageal", "synonyms": ["nigalne mein takleef", "difficulty swallowing"]}, {"snomed_code": "18165001", "preferred_term": "Jaundice", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "hepatic", "synonyms": ["peeliya", "jaundice"]}, {"snomed_code": "26284000", "preferred_term": "Ulcer of mouth", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "gi", "sub_branch": "oral", "synonyms": ["muh mein chhale", "mouth ulcer"]}, {"snomed_code": "68962001", "preferred_term": "Muscle pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "myalgia", "synonyms": ["badan dard", "maanspeshiyon mein dard", "body ache", "myalgia"]}, {"snomed_code": "71315009", "preferred_term": "Muscle cramp in leg", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "myalgia", "synonyms": ["pindli mein nas chadhna", "leg cramps"]}, {"snomed_code": "57676002", "preferred_term": "Joint pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "arthralgia", "synonyms": ["jodon mein dard", "joint pain", "arthralgia"]}, {"snomed_code": "30989003", "preferred_term": "Knee pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "arthralgia", "synonyms": ["ghutne mein dard", "knee pain"]}, {"snomed_code": "45326000", "preferred_term": "Shoulder pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "arthralgia", "synonyms": ["kandhe mein dard", "shoulder pain"]}, {"snomed_code": "161891005", "preferred_term": "Backache", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "spine", "synonyms": ["kamar mein dard", "peeth mein dard", "backache", "back pain"]}, {"snomed_code": "81680005", "preferred_term": "Neck pain", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "spine", "synonyms": ["gardan mein dard", "neck pain"]}, {"snomed_code": "396275006", "preferred_term": "Osteoarthritis", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "musculoskeletal", "sub_branch": "arthralgia", "synonyms": ["osteoarthritis", "gathiya"]}, {"snomed_code": "49650001", "preferred_term": "Dysuria", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "systemic", "sub_branch": "urinary", "synonyms": ["peshab mein jalan", "burning urination"]}, {"snomed_code": "68566005", "preferred_term": "Urinary tract infection", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "systemic", "sub_branch": "urinary", "synonyms": ["urine infection", "uti"]}, {"snomed_code": "418290006", "preferred_term": "Itching", "semantic_tag": "finding", "clinical_domain": "gi_musculoskeletal", "organ_branch": "derm", "sub_branch": "pruritus", "synonyms": ["khujli", "itching"]}, {"snomed_code": "126485001", "preferred_term": "Urticaria", "semantic_tag": "disorder", "clinical_domain": "gi_musculoskeletal", "organ_branch": "derm", "sub_branch": "pruritus", "synonyms": ["pitti uchhalna", "hives", "urticaria"]}, {"snomed_code": "387517004", "preferred_term": "Paracetamol", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "analgesic_antipyretic", "synonyms": ["calpol", "crocin", "paracetamol", "pcm", "dolo", "ಪ್ಯಾರಾಸಿಟಮಾಲ್"]}, {"snomed_code": "387207008", "preferred_term": "Ibuprofen", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "nsaid", "synonyms": ["ibuprofen", "brufen", "combiflam"]}, {"snomed_code": "703125008", "preferred_term": "Diclofenac", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "nsaid", "synonyms": ["diclofenac", "voveran"]}, {"snomed_code": "387531004", "preferred_term": "Azithromycin", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "antibiotic", "synonyms": ["azithromycin", "azee", "azithral"]}, {"snomed_code": "372687004", "preferred_term": "Amoxicillin", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "antibiotic", "synonyms": ["amoxicillin", "augmentin", "mox"]}, {"snomed_code": "372840008", "preferred_term": "Ciprofloxacin", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "antibiotic", "synonyms": ["ciprofloxacin", "cifran"]}, {"snomed_code": "255631004", "preferred_term": "Antibiotic", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "antibiotic", "synonyms": ["ಆಂಟಿಬಯೋಟಿಕ್", "antibiotic", "antibiotics"]}, {"snomed_code": "372887000", "preferred_term": "Cetirizine", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "antihistamine", "synonyms": ["cetirizine", "okacet", "levocetirizine"]}, {"snomed_code": "372729009", "preferred_term": "Montelukast", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "respiratory_drug", "synonyms": ["montelukast", "montair"]}, {"snomed_code": "387475002", "preferred_term": "Salbutamol", "semantic_tag": "medication", "clinical_domain": "acute_febrile_amr", "organ_branch": "drug", "sub_branch": "respiratory_drug", "synonyms": ["salbutamol", "asthalin"]}, {"snomed_code": "372567009", "preferred_term": "Metformin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antidiabetic", "synonyms": ["ಮೆಟ್ಫಾರ್ಮಿನ್", "glycomet", "metformin"]}, {"snomed_code": "373492002", "preferred_term": "Glimepiride", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antidiabetic", "synonyms": ["glimepiride", "amaryl"]}, {"snomed_code": "412261000", "preferred_term": "Sitagliptin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antidiabetic", "synonyms": ["sitagliptin", "januvia"]}, {"snomed_code": "67866001", "preferred_term": "Insulin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antidiabetic", "synonyms": ["insulin"]}, {"snomed_code": "386864001", "preferred_term": "Amlodipine", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antihypertensive", "synonyms": ["amlodipine", "stamlo"]}, {"snomed_code": "373529000", "preferred_term": "Telmisartan", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antihypertensive", "synonyms": ["telmisartan", "telma"]}, {"snomed_code": "387094007", "preferred_term": "Losartan", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antihypertensive", "synonyms": ["losartan"]}, {"snomed_code": "372733002", "preferred_term": "Metoprolol", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antihypertensive", "synonyms": ["metoprolol"]}, {"snomed_code": "372912004", "preferred_term": "Atorvastatin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "statin", "synonyms": ["atorvastatin", "lipitor"]}, {"snomed_code": "387458008", "preferred_term": "Aspirin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "antiplatelet", "synonyms": ["aspirin", "ecosprin"]}, {"snomed_code": "395821003", "preferred_term": "Pantoprazole", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "ppi", "synonyms": ["pantoprazole", "pan 40", "pan d"]}, {"snomed_code": "387137007", "preferred_term": "Omeprazole", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "ppi", "synonyms": ["omeprazole", "omez"]}, {"snomed_code": "387311004", "preferred_term": "Domperidone", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "antiemetic", "synonyms": ["domperidone"]}, {"snomed_code": "372487007", "preferred_term": "Ondansetron", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "antiemetic", "synonyms": ["ondansetron", "emeset"]}, {"snomed_code": "387077008", "preferred_term": "Oral rehydration salts", "semantic_tag": "medication", "clinical_domain": "gi_musculoskeletal", "organ_branch": "drug", "sub_branch": "electrolyte", "synonyms": ["ors", "electral"]}, {"snomed_code": "387086006", "preferred_term": "Cyanocobalamin", "semantic_tag": "medication", "clinical_domain": "cardiometabolic", "organ_branch": "drug", "sub_branch": "vitamin", "synonyms": ["vitamin b12", "methylcobalamin", "neurobion"]}], "presets": [{"id": "OPD-T01", "domain": "acute_febrile_amr", "lang": "hinglish", "text": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"}, {"id": "OPD-T02", "domain": "acute_febrile_amr", "lang": "hinglish", "text": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein"}, {"id": "OPD-T03", "domain": "acute_febrile_amr", "lang": "hinglish", "text": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"}, {"id": "OPD-T04", "domain": "acute_febrile_amr", "lang": "hinglish", "text": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"}, {"id": "OPD-T05", "domain": "acute_febrile_amr", "lang": "hinglish", "text": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye"}, {"id": "OPD-T06", "domain": "cardiometabolic", "lang": "hinglish", "text": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"}, {"id": "OPD-T07", "domain": "cardiometabolic", "lang": "hinglish", "text": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"}, {"id": "OPD-T08", "domain": "cardiometabolic", "lang": "hinglish", "text": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"}, {"id": "OPD-T09", "domain": "cardiometabolic", "lang": "hinglish", "text": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"}, {"id": "OPD-T10", "domain": "cardiometabolic", "lang": "hinglish", "text": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein"}, {"id": "OPD-T11", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye"}, {"id": "OPD-T12", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein"}, {"id": "OPD-T13", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye"}, {"id": "OPD-T14", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"}, {"id": "OPD-T15", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai ondansetron ek goli subah lein aur pani zyada piyein"}, {"id": "OPD-T16", "domain": "gi_musculoskeletal", "lang": "hinglish", "text": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye"}, {"id": "KN-OPD-01", "domain": "kannada_portability", "lang": "kn-IN", "text": "doctor nanage mooru dinadinda jvara ide aadare talenovu illa paracetamol onduvare maatre"}, {"id": "KN-OPD-02", "domain": "kannada_portability", "lang": "kn-IN", "text": "nanage kemmu mattu sheeta ide aadare jvara illa antibiotic beda"}], "benchmark": {"overall_by_arm": [{"arm_id": "whisper_tiny_auto", "arm_name": "Whisper-Tiny (Unprompted Auto)", "mean_raw_wer": 0.93, "mean_normalized_wer": 0.8731, "mean_snomed_f1": 0.3077, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.5552, "p95_latency_sec": 10.0307}, {"arm_id": "whisper_base_en_forced", "arm_name": "Whisper-Base (English-Forced Dictation)", "mean_raw_wer": 1.1792, "mean_normalized_wer": 1.1467, "mean_snomed_f1": 0.1896, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.5114, "p95_latency_sec": 7.8494}, {"arm_id": "whisper_base_auto", "arm_name": "Whisper-Base (Multilingual Auto)", "mean_raw_wer": 1.0176, "mean_normalized_wer": 0.9585, "mean_snomed_f1": 0.2147, "critical_clinical_error_rate": 0.9688, "mean_clinical_severity_score": 3.5094, "p95_latency_sec": 16.9725}, {"arm_id": "whisper_small_auto", "arm_name": "Whisper-Small (Multilingual Unprompted)", "mean_raw_wer": 1.0288, "mean_normalized_wer": 0.5002, "mean_snomed_f1": 0.5578, "critical_clinical_error_rate": 0.9844, "mean_clinical_severity_score": 2.9914, "p95_latency_sec": 20.3118}, {"arm_id": "whisper_small_clinical_hinglish", "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt", "mean_raw_wer": 0.3432, "mean_normalized_wer": 0.323, "mean_snomed_f1": 0.7976, "critical_clinical_error_rate": 0.6562, "mean_clinical_severity_score": 1.6792, "p95_latency_sec": 16.4887}], "by_arm_and_condition": [{"arm_id": "whisper_tiny_auto", "arm_name": "Whisper-Tiny (Unprompted Auto)", "acoustic_condition": "clean", "n_consults": 16, "mean_raw_wer": 0.8596, "mean_normalized_wer": 0.7853, "mean_normalized_cer": 0.3655, "mean_snomed_f1": 0.4281, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.551, "total_hallucinated_codes": 0, "mean_latency_sec": 2.8987, "p95_latency_sec": 5.9895, "mean_rtf": 0.3131}, {"arm_id": "whisper_tiny_auto", "arm_name": "Whisper-Tiny (Unprompted Auto)", "acoustic_condition": "noisy_10db", "n_consults": 16, "mean_raw_wer": 0.8699, "mean_normalized_wer": 0.8034, "mean_normalized_cer": 0.385, "mean_snomed_f1": 0.3717, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.4219, "total_hallucinated_codes": 0, "mean_latency_sec": 3.8657, "p95_latency_sec": 6.2269, "mean_rtf": 0.4269}, {"arm_id": "whisper_tiny_auto", "arm_name": "Whisper-Tiny (Unprompted Auto)", "acoustic_condition": "noisy_3db", "n_consults": 16, "mean_raw_wer": 1.0759, "mean_normalized_wer": 1.0455, "mean_normalized_cer": 0.7021, "mean_snomed_f1": 0.194, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.8135, "total_hallucinated_codes": 0, "mean_latency_sec": 4.5691, "p95_latency_sec": 7.5243, "mean_rtf": 0.4916}, {"arm_id": "whisper_tiny_auto", "arm_name": "Whisper-Tiny (Unprompted Auto)", "acoustic_condition": "overlap_10db", "n_consults": 16, "mean_raw_wer": 0.9146, "mean_normalized_wer": 0.8584, "mean_normalized_cer": 0.5211, "mean_snomed_f1": 0.2369, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.4344, "total_hallucinated_codes": 0, "mean_latency_sec": 5.0539, "p95_latency_sec": 10.0307, "mean_rtf": 0.66}, {"arm_id": "whisper_base_en_forced", "arm_name": "Whisper-Base (English-Forced Dictation)", "acoustic_condition": "clean", "n_consults": 16, "mean_raw_wer": 1.1145, "mean_normalized_wer": 1.0804, "mean_normalized_cer": 0.6935, "mean_snomed_f1": 0.3004, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.4656, "total_hallucinated_codes": 0, "mean_latency_sec": 3.8484, "p95_latency_sec": 6.4988, "mean_rtf": 0.4269}, {"arm_id": "whisper_base_en_forced", "arm_name": "Whisper-Base (English-Forced Dictation)", "acoustic_condition": "noisy_10db", "n_consults": 16, "mean_raw_wer": 1.1751, "mean_normalized_wer": 1.1431, "mean_normalized_cer": 0.7168, "mean_snomed_f1": 0.2371, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.6104, "total_hallucinated_codes": 0, "mean_latency_sec": 3.0629, "p95_latency_sec": 7.3853, "mean_rtf": 0.321}, {"arm_id": "whisper_base_en_forced", "arm_name": "Whisper-Base (English-Forced Dictation)", "acoustic_condition": "noisy_3db", "n_consults": 16, "mean_raw_wer": 1.2357, "mean_normalized_wer": 1.2036, "mean_normalized_cer": 0.7325, "mean_snomed_f1": 0.1574, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.576, "total_hallucinated_codes": 0, "mean_latency_sec": 4.3095, "p95_latency_sec": 7.4529, "mean_rtf": 0.4641}, {"arm_id": "whisper_base_en_forced", "arm_name": "Whisper-Base (English-Forced Dictation)", "acoustic_condition": "overlap_10db", "n_consults": 16, "mean_raw_wer": 1.1916, "mean_normalized_wer": 1.1599, "mean_normalized_cer": 0.7709, "mean_snomed_f1": 0.0637, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.3938, "total_hallucinated_codes": 0, "mean_latency_sec": 4.625, "p95_latency_sec": 7.8494, "mean_rtf": 0.5735}, {"arm_id": "whisper_base_auto", "arm_name": "Whisper-Base (Multilingual Auto)", "acoustic_condition": "clean", "n_consults": 16, "mean_raw_wer": 1.0146, "mean_normalized_wer": 0.9769, "mean_normalized_cer": 0.8619, "mean_snomed_f1": 0.0845, "critical_clinical_error_rate": 0.9375, "mean_clinical_severity_score": 3.425, "total_hallucinated_codes": 0, "mean_latency_sec": 1.5982, "p95_latency_sec": 1.8378, "mean_rtf": 0.1711}, {"arm_id": "whisper_base_auto", "arm_name": "Whisper-Base (Multilingual Auto)", "acoustic_condition": "noisy_10db", "n_consults": 16, "mean_raw_wer": 0.955, "mean_normalized_wer": 0.9047, "mean_normalized_cer": 0.6407, "mean_snomed_f1": 0.315, "critical_clinical_error_rate": 0.9375, "mean_clinical_severity_score": 3.3281, "total_hallucinated_codes": 0, "mean_latency_sec": 4.5639, "p95_latency_sec": 15.4254, "mean_rtf": 0.4874}, {"arm_id": "whisper_base_auto", "arm_name": "Whisper-Base (Multilingual Auto)", "acoustic_condition": "noisy_3db", "n_consults": 16, "mean_raw_wer": 1.1833, "mean_normalized_wer": 1.1216, "mean_normalized_cer": 0.5416, "mean_snomed_f1": 0.2089, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.5906, "total_hallucinated_codes": 0, "mean_latency_sec": 8.0226, "p95_latency_sec": 16.9725, "mean_rtf": 0.8981}, {"arm_id": "whisper_base_auto", "arm_name": "Whisper-Base (Multilingual Auto)", "acoustic_condition": "overlap_10db", "n_consults": 16, "mean_raw_wer": 0.9176, "mean_normalized_wer": 0.831, "mean_normalized_cer": 0.6151, "mean_snomed_f1": 0.2503, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.6938, "total_hallucinated_codes": 0, "mean_latency_sec": 5.9701, "p95_latency_sec": 15.3921, "mean_rtf": 0.7659}, {"arm_id": "whisper_small_auto", "arm_name": "Whisper-Small (Multilingual Unprompted)", "acoustic_condition": "clean", "n_consults": 16, "mean_raw_wer": 1.0245, "mean_normalized_wer": 0.4044, "mean_normalized_cer": 0.1977, "mean_snomed_f1": 0.6323, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 2.7094, "total_hallucinated_codes": 0, "mean_latency_sec": 7.8337, "p95_latency_sec": 20.3118, "mean_rtf": 0.8616}, {"arm_id": "whisper_small_auto", "arm_name": "Whisper-Small (Multilingual Unprompted)", "acoustic_condition": "noisy_10db", "n_consults": 16, "mean_raw_wer": 1.0411, "mean_normalized_wer": 0.4522, "mean_normalized_cer": 0.2141, "mean_snomed_f1": 0.631, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 2.7813, "total_hallucinated_codes": 0, "mean_latency_sec": 5.9589, "p95_latency_sec": 7.0479, "mean_rtf": 0.6358}, {"arm_id": "whisper_small_auto", "arm_name": "Whisper-Small (Multilingual Unprompted)", "acoustic_condition": "noisy_3db", "n_consults": 16, "mean_raw_wer": 1.0338, "mean_normalized_wer": 0.5829, "mean_normalized_cer": 0.3054, "mean_snomed_f1": 0.4571, "critical_clinical_error_rate": 0.9375, "mean_clinical_severity_score": 3.1875, "total_hallucinated_codes": 0, "mean_latency_sec": 5.9818, "p95_latency_sec": 7.0312, "mean_rtf": 0.6367}, {"arm_id": "whisper_small_auto", "arm_name": "Whisper-Small (Multilingual Unprompted)", "acoustic_condition": "overlap_10db", "n_consults": 16, "mean_raw_wer": 1.0159, "mean_normalized_wer": 0.5614, "mean_normalized_cer": 0.3503, "mean_snomed_f1": 0.5109, "critical_clinical_error_rate": 1.0, "mean_clinical_severity_score": 3.2875, "total_hallucinated_codes": 0, "mean_latency_sec": 6.7295, "p95_latency_sec": 11.9062, "mean_rtf": 0.844}, {"arm_id": "whisper_small_clinical_hinglish", "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt", "acoustic_condition": "clean", "n_consults": 16, "mean_raw_wer": 0.2599, "mean_normalized_wer": 0.2469, "mean_normalized_cer": 0.1022, "mean_snomed_f1": 0.8569, "critical_clinical_error_rate": 0.5, "mean_clinical_severity_score": 1.2594, "total_hallucinated_codes": 0, "mean_latency_sec": 4.6186, "p95_latency_sec": 7.6454, "mean_rtf": 0.4888}, {"arm_id": "whisper_small_clinical_hinglish", "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt", "acoustic_condition": "noisy_10db", "n_consults": 16, "mean_raw_wer": 0.2875, "mean_normalized_wer": 0.2735, "mean_normalized_cer": 0.1091, "mean_snomed_f1": 0.8366, "critical_clinical_error_rate": 0.5625, "mean_clinical_severity_score": 1.5021, "total_hallucinated_codes": 0, "mean_latency_sec": 3.9622, "p95_latency_sec": 4.8214, "mean_rtf": 0.4238}, {"arm_id": "whisper_small_clinical_hinglish", "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt", "acoustic_condition": "noisy_3db", "n_consults": 16, "mean_raw_wer": 0.4776, "mean_normalized_wer": 0.4427, "mean_normalized_cer": 0.2299, "mean_snomed_f1": 0.7353, "critical_clinical_error_rate": 0.625, "mean_clinical_severity_score": 1.9042, "total_hallucinated_codes": 0, "mean_latency_sec": 6.8458, "p95_latency_sec": 16.4887, "mean_rtf": 0.8349}, {"arm_id": "whisper_small_clinical_hinglish", "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt", "acoustic_condition": "overlap_10db", "n_consults": 16, "mean_raw_wer": 0.3478, "mean_normalized_wer": 0.329, "mean_normalized_cer": 0.1341, "mean_snomed_f1": 0.7615, "critical_clinical_error_rate": 0.9375, "mean_clinical_severity_score": 2.051, "total_hallucinated_codes": 0, "mean_latency_sec": 3.8236, "p95_latency_sec": 4.2394, "mean_rtf": 0.4739}], "hypothesis_tests": {"raw_wer_vs_clinical_severity_across_5_models": {"spearman_rho": 0.3, "p_value": 0.6238, "hypothesis_supported_rho_lt_0_90": true, "pairwise_rank_inversion_count": 4, "inversions": [{"pair": "whisper_tiny_auto vs whisper_base_en_forced", "wer_pair": [0.93, 1.1792], "severity_pair": [3.5552, 3.5114]}, {"pair": "whisper_tiny_auto vs whisper_base_auto", "wer_pair": [0.93, 1.0176], "severity_pair": [3.5552, 3.5094]}, {"pair": "whisper_tiny_auto vs whisper_small_auto", "wer_pair": [0.93, 1.0288], "severity_pair": [3.5552, 2.9914]}, {"pair": "whisper_base_auto vs whisper_small_auto", "wer_pair": [1.0176, 1.0288], "severity_pair": [3.5094, 2.9914]}], "ranking_by_plain_wer": ["whisper_small_clinical_hinglish", "whisper_tiny_auto", "whisper_base_auto", "whisper_small_auto", "whisper_base_en_forced"], "ranking_by_clinical_severity": ["whisper_small_clinical_hinglish", "whisper_small_auto", "whisper_base_auto", "whisper_base_en_forced", "whisper_tiny_auto"]}, "normalized_wer_vs_clinical_severity_across_20_cells": {"spearman_rho": 0.8075, "p_value": 0.0, "hypothesis_supported_rho_lt_0_90": true, "pairwise_rank_inversion_count": 33, "inversions": [{"pair": "whisper_tiny_auto@clean vs whisper_tiny_auto@noisy_10db", "wer_pair": [0.7853, 0.8034], "severity_pair": [3.551, 3.4219]}, {"pair": "whisper_tiny_auto@clean vs whisper_tiny_auto@overlap_10db", "wer_pair": [0.7853, 0.8584], "severity_pair": [3.551, 3.4344]}, {"pair": "whisper_tiny_auto@clean vs whisper_base_en_forced@clean", "wer_pair": [0.7853, 1.0804], "severity_pair": [3.551, 3.4656]}, {"pair": "whisper_tiny_auto@clean vs whisper_base_en_forced@overlap_10db", "wer_pair": [0.7853, 1.1599], "severity_pair": [3.551, 3.3938]}, {"pair": "whisper_tiny_auto@clean vs whisper_base_auto@clean", "wer_pair": [0.7853, 0.9769], "severity_pair": [3.551, 3.425]}, {"pair": "whisper_tiny_auto@clean vs whisper_base_auto@noisy_10db", "wer_pair": [0.7853, 0.9047], "severity_pair": [3.551, 3.3281]}, {"pair": "whisper_tiny_auto@noisy_10db vs whisper_base_en_forced@overlap_10db", "wer_pair": [0.8034, 1.1599], "severity_pair": [3.4219, 3.3938]}, {"pair": "whisper_tiny_auto@noisy_10db vs whisper_base_auto@noisy_10db", "wer_pair": [0.8034, 0.9047], "severity_pair": [3.4219, 3.3281]}, {"pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@clean", "wer_pair": [1.0455, 1.0804], "severity_pair": [3.8135, 3.4656]}, {"pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@noisy_10db", "wer_pair": [1.0455, 1.1431], "severity_pair": [3.8135, 3.6104]}, {"pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@noisy_3db", "wer_pair": [1.0455, 1.2036], "severity_pair": [3.8135, 3.576]}, {"pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@overlap_10db", "wer_pair": [1.0455, 1.1599], "severity_pair": [3.8135, 3.3938]}, {"pair": "whisper_tiny_auto@noisy_3db vs whisper_base_auto@noisy_3db", "wer_pair": [1.0455, 1.1216], "severity_pair": [3.8135, 3.5906]}, {"pair": "whisper_tiny_auto@overlap_10db vs whisper_base_en_forced@overlap_10db", "wer_pair": [0.8584, 1.1599], "severity_pair": [3.4344, 3.3938]}, {"pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@clean", "wer_pair": [0.8584, 0.9769], "severity_pair": [3.4344, 3.425]}, {"pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@noisy_10db", "wer_pair": [0.8584, 0.9047], "severity_pair": [3.4344, 3.3281]}, {"pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@overlap_10db", "wer_pair": [0.8584, 0.831], "severity_pair": [3.4344, 3.6938]}, {"pair": "whisper_base_en_forced@clean vs whisper_base_en_forced@overlap_10db", "wer_pair": [1.0804, 1.1599], "severity_pair": [3.4656, 3.3938]}, {"pair": "whisper_base_en_forced@clean vs whisper_base_auto@overlap_10db", "wer_pair": [1.0804, 0.831], "severity_pair": [3.4656, 3.6938]}, {"pair": "whisper_base_en_forced@noisy_10db vs whisper_base_en_forced@noisy_3db", "wer_pair": [1.1431, 1.2036], "severity_pair": [3.6104, 3.576]}, {"pair": "whisper_base_en_forced@noisy_10db vs whisper_base_en_forced@overlap_10db", "wer_pair": [1.1431, 1.1599], "severity_pair": [3.6104, 3.3938]}, {"pair": "whisper_base_en_forced@noisy_10db vs whisper_base_auto@overlap_10db", "wer_pair": [1.1431, 0.831], "severity_pair": [3.6104, 3.6938]}, {"pair": "whisper_base_en_forced@noisy_3db vs whisper_base_auto@noisy_3db", "wer_pair": [1.2036, 1.1216], "severity_pair": [3.576, 3.5906]}, {"pair": "whisper_base_en_forced@noisy_3db vs whisper_base_auto@overlap_10db", "wer_pair": [1.2036, 0.831], "severity_pair": [3.576, 3.6938]}, {"pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@clean", "wer_pair": [1.1599, 0.9769], "severity_pair": [3.3938, 3.425]}, {"pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@noisy_3db", "wer_pair": [1.1599, 1.1216], "severity_pair": [3.3938, 3.5906]}, {"pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@overlap_10db", "wer_pair": [1.1599, 0.831], "severity_pair": [3.3938, 3.6938]}, {"pair": "whisper_base_auto@clean vs whisper_base_auto@overlap_10db", "wer_pair": [0.9769, 0.831], "severity_pair": [3.425, 3.6938]}, {"pair": "whisper_base_auto@noisy_10db vs whisper_base_auto@overlap_10db", "wer_pair": [0.9047, 0.831], "severity_pair": [3.3281, 3.6938]}, {"pair": "whisper_base_auto@noisy_3db vs whisper_base_auto@overlap_10db", "wer_pair": [1.1216, 0.831], "severity_pair": [3.5906, 3.6938]}, {"pair": "whisper_small_auto@clean vs whisper_small_clinical_hinglish@noisy_3db", "wer_pair": [0.4044, 0.4427], "severity_pair": [2.7094, 1.9042]}, {"pair": "whisper_small_auto@noisy_3db vs whisper_small_auto@overlap_10db", "wer_pair": [0.5829, 0.5614], "severity_pair": [3.1875, 3.2875]}, {"pair": "whisper_small_clinical_hinglish@noisy_3db vs whisper_small_clinical_hinglish@overlap_10db", "wer_pair": [0.4427, 0.329], "severity_pair": [1.9042, 2.051]}], "ranking_by_plain_wer": ["whisper_small_clinical_hinglish@clean", "whisper_small_clinical_hinglish@noisy_10db", "whisper_small_clinical_hinglish@overlap_10db", "whisper_small_auto@clean", "whisper_small_clinical_hinglish@noisy_3db", "whisper_small_auto@noisy_10db", "whisper_small_auto@overlap_10db", "whisper_small_auto@noisy_3db", "whisper_tiny_auto@clean", "whisper_tiny_auto@noisy_10db", "whisper_base_auto@overlap_10db", "whisper_tiny_auto@overlap_10db", "whisper_base_auto@noisy_10db", "whisper_base_auto@clean", "whisper_tiny_auto@noisy_3db", "whisper_base_en_forced@clean", "whisper_base_auto@noisy_3db", "whisper_base_en_forced@noisy_10db", "whisper_base_en_forced@overlap_10db", "whisper_base_en_forced@noisy_3db"], "ranking_by_clinical_severity": ["whisper_small_clinical_hinglish@clean", "whisper_small_clinical_hinglish@noisy_10db", "whisper_small_clinical_hinglish@noisy_3db", "whisper_small_clinical_hinglish@overlap_10db", "whisper_small_auto@clean", "whisper_small_auto@noisy_10db", "whisper_small_auto@noisy_3db", "whisper_small_auto@overlap_10db", "whisper_base_auto@noisy_10db", "whisper_base_en_forced@overlap_10db", "whisper_tiny_auto@noisy_10db", "whisper_base_auto@clean", "whisper_tiny_auto@overlap_10db", "whisper_base_en_forced@clean", "whisper_tiny_auto@clean", "whisper_base_en_forced@noisy_3db", "whisper_base_auto@noisy_3db", "whisper_base_en_forced@noisy_10db", "whisper_base_auto@overlap_10db", "whisper_tiny_auto@noisy_3db"]}, "consult_level_n320_spearman": {"spearman_rho": 0.6117, "p_value": 0.0, "pairwise_rank_inversion_count": 12440}}}, "oracle": {"constrained_hybrid": {"num_test_consults": 16, "mean_snomed_precision": 1.0, "mean_snomed_recall": 1.0, "mean_snomed_f1": 1.0, "total_hallucinated_codes": 0, "hallucination_rate_per_consult": 0.0, "critical_clinical_error_rate_ccer": 0.0625, "mean_clinical_severity_score": 0.0781, "doctor_confirmation_mentions_flagged": 3, "valid_fhir_bundles": 16}, "unconstrained_baseline": {"num_test_consults": 16, "mean_snomed_precision": 0.9198, "mean_snomed_recall": 0.9198, "mean_snomed_f1": 0.9198, "total_hallucinated_codes": 4, "hallucination_rate_per_consult": 0.25, "critical_clinical_error_rate_ccer": 0.875, "mean_clinical_severity_score": 2.674, "doctor_confirmation_mentions_flagged": 0, "valid_fhir_bundles": 0}}, "longitudinal": [{"patient_id": "SYN-PAT-001", "persona": "54yo Male — Uncontrolled Type 2 Diabetes progressing to Neuropathy with Metformin titration", "visit_deltas": [{"patient_id": "SYN-PAT-001", "current_visit_id": "LONG-P1-V1", "prior_visit_ids": [], "items": [], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-001", "current_visit_id": "LONG-P1-V2", "prior_visit_ids": ["LONG-P1-V1"], "items": [{"change_type": "RESOLVED", "snomed_code": "28442001", "preferred_term": "Polyuria", "summary_text": "Polyuria now negated/resolved (previously active in LONG-P1-V1).", "cited_visits": ["LONG-P1-V1", "LONG-P1-V2"], "organ_branch": "endocrine"}, {"change_type": "PROGRESSION_ALERT", "snomed_code": "80394007", "preferred_term": "Hyperglycemia", "summary_text": "New complication/related finding Hyperglycemia linked to prior domain history in LONG-P1-V1.", "cited_visits": ["LONG-P1-V1", "LONG-P1-V2"], "organ_branch": "endocrine"}, {"change_type": "PROGRESSION_ALERT", "snomed_code": "404640003", "preferred_term": "Dizziness", "summary_text": "New complication/related finding Dizziness linked to prior domain history in LONG-P1-V1.", "cited_visits": ["LONG-P1-V1", "LONG-P1-V2"], "organ_branch": "neuro"}, {"change_type": "MEDICATION_CHANGED", "snomed_code": "372567009", "preferred_term": "Metformin", "summary_text": "Metformin dose changed from 1.0 -> 1.5 tablet(s) (LONG-P1-V1 -> LONG-P1-V2).", "cited_visits": ["LONG-P1-V1", "LONG-P1-V2"], "organ_branch": "drug"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-001", "current_visit_id": "LONG-P1-V3", "prior_visit_ids": ["LONG-P1-V1", "LONG-P1-V2"], "items": [{"change_type": "PERSISTENT", "snomed_code": "80394007", "preferred_term": "Hyperglycemia", "summary_text": "Persistent/recurring Hyperglycemia across 2 visits (LONG-P1-V2 -> LONG-P1-V3).", "cited_visits": ["LONG-P1-V2", "LONG-P1-V3"], "organ_branch": "endocrine"}, {"change_type": "PROGRESSION_ALERT", "snomed_code": "302226006", "preferred_term": "Peripheral neuropathy", "summary_text": "New complication/related finding Peripheral neuropathy linked to prior domain history in LONG-P1-V1, LONG-P1-V2.", "cited_visits": ["LONG-P1-V1", "LONG-P1-V2", "LONG-P1-V3"], "organ_branch": "neuro"}, {"change_type": "MEDICATION_CHANGED", "snomed_code": "372567009", "preferred_term": "Metformin", "summary_text": "Metformin dose changed from 1.5 -> 2.0 tablet(s) (LONG-P1-V2 -> LONG-P1-V3).", "cited_visits": ["LONG-P1-V2", "LONG-P1-V3"], "organ_branch": "drug"}, {"change_type": "NEW", "snomed_code": "387086006", "preferred_term": "Cyanocobalamin", "summary_text": "Started Cyanocobalamin (1.0 tab) at LONG-P1-V3.", "cited_visits": ["LONG-P1-V3"], "organ_branch": "drug"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}]}, {"patient_id": "SYN-PAT-002", "persona": "46yo Female — Hypertension + NSAID-induced Gastritis resolved after stopping Ibuprofen", "visit_deltas": [{"patient_id": "SYN-PAT-002", "current_visit_id": "LONG-P2-V1", "prior_visit_ids": [], "items": [], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-002", "current_visit_id": "LONG-P2-V2", "prior_visit_ids": ["LONG-P2-V1"], "items": [{"change_type": "RESOLVED", "snomed_code": "38341003", "preferred_term": "Hypertensive disorder", "summary_text": "Hypertensive disorder now negated/resolved (previously active in LONG-P2-V1).", "cited_visits": ["LONG-P2-V1", "LONG-P2-V2"], "organ_branch": "cardiac"}, {"change_type": "NEW", "snomed_code": "162076009", "preferred_term": "Abdominal bloating", "summary_text": "Newly reported Abdominal bloating at LONG-P2-V2.", "cited_visits": ["LONG-P2-V2"], "organ_branch": "gi"}, {"change_type": "NEW", "snomed_code": "16331000", "preferred_term": "Heartburn", "summary_text": "Newly reported Heartburn at LONG-P2-V2.", "cited_visits": ["LONG-P2-V2"], "organ_branch": "gi"}, {"change_type": "MEDICATION_CHANGED", "snomed_code": "386864001", "preferred_term": "Amlodipine", "summary_text": "Amlodipine dose changed from 1.0 -> 1.5 tablet(s) (LONG-P2-V1 -> LONG-P2-V2).", "cited_visits": ["LONG-P2-V1", "LONG-P2-V2"], "organ_branch": "drug"}, {"change_type": "MEDICATION_STOPPED", "snomed_code": "387207008", "preferred_term": "Ibuprofen", "summary_text": "Ibuprofen stopped / adherence gap (was active in LONG-P2-V1).", "cited_visits": ["LONG-P2-V1", "LONG-P2-V2"], "organ_branch": "drug"}, {"change_type": "NEW", "snomed_code": "395821003", "preferred_term": "Pantoprazole", "summary_text": "Started Pantoprazole (1.0 tab) at LONG-P2-V2.", "cited_visits": ["LONG-P2-V2"], "organ_branch": "drug"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-002", "current_visit_id": "LONG-P2-V3", "prior_visit_ids": ["LONG-P2-V1", "LONG-P2-V2"], "items": [{"change_type": "RESOLVED", "snomed_code": "16331000", "preferred_term": "Heartburn", "summary_text": "Heartburn now negated/resolved (previously active in LONG-P2-V2).", "cited_visits": ["LONG-P2-V2", "LONG-P2-V3"], "organ_branch": "gi"}, {"change_type": "RESOLVED", "snomed_code": "162076009", "preferred_term": "Abdominal bloating", "summary_text": "Abdominal bloating now negated/resolved (previously active in LONG-P2-V2).", "cited_visits": ["LONG-P2-V2", "LONG-P2-V3"], "organ_branch": "gi"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}]}, {"patient_id": "SYN-PAT-003", "persona": "29yo Male — Acute Viral URI evolving to secondary bacterial cough vs resolved fever", "visit_deltas": [{"patient_id": "SYN-PAT-003", "current_visit_id": "LONG-P3-V1", "prior_visit_ids": [], "items": [], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-003", "current_visit_id": "LONG-P3-V2", "prior_visit_ids": ["LONG-P3-V1"], "items": [{"change_type": "RESOLVED", "snomed_code": "386661006", "preferred_term": "Fever", "summary_text": "Fever now negated/resolved (previously active in LONG-P3-V1).", "cited_visits": ["LONG-P3-V1", "LONG-P3-V2"], "organ_branch": "systemic"}, {"change_type": "PROGRESSION_ALERT", "snomed_code": "28743005", "preferred_term": "Productive cough", "summary_text": "New complication/related finding Productive cough linked to prior domain history in LONG-P3-V1.", "cited_visits": ["LONG-P3-V1", "LONG-P3-V2"], "organ_branch": "respiratory"}, {"change_type": "PROGRESSION_ALERT", "snomed_code": "267036007", "preferred_term": "Dyspnea", "summary_text": "New complication/related finding Dyspnea linked to prior domain history in LONG-P3-V1.", "cited_visits": ["LONG-P3-V1", "LONG-P3-V2"], "organ_branch": "respiratory"}, {"change_type": "NEW", "snomed_code": "372687004", "preferred_term": "Amoxicillin", "summary_text": "Started Amoxicillin (1.0 tab) at LONG-P3-V2.", "cited_visits": ["LONG-P3-V2"], "organ_branch": "drug"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}, {"patient_id": "SYN-PAT-003", "current_visit_id": "LONG-P3-V3", "prior_visit_ids": ["LONG-P3-V1", "LONG-P3-V2"], "items": [{"change_type": "RESOLVED", "snomed_code": "28743005", "preferred_term": "Productive cough", "summary_text": "Productive cough now negated/resolved (previously active in LONG-P3-V2).", "cited_visits": ["LONG-P3-V2", "LONG-P3-V3"], "organ_branch": "respiratory"}, {"change_type": "RESOLVED", "snomed_code": "267036007", "preferred_term": "Dyspnea", "summary_text": "Dyspnea now negated/resolved (previously active in LONG-P3-V2).", "cited_visits": ["LONG-P3-V2", "LONG-P3-V3"], "organ_branch": "respiratory"}, {"change_type": "MEDICATION_STOPPED", "snomed_code": "372687004", "preferred_term": "Amoxicillin", "summary_text": "Amoxicillin stopped / adherence gap (was active in LONG-P3-V2).", "cited_visits": ["LONG-P3-V2", "LONG-P3-V3"], "organ_branch": "drug"}], "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."}]}], "failures": [{"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T01", "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye", "asr_raw": "दोक्तर साहब, मुझे तीन दिन से बुखार है, पर सिर में दर्ध नहीं है. परसीट मोल देड गोली सुभा शाम लीजे, वाईरल में आंटिभायोटिक मैत लीजे.", "asr_normalized": "doktar sahab mujhe teen din se bukhar hai par sir mein dardh nahi hai parasit mol dedh goli subah shaam lije vaeeral mein aantibhayotik mait lije", "normalized_wer": 0.36, "clinical_severity_score": 2.5, "critical_errors": ["Missed/swapped medication Paracetamol (387517004).", "Missed/swapped medication Antibiotic (255631004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T02", "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein", "asr_raw": "मुझे चार दिन से सुखी खासी और गले में दर्द है, पर सास पूलना नहीं है. सेटरसीन एक गोली रात को लेन आजत्रमाइसन मैत लेन", "asr_normalized": "mujhe chaar din se sukhi khansi aur gale mein dard hai par sas poolana nahi hai setarasin ek goli raat ko len aajatramaisan mait len", "normalized_wer": 0.28, "clinical_severity_score": 2.6, "critical_errors": ["Missed/swapped medication Cetirizine (372887000).", "Missed/swapped medication Azithromycin (387531004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T03", "reference": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein", "asr_raw": "तो दिन से तेस भुखार और कपक पी है, लेकिन शरीर पर लाल दाने नहीं है. परसीट माल एक गोली लीजिये और कल खुन की जाटकर आई.", "asr_normalized": "toh din se tes bhukhar aur kapak pi hai lekin sharir par lal daane nahi hai parasit mal ek goli lijiye aur kal khun ki jatakar aaee", "normalized_wer": 0.4, "clinical_severity_score": 2.75, "critical_errors": ["Missed/swapped medication Paracetamol (387517004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T04", "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein", "asr_raw": "पाच दिन से सर्दी जुकाम है, और बदन तूट रहा है, पर उल्टी नहीं है बाप लीजिये और पैरसीटमाल आदी गोली जुरुरत परने पर लें", "asr_normalized": "pach din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bap lijiye aur pairasitamal aadi goli jururat parane par len", "normalized_wer": 0.28, "clinical_severity_score": 2.0, "critical_errors": ["Missed/swapped medication Paracetamol (387517004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T06", "reference": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye", "asr_raw": "दोक्तर साहब दो महीने से सुगर बदगगगे है, और सुभा चक्कर आना होता है. मेट फर्मिन देड गोली सुभा शामकर दिजे.", "asr_normalized": "doktar sahab do mahine se sugar badagagage hai aur subah chakkar aana hota hai met pharmin dedh goli subah shamakar dije", "normalized_wer": 0.3636, "clinical_severity_score": 2.6667, "critical_errors": ["Missed/swapped medication Metformin (372567009)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T07", "reference": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein", "asr_raw": "मुझे डाईबीटीज है, ती महीने से पैर में जंजनाहत है, पर पैर में सुजन नहीं है. मेट्फोम लिए दाई गोली मत लीजिये, सर्फ दो गोली लेन और वाइटमन भी च्वल्फ एग गोली रोज लेन.", "asr_normalized": "mujhe daeebitij hai ti mahine se paer mein janjanahat hai par paer mein sujan nahi hai metphom lie daee goli mat lijiye sarph do goli len aur vaitaman bhi chvalph eg goli roj len", "normalized_wer": 0.4375, "clinical_severity_score": 3.2, "critical_errors": ["Missed/swapped medication Metformin (372567009).", "Missed/swapped medication Cyanocobalamin (387086006)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T11", "reference": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye", "asr_raw": "दोक्तर साहब दस दिन से पेट में गास बनती है और खत्ती डखार आती है, पर उल्ती नहीं है. आन्टो प्रजोल एक गोली सुबा खाली पेट लीजे.", "asr_normalized": "doktar sahab das din se pet mein gas banati hai aur khatti dakhar aati hai par ulti nahi hai aanto prajol ek goli suba khaali pet lije", "normalized_wer": 0.2692, "clinical_severity_score": 1.25, "critical_errors": ["Missed/swapped medication Pantoprazole (395821003)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T12", "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein", "asr_raw": "तो हबते से बाए कंदे में दर्द है, पर सीने में जलन नहीं है. आप्यो प्रोफेन एक गोली खाने के बाद लें.", "asr_normalized": "toh habate se bae kande mein dard hai par seene mein jalan nahi hai aapyo prophen ek goli khane ke baad len", "normalized_wer": 0.3333, "clinical_severity_score": 3.6667, "critical_errors": ["Missed/swapped medication Ibuprofen (387207008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T13", "reference": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye", "asr_raw": "कल से पत्ले दस्त और पेट में दर्द है, पर भुखार नहीं है.", "asr_normalized": "kal se patle dast aur pet mein dard hai par bhukhar nahi hai", "normalized_wer": 0.3684, "clinical_severity_score": 2.0, "critical_errors": ["Missed/swapped medication Oral rehydration salts (387077008).", "Missed/swapped medication Ciprofloxacin (372840008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T14", "reference": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye", "asr_raw": "तीन महीने से दाए गुटने में दर्द है, और कमर में दर्द भी है. पैरसी तमाल देड गोली ज्रूरत पर लें दिकलोफनाक मैत लीजे.", "asr_normalized": "teen mahine se dae gutane mein dard hai aur kamar mein dard bhi hai pairasi tamal dedh goli jroorat par len dikalophanak mait lije", "normalized_wer": 0.3913, "clinical_severity_score": 3.25, "critical_errors": ["Missed/swapped medication Paracetamol (387517004).", "Missed/swapped medication Diclofenac (703125008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "clean", "consult_id": "OPD-T16", "reference": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye", "asr_raw": "चार दिन से पेशाब में जलन है, माताजी को दायबीटीज है, पर मुझे बुखार नहीं है. योरेंट तेस कराए और वी आन्टबायोटिक मात लीजे.", "asr_normalized": "chaar din se peshab mein jalan hai mataji ko dayabitij hai par mujhe bukhar nahi hai yorent tes karae aur vi aantabayotik mat lije", "normalized_wer": 0.2917, "clinical_severity_score": 3.25, "critical_errors": ["Subject flip on Dysuria: gold='patient' vs pred='family_member'.", "Missed/swapped medication Antibiotic (255631004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T01", "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye", "asr_raw": "दोक्तर साहव, मुझे तीं दिन से बुखार है, पर सिर में दर्ध नहीं है पैरा सीट मोल देड भोली सुभा, शाम लीजिये, विरल में आंटिभायोटिक मैत लीजिये", "asr_normalized": "doktar sahav mujhe tin din se bukhar hai par sir mein dardh nahi hai paira sit mol dedh bholi subah shaam lijiye viral mein aantibhayotik mait lijiye", "normalized_wer": 0.4, "clinical_severity_score": 3.25, "critical_errors": ["Missed/swapped medication Paracetamol (387517004).", "Missed/swapped medication Antibiotic (255631004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T02", "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein", "asr_raw": "मुझे चार दिन से सुखी खासी और गले में दर्द है, पर सांस पूलना नहीं है। सेटिरसीं एक गोली राद पूलनेर आजद्रमाइसं मैतलें", "asr_normalized": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans poolana nahi hai setirasin ek goli rad poolaner aajadramaisan maitalen", "normalized_wer": 0.32, "clinical_severity_score": 2.0, "critical_errors": ["Missed/swapped medication Cetirizine (372887000).", "Missed/swapped medication Azithromycin (387531004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T04", "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein", "asr_raw": "पाच दिन से सर्दी जुकाम है और बदन तुट रहा है पर उल्टी नहीं है भाप लीजिये और पारे सीटमाल आदी गोली जुर्ड़ पनने पर लें", "asr_normalized": "pach din se sardi zukam hai aur badan tut raha hai par ulti nahi hai bhap lijiye aur pare sitamal aadi goli jurd panane par len", "normalized_wer": 0.36, "clinical_severity_score": 2.0, "critical_errors": ["Missed/swapped medication Paracetamol (387517004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T11", "reference": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye", "asr_raw": "डौक्तर साहब, दस दिन से पेट में गास बनती है, और खत्ती डखार आती है, पर उल्ती नहीं है. आन्टो प्रजोल एक बोली सुबा खाली पेट लीजी.", "asr_normalized": "dauktar sahab das din se pet mein gas banati hai aur khatti dakhar aati hai par ulti nahi hai aanto prajol ek boli suba khaali pet liji", "normalized_wer": 0.3077, "clinical_severity_score": 1.25, "critical_errors": ["Missed/swapped medication Pantoprazole (395821003)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T12", "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein", "asr_raw": "तो हबते से बाए कंदे में दर्द है, पर सीने में जलन नहीं है आईभी प्रोफेन एक गोली खाने के बाद लें", "asr_normalized": "toh habate se bae kande mein dard hai par seene mein jalan nahi hai aaeebhi prophen ek goli khane ke baad len", "normalized_wer": 0.3333, "clinical_severity_score": 3.6667, "critical_errors": ["Missed/swapped medication Ibuprofen (387207008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_10db", "consult_id": "OPD-T16", "reference": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye", "asr_raw": "चार दिन से पेशाब में जलन है माताजी को दायबी टीज है पर मुझे बुखार नहीं है योरें पेस कराए और अभी आंटिभायोटिक माच लीजे", "asr_normalized": "chaar din se peshab mein jalan hai mataji ko dayabi tij hai par mujhe bukhar nahi hai yoren pes karae aur abhi aantibhayotik mach lije", "normalized_wer": 0.3333, "clinical_severity_score": 3.25, "critical_errors": ["Subject flip on Dysuria: gold='patient' vs pred='family_member'.", "Missed/swapped medication Antibiotic (255631004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_3db", "consult_id": "OPD-T07", "reference": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein", "asr_raw": "मुझे डाएबीटीज है, ती महीने से पैर में जंजनाहत है, पर पैर में सुजन नहीं है. मेट्फोमिं दाई गोली मत लीजिये, सुझ दो गोली लेन और वाइटमन भी त्वल्पे गोली रोज लेन.", "asr_normalized": "mujhe daebitij hai ti mahine se paer mein janjanahat hai par paer mein sujan nahi hai metphomin daee goli mat lijiye sujh do goli len aur vaitaman bhi tvalpe goli roj len", "normalized_wer": 0.375, "clinical_severity_score": 3.2, "critical_errors": ["Missed/swapped medication Metformin (372567009).", "Missed/swapped medication Cyanocobalamin (387086006)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "noisy_3db", "consult_id": "OPD-T12", "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein", "asr_raw": "तो हबते से बाए कंधे में दर्द है, फर सीने में जलन नहीं है. अईद्व प्रोखन एक भोली खाने के बाद फीश?", "asr_normalized": "toh habate se bae kandhe mein dard hai phar seene mein jalan nahi hai aeedv prokhan ek bholi khane ke baad phish", "normalized_wer": 0.381, "clinical_severity_score": 5.3333, "critical_errors": ["Negation flip on Shoulder pain (45326000): gold='affirmed' vs pred='negated'.", "Missed/swapped medication Ibuprofen (387207008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "overlap_10db", "consult_id": "OPD-T01", "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye", "asr_raw": "दोक्तर साहव, मुझे तीं दिन से बुखार है, पर सिर में दरने रहा है। तरसे तमोल देड गोली सुबा शाम लीजिये भाईडल में अंटिभायोटिक मैत लीजिये", "asr_normalized": "doktar sahav mujhe tin din se bukhar hai par sir mein darane raha hai tarase tamol dedh goli suba shaam lijiye bhaeedal mein antibhayotik mait lijiye", "normalized_wer": 0.44, "clinical_severity_score": 4.5, "critical_errors": ["Negation flip on Headache (25064002): gold='negated' vs pred='affirmed'.", "Missed/swapped medication Paracetamol (387517004).", "Missed/swapped medication Antibiotic (255631004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "overlap_10db", "consult_id": "OPD-T02", "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein", "asr_raw": "मुजे चार दिन से सुखी खासी और गले में दर्द है, पर सांस खुलना नहीं है।", "asr_normalized": "muje chaar din se sukhi khansi aur gale mein dard hai par saans khulana nahi hai", "normalized_wer": 0.44, "clinical_severity_score": 2.6, "critical_errors": ["Missed/swapped medication Cetirizine (372887000).", "Missed/swapped medication Azithromycin (387531004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "overlap_10db", "consult_id": "OPD-T04", "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein", "asr_raw": "पाच दिन से सर्दी जुकाम है और बदन तूट रहा है पर उल्टी नी है बाद लीजे और पारो सीटमोल आदी गोली जुरुड़ पनने पर लिए", "asr_normalized": "pach din se sardi zukam hai aur badan toot raha hai par ulti ni hai baad lije aur paro sitamol aadi goli jurud panane par lie", "normalized_wer": 0.4, "clinical_severity_score": 3.25, "critical_errors": ["Negation flip on Vomiting (422400008): gold='negated' vs pred='affirmed'.", "Missed/swapped medication Paracetamol (387517004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_auto", "acoustic_condition": "overlap_10db", "consult_id": "OPD-T12", "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein", "asr_raw": "तो हबते से बाए कनदे में दर्ख है, पर सीने में जलन नहीं आपनी प्रुषन एक गोली खाने के बाद लेई", "asr_normalized": "toh habate se bae kanade mein darkh hai par seene mein jalan nahi aapani prushan ek goli khane ke baad leee", "normalized_wer": 0.381, "clinical_severity_score": 3.6667, "critical_errors": ["Missed/swapped medication Ibuprofen (387207008)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_clinical_hinglish", "acoustic_condition": "clean", "consult_id": "OPD-T02", "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein", "asr_raw": "mujhe char din se sukhi khansi aur gale mein dard hai, par sahas phulna nahi hai. Ceterazine aig goli raath ko lain Azithromycin mat lain.", "asr_normalized": "mujhe char din se sukhi khansi aur gale mein dard hai par sahas phulna nahi hai ceterazine aig goli raath ko lain azithromycin mat lain", "normalized_wer": 0.32, "clinical_severity_score": 1.8, "critical_errors": ["Missed/swapped medication Azithromycin (387531004)."]}, {"type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK", "arm_id": "whisper_small_clinical_hinglish", "acoustic_condition": "clean", "consult_id": "OPD-T05", "reference": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye", "asr_raw": "Doctor sahab, inko teen din se bulgam wali, khansi hai, aur bhook nahi lakti. Ha, paar sine mein dard nahi hai, amoxyceelin ek goli suba, sham paach din tak lijiye.", "asr_normalized": "doctor sahab inko teen din se bulgam wali khansi hai aur bhook nahi lakti ha paar sine mein dard nahi hai amoxyceelin ek goli suba shaam paach din tak lijiye", "normalized_wer": 0.3, "clinical_severity_score": 2.5, "critical_errors": ["Negation flip on Loss of appetite (161838008): gold='affirmed' vs pred='negated'.", "Missed/swapped medication Amoxicillin (372687004)."]}, {"type": "ELEVATED_WER_ZERO_CLINICAL_HARM", "arm_id": "whisper_small_clinical_hinglish", "acoustic_condition": "clean", "consult_id": "OPD-T10", "reference": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein", "asr_raw": "Saat din se dil ki dharkan badhana mahhsus hota hai, par bhihosh hona nahi hua. Metoprolol sawa goli nahi, sirf aadhi goli subahle.", "asr_normalized": "saat din se dil ki dharkan badhana mahhsus hota hai par bhihosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subahle", "normalized_wer": 0.25, "clinical_severity_score": 0.0, "note": "Lexical/filler/script differences inflated WER while all SNOMED concepts, negations, and doses remained intact."}]};
+let confirmedOverrides = {};
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function redactPHI(txt) {
+  return txt
+    .replace(/\b[2-9]\d{3}[\s-]?\d{4}[\s-]?\d{4}\b/g, '[REDACTED_AADHAAR]')
+    .replace(/(?:\+91[\s-]?|0)?\b[6-9]\d{9}\b/g, '[REDACTED_PHONE]')
+    .replace(/(?<=\bmera naam\s)([A-Za-z]+(?:\s+[A-Za-z]+)?)(?=\s+hai\b|\b)/gi, '[REDACTED_NAME]');
+}
+
+function normalizeText(txt) {
+  let s = txt.toLowerCase().replace(/[।॥,.;:!?"'()\[\]\-]+/g, ' ');
+  const map = {"nahin":"nahi","nahee":"nahi","bukhaar":"bukhar","khaansi":"khansi","zukaam":"zukam","golee":"goli","dawai":"dawa","1":"ek","2":"do","3":"teen","4":"chaar","5":"paanch"};
+  return s.split(/\s+/).filter(Boolean).map(w => map[w] || w).join(' ');
+}
+
+function parseAttributes(clause, semTag, matchSpan) {
+  const neg = /\b(nahi|mat|mana|illa|beda|no|without|bina)\b/i.test(clause);
+  const fam = /\b(pitaji|papa|mataji|mummy|maa|father|mother)\b/i.test(clause) && !/\b(mujhe|mujhko|nanage)\b/i.test(clause);
+  let dose = null;
+  if (semTag === 'medication') {
+    if (/\b(dhai|eraduvaare)\b/.test(clause)) dose = 2.5;
+    else if (/\b(dedh|onduvare)\b/.test(clause)) dose = 1.5;
+    else if (/\bsawa\b/.test(clause)) dose = 1.25;
+    else if (/\b(aadhi|aadha|ardha)\b/.test(clause)) dose = 0.5;
+    else if (/\b(do|eradu)\s+(goli|tablet|maatre)\b/.test(clause)) dose = 2.0;
+    else if (/\b(ek|ondu)\s+(goli|tablet|maatre)\b/.test(clause)) dose = 1.0;
+  }
+  let dur = null;
+  const numMap = {"ek":1,"ondu":1,"do":2,"eradu":2,"teen":3,"mooru":3,"chaar":4,"paanch":5,"chhah":6,"saat":7,"das":10};
+  const dm = clause.match(/\b(ek|ondu|do|eradu|teen|mooru|chaar|paanch|chhah|saat|das)\s+(din|dinadinda|hafte|mahine)\b/);
+  if (dm) {
+    const u = dm[2].startsWith('din') ? 'd' : (dm[2].startsWith('haf') ? 'wk' : 'mo');
+    dur = {val: numMap[dm[1]], unit: u};
+  }
+  let lat = null;
+  if (/\b(baayein|left)\b/.test(clause)) lat = 'left';
+  else if (/\b(daayein|right)\b/.test(clause)) lat = 'right';
+  return {polarity: neg ? 'negated' : 'affirmed', subject: fam ? 'family_member' : 'patient', dose, dur, lat};
+}
+
+function linkClientSide(rawText) {
+  const red = redactPHI(rawText);
+  document.getElementById('redacted-preview').textContent = red;
+  const clauses = red.split(/\b(?:par|lekin|magar|aur|aadare|mattu)\b|[।,.;?!]+/i).map(c => normalizeText(c)).filter(Boolean);
+  const allConcepts = APP_DATA.lexicon;
+  const results = [];
+  const seen = new Set();
+
+  clauses.forEach(cl => {
+    const matches = [];
+    allConcepts.forEach(c => {
+      const allSyns = [...c.synonyms.map(s => ({p: normalizeText(s), amb: false})), ...(c.ambiguous_triggers || []).map(s => ({p: normalizeText(s), amb: true}))];
+      allSyns.forEach(syn => {
+        if (!syn.p || syn.p.length < 2) return;
+        const re = new RegExp('(^|\\s)' + syn.p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=\\s|$)');
+        if (re.test(cl)) {
+          matches.push({concept: c, span: syn.p, amb: syn.amb, len: syn.p.split(' ').length});
+        }
+      });
+    });
+    matches.sort((a, b) => b.len - a.len);
+    const usedWords = new Set();
+    matches.forEach(m => {
+      if (m.span.split(' ').some(w => usedWords.has(w))) return;
+      m.span.split(' ').forEach(w => usedWords.add(w));
+      const attrs = parseAttributes(cl, m.concept.semantic_tag, m.span);
+      const key = m.concept.snomed_code + ':' + attrs.polarity;
+      if (seen.has(key)) return;
+      seen.add(key);
+      results.push({
+        code: m.concept.snomed_code,
+        term: m.concept.preferred_term,
+        tag: m.concept.semantic_tag,
+        span: m.span,
+        ambiguous: m.amb,
+        attrs: attrs
+      });
+    });
+  });
+  return results;
+}
+
+function toggleDoctorConfirm(code, status) {
+  confirmedOverrides[code] = status;
+  runLivePipeline();
+}
+
+function runLivePipeline() {
+  const txt = document.getElementById('live-input').value;
+  const linked = linkClientSide(txt).filter(m => confirmedOverrides[m.code] !== 'rejected');
+  document.getElementById('concept-count').textContent = linked.length + ' SNOMED concepts';
+
+  const listEl = document.getElementById('concepts-list');
+  listEl.innerHTML = '';
+  linked.forEach(m => {
+    const isConfirmed = confirmedOverrides[m.code] === 'confirmed' || !m.ambiguous;
+    const polBadge = m.attrs.polarity === 'negated'
+      ? '<span class="badge b-neg">NEGATED</span>'
+      : '<span class="badge b-aff">AFFIRMED</span>';
+    const famBadge = m.attrs.subject === 'family_member' ? ' <span class="badge b-fam">FAMILY HX</span>' : '';
+    const ambBadge = !isConfirmed ? ' <span class="badge b-amb">DOCTOR CONFIRM?</span>' : '';
+    const confirmBtns = !isConfirmed
+      ? `<div style="margin-top:6px;"><button class="btn-sm btn-confirm" onclick="toggleDoctorConfirm('${m.code}','confirmed')">One-Tap Confirm</button> <button class="btn-sm btn-reject" onclick="toggleDoctorConfirm('${m.code}','rejected')">Dismiss</button></div>`
+      : '';
+    const extra = [
+      m.attrs.dose ? `Dose: <strong>${m.attrs.dose} tablet(s)</strong>` : '',
+      m.attrs.dur ? `Duration: <strong>${m.attrs.dur.val}${m.attrs.dur.unit}</strong>` : '',
+      m.attrs.lat ? `Site: <strong>${m.attrs.lat}</strong>` : ''
+    ].filter(Boolean).join(' · ');
+
+    listEl.innerHTML += `
+      <div class="concept-item">
+        <div class="concept-top">
+          <div><span class="code-chip">SNOMED ${m.code}</span> <strong>${m.term}</strong></div>
+          <div>${polBadge}${famBadge}${ambBadge}</div>
+        </div>
+        <div style="font-size:12px; color:#475569; margin-top:4px;">Matched span: <code>"${m.span}"</code> ${extra ? ' · ' + extra : ''}</div>
+        ${confirmBtns}
+      </div>`;
+  });
+
+  // Grounded Note
+  const noteLines = [];
+  linked.forEach(m => {
+    const isConf = confirmedOverrides[m.code] === 'confirmed' || !m.ambiguous;
+    const prefix = !isConf ? '[Pending Doctor Confirm] ' : '';
+    if (m.tag === 'medication') {
+      const d = m.attrs.dose ? ` (${m.attrs.dose} tablet)` : '';
+      noteLines.push(`<li>${prefix}${m.attrs.polarity === 'negated' ? 'Advised against / not taking' : 'Taking / prescribed'} <strong>${m.term}</strong>${d} <code>[SNOMED:${m.code} | "${m.span}"]</code></li>`);
+    } else if (m.attrs.subject === 'family_member') {
+      noteLines.push(`<li>${prefix}Family history of <strong>${m.term}</strong> <code>[SNOMED:${m.code} | "${m.span}"]</code></li>`);
+    } else if (m.attrs.polarity === 'negated') {
+      noteLines.push(`<li>${prefix}Denies <strong>${m.term}</strong> <code>[SNOMED:${m.code} | "${m.span}"]</code></li>`);
+    } else {
+      const dur = m.attrs.dur ? ` for ${m.attrs.dur.val}${m.attrs.dur.unit}` : '';
+      const lat = m.attrs.lat ? ` (${m.attrs.lat})` : '';
+      noteLines.push(`<li>${prefix}Reports <strong>${m.term}</strong>${lat}${dur} <code>[SNOMED:${m.code} | "${m.span}"]</code></li>`);
+    }
+  });
+  document.getElementById('grounded-note').innerHTML = noteLines.length
+    ? '<ul style="margin:0; padding-left:18px;">' + noteLines.join('') + '</ul>'
+    : '<em>No grounded clinical concepts detected.</em>';
+
+  // FHIR R4 Bundle
+  const fhirEntries = [
+    {resource: {resourceType: "Patient", id: "PAT-DEMO", active: true}},
+    {resource: {resourceType: "Encounter", id: "ENC-LIVE", status: "finished", class: {code: "AMB"}}}
+  ];
+  linked.forEach((m, i) => {
+    const isConf = confirmedOverrides[m.code] === 'confirmed' || !m.ambiguous;
+    if (m.tag === 'medication') {
+      const res = {
+        resourceType: "MedicationStatement",
+        id: "med-" + (i+1),
+        status: m.attrs.polarity === 'negated' ? "not-taken" : "active",
+        medicationCodeableConcept: {coding: [{system: "http://snomed.info/sct", code: m.code, display: m.term}]}
+      };
+      if (m.attrs.dose) res.dosage = [{doseAndRate: [{doseQuantity: {value: m.attrs.dose, unit: "tablet"}}]}];
+      fhirEntries.push({resource: res});
+    } else if (m.attrs.subject === 'family_member') {
+      fhirEntries.push({
+        resource: {
+          resourceType: "FamilyMemberHistory",
+          id: "fam-" + (i+1),
+          status: "completed",
+          condition: [{code: {coding: [{system: "http://snomed.info/sct", code: m.code, display: m.term}]}}]
+        }
+      });
+    } else {
+      fhirEntries.push({
+        resource: {
+          resourceType: "Condition",
+          id: "cond-" + (i+1),
+          verificationStatus: {coding: [{code: m.attrs.polarity === 'negated' ? 'refuted' : (isConf ? 'confirmed' : 'provisional')}]},
+          code: {coding: [{system: "http://snomed.info/sct", code: m.code, display: m.term}]}
+        }
+      });
+    }
+  });
+  document.getElementById('fhir-json').textContent = JSON.stringify({
+    resourceType: "Bundle",
+    type: "collection",
+    entry: fhirEntries
+  }, null, 2);
+}
+
+function loadPresetConsult() {
+  confirmedOverrides = {};
+  const idx = parseInt(document.getElementById('preset-select').value, 10);
+  const c = APP_DATA.presets[idx];
+  document.getElementById('live-input').value = c.text;
+  updateAudioSource();
+  runLivePipeline();
+}
+
+function updateAudioSource() {
+  const idx = parseInt(document.getElementById('preset-select').value, 10);
+  const c = APP_DATA.presets[idx];
+  const cond = document.getElementById('cond-select').value;
+  const folder = c.lang === 'kn-IN' ? 'kannada_clean' : cond;
+  document.getElementById('audio-player').src = `../data/audio/${folder}/${c.id}.wav`;
+}
+
+function renderLongitudinal() {
+  const idx = parseInt(document.getElementById('patient-select').value, 10);
+  const p = APP_DATA.longitudinal[idx];
+  if (!p) return;
+  let html = `<p style="margin-top:0; color:#475569;"><strong>Persona:</strong> ${p.persona}</p>`;
+  p.visit_deltas.forEach((vd, vIdx) => {
+    html += `<div class="card" style="background:#f8fafc;"><strong>Visit ${vIdx+1}: <code>${vd.current_visit_id}</code></strong>`;
+    if (!vd.items.length) {
+      html += `<div style="font-size:13px; color:#64748b; margin-top:6px;">Baseline initial visit indexed in FHIR store.</div>`;
+    } else {
+      html += `<div style="margin-top:8px; font-size:13px;">`;
+      vd.items.forEach(it => {
+        html += `<div class="delta-${it.change_type}"><strong>[${it.change_type}]</strong> ${it.summary_text} <span class="code-chip">SNOMED ${it.snomed_code}</span></div>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  document.getElementById('longitudinal-view').innerHTML = html;
+}
+
+function initUI() {
+  const pSel = document.getElementById('preset-select');
+  APP_DATA.presets.forEach((c, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `${c.id} (${c.domain}) — ${c.text.slice(0, 52)}...`;
+    pSel.appendChild(opt);
+  });
+
+  const patSel = document.getElementById('patient-select');
+  APP_DATA.longitudinal.forEach((p, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `${p.patient_id}: ${p.persona}`;
+    patSel.appendChild(opt);
+  });
+
+  if (APP_DATA.benchmark && APP_DATA.benchmark.overall_by_arm) {
+    const tb = document.querySelector('#bench-table tbody');
+    APP_DATA.benchmark.overall_by_arm.forEach(r => {
+      tb.innerHTML += `<tr>
+        <td><strong>${r.arm_name}</strong></td>
+        <td>${(r.mean_raw_wer*100).toFixed(1)}%</td>
+        <td>${(r.mean_normalized_wer*100).toFixed(1)}%</td>
+        <td>${(r.mean_snomed_f1*100).toFixed(1)}%</td>
+        <td><strong>${(r.critical_clinical_error_rate*100).toFixed(1)}%</strong></td>
+        <td><strong>${r.mean_clinical_severity_score.toFixed(3)}</strong></td>
+        <td>${r.p95_latency_sec.toFixed(2)}s</td>
+      </tr>`;
+    });
+    const h = APP_DATA.benchmark.hypothesis_tests.normalized_wer_vs_clinical_severity_across_20_cells;
+    const hc = APP_DATA.benchmark.hypothesis_tests.consult_level_n320_spearman;
+    document.getElementById('hypothesis-banner').innerHTML =
+      `<strong>Hypothesis Verification:</strong> Across the 20 (Model &times; Noise) cells, Spearman &rho; = <strong>${h.spearman_rho}</strong> with <strong>${h.pairwise_rank_inversion_count}</strong> pairwise rank inversions between nWER and Clinical Severity; across all 320 individual consult runs, &rho; = <strong>${hc.spearman_rho}</strong> (<strong>${hc.pairwise_rank_inversion_count}</strong> pairwise inversions), confirming that plain WER misranks clinical safety.`;
+  }
+
+  if (APP_DATA.oracle) {
+    const otb = document.querySelector('#oracle-table tbody');
+    [['Unconstrained Baseline', APP_DATA.oracle.unconstrained_baseline], ['Constrained Hybrid (Ours)', APP_DATA.oracle.constrained_hybrid]].forEach(([label, d]) => {
+      if (!d) return;
+      otb.innerHTML += `<tr>
+        <td><strong>${label}</strong></td>
+        <td>${(d.mean_snomed_f1*100).toFixed(1)}%</td>
+        <td>${d.total_hallucinated_codes}</td>
+        <td>${(d.critical_clinical_error_rate_ccer*100).toFixed(1)}%</td>
+        <td>${d.mean_clinical_severity_score.toFixed(3)}</td>
+      </tr>`;
+    });
+  }
+
+  if (APP_DATA.failures) {
+    const fl = document.getElementById('failures-list');
+    APP_DATA.failures.slice(0, 8).forEach(f => {
+      const badge = f.type.includes('CRITICAL')
+        ? '<span class="badge b-neg">CRITICAL SAFETY FLIP</span>'
+        : '<span class="badge b-aff">HIGH WER / ZERO HARM</span>';
+      fl.innerHTML += `<div style="border-bottom:1px solid #e2e8f0; padding:8px 0;">
+        <div>${badge} <code>${f.consult_id}</code> · <strong>${f.arm_id}</strong> (${f.acoustic_condition}) — nWER: <strong>${(f.normalized_wer*100).toFixed(1)}%</strong>, Severity: <strong>${f.clinical_severity_score}</strong></div>
+        <div style="color:#475569; margin-top:3px;">Ref: <em>"${f.reference}"</em><br/>ASR: <em>"${f.asr_normalized}"</em></div>
+      </div>`;
+    });
+  }
+
+  loadPresetConsult();
+  renderLongitudinal();
+}
+
+window.addEventListener('DOMContentLoaded', initUI);
+</script>
+</body>
+</html>

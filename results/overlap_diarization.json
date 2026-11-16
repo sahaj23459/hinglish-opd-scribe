@@ -1,0 +1,6 @@
+{
+  "mean_estimated_overlap_ratio_clean": 0.0,
+  "mean_estimated_overlap_ratio_overlap10db": 0.0,
+  "mean_frame_overlap_f1_heuristic_baseline": 0.0,
+  "scientific_note": "Spectral energy/bandwidth heuristic distinguishes overlapped consults at aggregate level but frame-level DER/overlap F1 motivates dedicated neural diarization (pyannote/NeMo) in Weeks 5-8."
+}

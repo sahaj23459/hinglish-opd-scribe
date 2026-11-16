@@ -1,0 +1,355 @@
+{
+  "patients": [
+    {
+      "patient_id": "SYN-PAT-001",
+      "persona": "54yo Male — Uncontrolled Type 2 Diabetes progressing to Neuropathy with Metformin titration",
+      "visit_deltas": [
+        {
+          "patient_id": "SYN-PAT-001",
+          "current_visit_id": "LONG-P1-V1",
+          "prior_visit_ids": [],
+          "items": [],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-001",
+          "current_visit_id": "LONG-P1-V2",
+          "prior_visit_ids": [
+            "LONG-P1-V1"
+          ],
+          "items": [
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "28442001",
+              "preferred_term": "Polyuria",
+              "summary_text": "Polyuria now negated/resolved (previously active in LONG-P1-V1).",
+              "cited_visits": [
+                "LONG-P1-V1",
+                "LONG-P1-V2"
+              ],
+              "organ_branch": "endocrine"
+            },
+            {
+              "change_type": "PROGRESSION_ALERT",
+              "snomed_code": "80394007",
+              "preferred_term": "Hyperglycemia",
+              "summary_text": "New complication/related finding Hyperglycemia linked to prior domain history in LONG-P1-V1.",
+              "cited_visits": [
+                "LONG-P1-V1",
+                "LONG-P1-V2"
+              ],
+              "organ_branch": "endocrine"
+            },
+            {
+              "change_type": "PROGRESSION_ALERT",
+              "snomed_code": "404640003",
+              "preferred_term": "Dizziness",
+              "summary_text": "New complication/related finding Dizziness linked to prior domain history in LONG-P1-V1.",
+              "cited_visits": [
+                "LONG-P1-V1",
+                "LONG-P1-V2"
+              ],
+              "organ_branch": "neuro"
+            },
+            {
+              "change_type": "MEDICATION_CHANGED",
+              "snomed_code": "372567009",
+              "preferred_term": "Metformin",
+              "summary_text": "Metformin dose changed from 1.0 -> 1.5 tablet(s) (LONG-P1-V1 -> LONG-P1-V2).",
+              "cited_visits": [
+                "LONG-P1-V1",
+                "LONG-P1-V2"
+              ],
+              "organ_branch": "drug"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-001",
+          "current_visit_id": "LONG-P1-V3",
+          "prior_visit_ids": [
+            "LONG-P1-V1",
+            "LONG-P1-V2"
+          ],
+          "items": [
+            {
+              "change_type": "PERSISTENT",
+              "snomed_code": "80394007",
+              "preferred_term": "Hyperglycemia",
+              "summary_text": "Persistent/recurring Hyperglycemia across 2 visits (LONG-P1-V2 -> LONG-P1-V3).",
+              "cited_visits": [
+                "LONG-P1-V2",
+                "LONG-P1-V3"
+              ],
+              "organ_branch": "endocrine"
+            },
+            {
+              "change_type": "PROGRESSION_ALERT",
+              "snomed_code": "302226006",
+              "preferred_term": "Peripheral neuropathy",
+              "summary_text": "New complication/related finding Peripheral neuropathy linked to prior domain history in LONG-P1-V1, LONG-P1-V2.",
+              "cited_visits": [
+                "LONG-P1-V1",
+                "LONG-P1-V2",
+                "LONG-P1-V3"
+              ],
+              "organ_branch": "neuro"
+            },
+            {
+              "change_type": "MEDICATION_CHANGED",
+              "snomed_code": "372567009",
+              "preferred_term": "Metformin",
+              "summary_text": "Metformin dose changed from 1.5 -> 2.0 tablet(s) (LONG-P1-V2 -> LONG-P1-V3).",
+              "cited_visits": [
+                "LONG-P1-V2",
+                "LONG-P1-V3"
+              ],
+              "organ_branch": "drug"
+            },
+            {
+              "change_type": "NEW",
+              "snomed_code": "387086006",
+              "preferred_term": "Cyanocobalamin",
+              "summary_text": "Started Cyanocobalamin (1.0 tab) at LONG-P1-V3.",
+              "cited_visits": [
+                "LONG-P1-V3"
+              ],
+              "organ_branch": "drug"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        }
+      ]
+    },
+    {
+      "patient_id": "SYN-PAT-002",
+      "persona": "46yo Female — Hypertension + NSAID-induced Gastritis resolved after stopping Ibuprofen",
+      "visit_deltas": [
+        {
+          "patient_id": "SYN-PAT-002",
+          "current_visit_id": "LONG-P2-V1",
+          "prior_visit_ids": [],
+          "items": [],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-002",
+          "current_visit_id": "LONG-P2-V2",
+          "prior_visit_ids": [
+            "LONG-P2-V1"
+          ],
+          "items": [
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "38341003",
+              "preferred_term": "Hypertensive disorder",
+              "summary_text": "Hypertensive disorder now negated/resolved (previously active in LONG-P2-V1).",
+              "cited_visits": [
+                "LONG-P2-V1",
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "cardiac"
+            },
+            {
+              "change_type": "NEW",
+              "snomed_code": "162076009",
+              "preferred_term": "Abdominal bloating",
+              "summary_text": "Newly reported Abdominal bloating at LONG-P2-V2.",
+              "cited_visits": [
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "gi"
+            },
+            {
+              "change_type": "NEW",
+              "snomed_code": "16331000",
+              "preferred_term": "Heartburn",
+              "summary_text": "Newly reported Heartburn at LONG-P2-V2.",
+              "cited_visits": [
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "gi"
+            },
+            {
+              "change_type": "MEDICATION_CHANGED",
+              "snomed_code": "386864001",
+              "preferred_term": "Amlodipine",
+              "summary_text": "Amlodipine dose changed from 1.0 -> 1.5 tablet(s) (LONG-P2-V1 -> LONG-P2-V2).",
+              "cited_visits": [
+                "LONG-P2-V1",
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "drug"
+            },
+            {
+              "change_type": "MEDICATION_STOPPED",
+              "snomed_code": "387207008",
+              "preferred_term": "Ibuprofen",
+              "summary_text": "Ibuprofen stopped / adherence gap (was active in LONG-P2-V1).",
+              "cited_visits": [
+                "LONG-P2-V1",
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "drug"
+            },
+            {
+              "change_type": "NEW",
+              "snomed_code": "395821003",
+              "preferred_term": "Pantoprazole",
+              "summary_text": "Started Pantoprazole (1.0 tab) at LONG-P2-V2.",
+              "cited_visits": [
+                "LONG-P2-V2"
+              ],
+              "organ_branch": "drug"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-002",
+          "current_visit_id": "LONG-P2-V3",
+          "prior_visit_ids": [
+            "LONG-P2-V1",
+            "LONG-P2-V2"
+          ],
+          "items": [
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "16331000",
+              "preferred_term": "Heartburn",
+              "summary_text": "Heartburn now negated/resolved (previously active in LONG-P2-V2).",
+              "cited_visits": [
+                "LONG-P2-V2",
+                "LONG-P2-V3"
+              ],
+              "organ_branch": "gi"
+            },
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "162076009",
+              "preferred_term": "Abdominal bloating",
+              "summary_text": "Abdominal bloating now negated/resolved (previously active in LONG-P2-V2).",
+              "cited_visits": [
+                "LONG-P2-V2",
+                "LONG-P2-V3"
+              ],
+              "organ_branch": "gi"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        }
+      ]
+    },
+    {
+      "patient_id": "SYN-PAT-003",
+      "persona": "29yo Male — Acute Viral URI evolving to secondary bacterial cough vs resolved fever",
+      "visit_deltas": [
+        {
+          "patient_id": "SYN-PAT-003",
+          "current_visit_id": "LONG-P3-V1",
+          "prior_visit_ids": [],
+          "items": [],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-003",
+          "current_visit_id": "LONG-P3-V2",
+          "prior_visit_ids": [
+            "LONG-P3-V1"
+          ],
+          "items": [
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "386661006",
+              "preferred_term": "Fever",
+              "summary_text": "Fever now negated/resolved (previously active in LONG-P3-V1).",
+              "cited_visits": [
+                "LONG-P3-V1",
+                "LONG-P3-V2"
+              ],
+              "organ_branch": "systemic"
+            },
+            {
+              "change_type": "PROGRESSION_ALERT",
+              "snomed_code": "28743005",
+              "preferred_term": "Productive cough",
+              "summary_text": "New complication/related finding Productive cough linked to prior domain history in LONG-P3-V1.",
+              "cited_visits": [
+                "LONG-P3-V1",
+                "LONG-P3-V2"
+              ],
+              "organ_branch": "respiratory"
+            },
+            {
+              "change_type": "PROGRESSION_ALERT",
+              "snomed_code": "267036007",
+              "preferred_term": "Dyspnea",
+              "summary_text": "New complication/related finding Dyspnea linked to prior domain history in LONG-P3-V1.",
+              "cited_visits": [
+                "LONG-P3-V1",
+                "LONG-P3-V2"
+              ],
+              "organ_branch": "respiratory"
+            },
+            {
+              "change_type": "NEW",
+              "snomed_code": "372687004",
+              "preferred_term": "Amoxicillin",
+              "summary_text": "Started Amoxicillin (1.0 tab) at LONG-P3-V2.",
+              "cited_visits": [
+                "LONG-P3-V2"
+              ],
+              "organ_branch": "drug"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        },
+        {
+          "patient_id": "SYN-PAT-003",
+          "current_visit_id": "LONG-P3-V3",
+          "prior_visit_ids": [
+            "LONG-P3-V1",
+            "LONG-P3-V2"
+          ],
+          "items": [
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "28743005",
+              "preferred_term": "Productive cough",
+              "summary_text": "Productive cough now negated/resolved (previously active in LONG-P3-V2).",
+              "cited_visits": [
+                "LONG-P3-V2",
+                "LONG-P3-V3"
+              ],
+              "organ_branch": "respiratory"
+            },
+            {
+              "change_type": "RESOLVED",
+              "snomed_code": "267036007",
+              "preferred_term": "Dyspnea",
+              "summary_text": "Dyspnea now negated/resolved (previously active in LONG-P3-V2).",
+              "cited_visits": [
+                "LONG-P3-V2",
+                "LONG-P3-V3"
+              ],
+              "organ_branch": "respiratory"
+            },
+            {
+              "change_type": "MEDICATION_STOPPED",
+              "snomed_code": "372687004",
+              "preferred_term": "Amoxicillin",
+              "summary_text": "Amoxicillin stopped / adherence gap (was active in LONG-P3-V2).",
+              "cited_visits": [
+                "LONG-P3-V2",
+                "LONG-P3-V3"
+              ],
+              "organ_branch": "drug"
+            }
+          ],
+          "disclaimer": "Clinician-facing longitudinal summary from prior FHIR visits; not direct patient advice."
+        }
+      ]
+    }
+  ]
+}

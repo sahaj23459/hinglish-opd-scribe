@@ -1,0 +1,351 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-OPD-T01",
+  "type": "collection",
+  "timestamp": "2026-11-16T10:30:00+05:30",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-PAT-OPD-T01",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "PAT-OPD-T01",
+        "meta": {
+          "profile": [
+            "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+          ],
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HTEST",
+              "display": "test health data (synthetic consented)"
+            }
+          ]
+        },
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-OPD-T01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-OPD-T01",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "period": {
+          "start": "2026-11-16",
+          "end": "2026-11-16"
+        },
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/visit-sequence",
+            "valueInteger": 1
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-OPD-T01-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-OPD-T01-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386661006",
+              "display": "Fever"
+            }
+          ],
+          "text": "Fever"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T01"
+        },
+        "recordedDate": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "bukhar"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 31
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 37
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-dur-OPD-T01-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-dur-OPD-T01-1",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103335007",
+              "display": "Duration of clinical finding"
+            }
+          ],
+          "text": "Duration of Fever"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T01"
+        },
+        "focus": [
+          {
+            "reference": "Condition/cond-OPD-T01-1"
+          }
+        ],
+        "effectiveDateTime": "2026-11-16",
+        "valueQuantity": {
+          "value": 3.0,
+          "unit": "d",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-OPD-T01-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-OPD-T01-2",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "inactive"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "refuted"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "25064002",
+              "display": "Headache"
+            }
+          ],
+          "text": "Headache"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-OPD-T01"
+        },
+        "recordedDate": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "sir mein dard"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 46
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 59
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-OPD-T01-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-OPD-T01-3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387517004",
+              "display": "Paracetamol"
+            }
+          ],
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "context": {
+          "reference": "Encounter/enc-OPD-T01"
+        },
+        "effectiveDateTime": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "paracetamol"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 69
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 80
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.5,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ],
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-OPD-T01-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-OPD-T01-4",
+        "status": "not-taken",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "255631004",
+              "display": "Antibiotic"
+            }
+          ],
+          "text": "Antibiotic"
+        },
+        "subject": {
+          "reference": "Patient/PAT-OPD-T01"
+        },
+        "context": {
+          "reference": "Encounter/enc-OPD-T01"
+        },
+        "effectiveDateTime": "2026-11-16",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "antibiotic"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 121
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 131
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

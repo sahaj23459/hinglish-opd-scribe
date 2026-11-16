@@ -1,0 +1,864 @@
+{
+  "overall_by_arm": [
+    {
+      "arm_id": "whisper_tiny_auto",
+      "arm_name": "Whisper-Tiny (Unprompted Auto)",
+      "mean_raw_wer": 0.93,
+      "mean_normalized_wer": 0.8731,
+      "mean_snomed_f1": 0.3077,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.5552,
+      "p95_latency_sec": 10.0307
+    },
+    {
+      "arm_id": "whisper_base_en_forced",
+      "arm_name": "Whisper-Base (English-Forced Dictation)",
+      "mean_raw_wer": 1.1792,
+      "mean_normalized_wer": 1.1467,
+      "mean_snomed_f1": 0.1896,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.5114,
+      "p95_latency_sec": 7.8494
+    },
+    {
+      "arm_id": "whisper_base_auto",
+      "arm_name": "Whisper-Base (Multilingual Auto)",
+      "mean_raw_wer": 1.0176,
+      "mean_normalized_wer": 0.9585,
+      "mean_snomed_f1": 0.2147,
+      "critical_clinical_error_rate": 0.9688,
+      "mean_clinical_severity_score": 3.5094,
+      "p95_latency_sec": 16.9725
+    },
+    {
+      "arm_id": "whisper_small_auto",
+      "arm_name": "Whisper-Small (Multilingual Unprompted)",
+      "mean_raw_wer": 1.0288,
+      "mean_normalized_wer": 0.5002,
+      "mean_snomed_f1": 0.5578,
+      "critical_clinical_error_rate": 0.9844,
+      "mean_clinical_severity_score": 2.9914,
+      "p95_latency_sec": 20.3118
+    },
+    {
+      "arm_id": "whisper_small_clinical_hinglish",
+      "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt",
+      "mean_raw_wer": 0.3432,
+      "mean_normalized_wer": 0.323,
+      "mean_snomed_f1": 0.7976,
+      "critical_clinical_error_rate": 0.6562,
+      "mean_clinical_severity_score": 1.6792,
+      "p95_latency_sec": 16.4887
+    }
+  ],
+  "by_arm_and_condition": [
+    {
+      "arm_id": "whisper_tiny_auto",
+      "arm_name": "Whisper-Tiny (Unprompted Auto)",
+      "acoustic_condition": "clean",
+      "n_consults": 16,
+      "mean_raw_wer": 0.8596,
+      "mean_normalized_wer": 0.7853,
+      "mean_normalized_cer": 0.3655,
+      "mean_snomed_f1": 0.4281,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.551,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 2.8987,
+      "p95_latency_sec": 5.9895,
+      "mean_rtf": 0.3131
+    },
+    {
+      "arm_id": "whisper_tiny_auto",
+      "arm_name": "Whisper-Tiny (Unprompted Auto)",
+      "acoustic_condition": "noisy_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.8699,
+      "mean_normalized_wer": 0.8034,
+      "mean_normalized_cer": 0.385,
+      "mean_snomed_f1": 0.3717,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.4219,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 3.8657,
+      "p95_latency_sec": 6.2269,
+      "mean_rtf": 0.4269
+    },
+    {
+      "arm_id": "whisper_tiny_auto",
+      "arm_name": "Whisper-Tiny (Unprompted Auto)",
+      "acoustic_condition": "noisy_3db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0759,
+      "mean_normalized_wer": 1.0455,
+      "mean_normalized_cer": 0.7021,
+      "mean_snomed_f1": 0.194,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.8135,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 4.5691,
+      "p95_latency_sec": 7.5243,
+      "mean_rtf": 0.4916
+    },
+    {
+      "arm_id": "whisper_tiny_auto",
+      "arm_name": "Whisper-Tiny (Unprompted Auto)",
+      "acoustic_condition": "overlap_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.9146,
+      "mean_normalized_wer": 0.8584,
+      "mean_normalized_cer": 0.5211,
+      "mean_snomed_f1": 0.2369,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.4344,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 5.0539,
+      "p95_latency_sec": 10.0307,
+      "mean_rtf": 0.66
+    },
+    {
+      "arm_id": "whisper_base_en_forced",
+      "arm_name": "Whisper-Base (English-Forced Dictation)",
+      "acoustic_condition": "clean",
+      "n_consults": 16,
+      "mean_raw_wer": 1.1145,
+      "mean_normalized_wer": 1.0804,
+      "mean_normalized_cer": 0.6935,
+      "mean_snomed_f1": 0.3004,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.4656,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 3.8484,
+      "p95_latency_sec": 6.4988,
+      "mean_rtf": 0.4269
+    },
+    {
+      "arm_id": "whisper_base_en_forced",
+      "arm_name": "Whisper-Base (English-Forced Dictation)",
+      "acoustic_condition": "noisy_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.1751,
+      "mean_normalized_wer": 1.1431,
+      "mean_normalized_cer": 0.7168,
+      "mean_snomed_f1": 0.2371,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.6104,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 3.0629,
+      "p95_latency_sec": 7.3853,
+      "mean_rtf": 0.321
+    },
+    {
+      "arm_id": "whisper_base_en_forced",
+      "arm_name": "Whisper-Base (English-Forced Dictation)",
+      "acoustic_condition": "noisy_3db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.2357,
+      "mean_normalized_wer": 1.2036,
+      "mean_normalized_cer": 0.7325,
+      "mean_snomed_f1": 0.1574,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.576,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 4.3095,
+      "p95_latency_sec": 7.4529,
+      "mean_rtf": 0.4641
+    },
+    {
+      "arm_id": "whisper_base_en_forced",
+      "arm_name": "Whisper-Base (English-Forced Dictation)",
+      "acoustic_condition": "overlap_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.1916,
+      "mean_normalized_wer": 1.1599,
+      "mean_normalized_cer": 0.7709,
+      "mean_snomed_f1": 0.0637,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.3938,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 4.625,
+      "p95_latency_sec": 7.8494,
+      "mean_rtf": 0.5735
+    },
+    {
+      "arm_id": "whisper_base_auto",
+      "arm_name": "Whisper-Base (Multilingual Auto)",
+      "acoustic_condition": "clean",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0146,
+      "mean_normalized_wer": 0.9769,
+      "mean_normalized_cer": 0.8619,
+      "mean_snomed_f1": 0.0845,
+      "critical_clinical_error_rate": 0.9375,
+      "mean_clinical_severity_score": 3.425,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 1.5982,
+      "p95_latency_sec": 1.8378,
+      "mean_rtf": 0.1711
+    },
+    {
+      "arm_id": "whisper_base_auto",
+      "arm_name": "Whisper-Base (Multilingual Auto)",
+      "acoustic_condition": "noisy_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.955,
+      "mean_normalized_wer": 0.9047,
+      "mean_normalized_cer": 0.6407,
+      "mean_snomed_f1": 0.315,
+      "critical_clinical_error_rate": 0.9375,
+      "mean_clinical_severity_score": 3.3281,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 4.5639,
+      "p95_latency_sec": 15.4254,
+      "mean_rtf": 0.4874
+    },
+    {
+      "arm_id": "whisper_base_auto",
+      "arm_name": "Whisper-Base (Multilingual Auto)",
+      "acoustic_condition": "noisy_3db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.1833,
+      "mean_normalized_wer": 1.1216,
+      "mean_normalized_cer": 0.5416,
+      "mean_snomed_f1": 0.2089,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.5906,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 8.0226,
+      "p95_latency_sec": 16.9725,
+      "mean_rtf": 0.8981
+    },
+    {
+      "arm_id": "whisper_base_auto",
+      "arm_name": "Whisper-Base (Multilingual Auto)",
+      "acoustic_condition": "overlap_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.9176,
+      "mean_normalized_wer": 0.831,
+      "mean_normalized_cer": 0.6151,
+      "mean_snomed_f1": 0.2503,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.6938,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 5.9701,
+      "p95_latency_sec": 15.3921,
+      "mean_rtf": 0.7659
+    },
+    {
+      "arm_id": "whisper_small_auto",
+      "arm_name": "Whisper-Small (Multilingual Unprompted)",
+      "acoustic_condition": "clean",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0245,
+      "mean_normalized_wer": 0.4044,
+      "mean_normalized_cer": 0.1977,
+      "mean_snomed_f1": 0.6323,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 2.7094,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 7.8337,
+      "p95_latency_sec": 20.3118,
+      "mean_rtf": 0.8616
+    },
+    {
+      "arm_id": "whisper_small_auto",
+      "arm_name": "Whisper-Small (Multilingual Unprompted)",
+      "acoustic_condition": "noisy_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0411,
+      "mean_normalized_wer": 0.4522,
+      "mean_normalized_cer": 0.2141,
+      "mean_snomed_f1": 0.631,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 2.7813,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 5.9589,
+      "p95_latency_sec": 7.0479,
+      "mean_rtf": 0.6358
+    },
+    {
+      "arm_id": "whisper_small_auto",
+      "arm_name": "Whisper-Small (Multilingual Unprompted)",
+      "acoustic_condition": "noisy_3db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0338,
+      "mean_normalized_wer": 0.5829,
+      "mean_normalized_cer": 0.3054,
+      "mean_snomed_f1": 0.4571,
+      "critical_clinical_error_rate": 0.9375,
+      "mean_clinical_severity_score": 3.1875,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 5.9818,
+      "p95_latency_sec": 7.0312,
+      "mean_rtf": 0.6367
+    },
+    {
+      "arm_id": "whisper_small_auto",
+      "arm_name": "Whisper-Small (Multilingual Unprompted)",
+      "acoustic_condition": "overlap_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 1.0159,
+      "mean_normalized_wer": 0.5614,
+      "mean_normalized_cer": 0.3503,
+      "mean_snomed_f1": 0.5109,
+      "critical_clinical_error_rate": 1.0,
+      "mean_clinical_severity_score": 3.2875,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 6.7295,
+      "p95_latency_sec": 11.9062,
+      "mean_rtf": 0.844
+    },
+    {
+      "arm_id": "whisper_small_clinical_hinglish",
+      "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt",
+      "acoustic_condition": "clean",
+      "n_consults": 16,
+      "mean_raw_wer": 0.2599,
+      "mean_normalized_wer": 0.2469,
+      "mean_normalized_cer": 0.1022,
+      "mean_snomed_f1": 0.8569,
+      "critical_clinical_error_rate": 0.5,
+      "mean_clinical_severity_score": 1.2594,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 4.6186,
+      "p95_latency_sec": 7.6454,
+      "mean_rtf": 0.4888
+    },
+    {
+      "arm_id": "whisper_small_clinical_hinglish",
+      "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt",
+      "acoustic_condition": "noisy_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.2875,
+      "mean_normalized_wer": 0.2735,
+      "mean_normalized_cer": 0.1091,
+      "mean_snomed_f1": 0.8366,
+      "critical_clinical_error_rate": 0.5625,
+      "mean_clinical_severity_score": 1.5021,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 3.9622,
+      "p95_latency_sec": 4.8214,
+      "mean_rtf": 0.4238
+    },
+    {
+      "arm_id": "whisper_small_clinical_hinglish",
+      "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt",
+      "acoustic_condition": "noisy_3db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.4776,
+      "mean_normalized_wer": 0.4427,
+      "mean_normalized_cer": 0.2299,
+      "mean_snomed_f1": 0.7353,
+      "critical_clinical_error_rate": 0.625,
+      "mean_clinical_severity_score": 1.9042,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 6.8458,
+      "p95_latency_sec": 16.4887,
+      "mean_rtf": 0.8349
+    },
+    {
+      "arm_id": "whisper_small_clinical_hinglish",
+      "arm_name": "Whisper-Small + Hinglish Clinical Lexicon Prompt",
+      "acoustic_condition": "overlap_10db",
+      "n_consults": 16,
+      "mean_raw_wer": 0.3478,
+      "mean_normalized_wer": 0.329,
+      "mean_normalized_cer": 0.1341,
+      "mean_snomed_f1": 0.7615,
+      "critical_clinical_error_rate": 0.9375,
+      "mean_clinical_severity_score": 2.051,
+      "total_hallucinated_codes": 0,
+      "mean_latency_sec": 3.8236,
+      "p95_latency_sec": 4.2394,
+      "mean_rtf": 0.4739
+    }
+  ],
+  "hypothesis_tests": {
+    "raw_wer_vs_clinical_severity_across_5_models": {
+      "spearman_rho": 0.3,
+      "p_value": 0.6238,
+      "hypothesis_supported_rho_lt_0_90": true,
+      "pairwise_rank_inversion_count": 4,
+      "inversions": [
+        {
+          "pair": "whisper_tiny_auto vs whisper_base_en_forced",
+          "wer_pair": [
+            0.93,
+            1.1792
+          ],
+          "severity_pair": [
+            3.5552,
+            3.5114
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto vs whisper_base_auto",
+          "wer_pair": [
+            0.93,
+            1.0176
+          ],
+          "severity_pair": [
+            3.5552,
+            3.5094
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto vs whisper_small_auto",
+          "wer_pair": [
+            0.93,
+            1.0288
+          ],
+          "severity_pair": [
+            3.5552,
+            2.9914
+          ]
+        },
+        {
+          "pair": "whisper_base_auto vs whisper_small_auto",
+          "wer_pair": [
+            1.0176,
+            1.0288
+          ],
+          "severity_pair": [
+            3.5094,
+            2.9914
+          ]
+        }
+      ],
+      "ranking_by_plain_wer": [
+        "whisper_small_clinical_hinglish",
+        "whisper_tiny_auto",
+        "whisper_base_auto",
+        "whisper_small_auto",
+        "whisper_base_en_forced"
+      ],
+      "ranking_by_clinical_severity": [
+        "whisper_small_clinical_hinglish",
+        "whisper_small_auto",
+        "whisper_base_auto",
+        "whisper_base_en_forced",
+        "whisper_tiny_auto"
+      ]
+    },
+    "normalized_wer_vs_clinical_severity_across_20_cells": {
+      "spearman_rho": 0.8075,
+      "p_value": 0.0,
+      "hypothesis_supported_rho_lt_0_90": true,
+      "pairwise_rank_inversion_count": 33,
+      "inversions": [
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_tiny_auto@noisy_10db",
+          "wer_pair": [
+            0.7853,
+            0.8034
+          ],
+          "severity_pair": [
+            3.551,
+            3.4219
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_tiny_auto@overlap_10db",
+          "wer_pair": [
+            0.7853,
+            0.8584
+          ],
+          "severity_pair": [
+            3.551,
+            3.4344
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_base_en_forced@clean",
+          "wer_pair": [
+            0.7853,
+            1.0804
+          ],
+          "severity_pair": [
+            3.551,
+            3.4656
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            0.7853,
+            1.1599
+          ],
+          "severity_pair": [
+            3.551,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_base_auto@clean",
+          "wer_pair": [
+            0.7853,
+            0.9769
+          ],
+          "severity_pair": [
+            3.551,
+            3.425
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@clean vs whisper_base_auto@noisy_10db",
+          "wer_pair": [
+            0.7853,
+            0.9047
+          ],
+          "severity_pair": [
+            3.551,
+            3.3281
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_10db vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            0.8034,
+            1.1599
+          ],
+          "severity_pair": [
+            3.4219,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_10db vs whisper_base_auto@noisy_10db",
+          "wer_pair": [
+            0.8034,
+            0.9047
+          ],
+          "severity_pair": [
+            3.4219,
+            3.3281
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@clean",
+          "wer_pair": [
+            1.0455,
+            1.0804
+          ],
+          "severity_pair": [
+            3.8135,
+            3.4656
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@noisy_10db",
+          "wer_pair": [
+            1.0455,
+            1.1431
+          ],
+          "severity_pair": [
+            3.8135,
+            3.6104
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@noisy_3db",
+          "wer_pair": [
+            1.0455,
+            1.2036
+          ],
+          "severity_pair": [
+            3.8135,
+            3.576
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_3db vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            1.0455,
+            1.1599
+          ],
+          "severity_pair": [
+            3.8135,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@noisy_3db vs whisper_base_auto@noisy_3db",
+          "wer_pair": [
+            1.0455,
+            1.1216
+          ],
+          "severity_pair": [
+            3.8135,
+            3.5906
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@overlap_10db vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            0.8584,
+            1.1599
+          ],
+          "severity_pair": [
+            3.4344,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@clean",
+          "wer_pair": [
+            0.8584,
+            0.9769
+          ],
+          "severity_pair": [
+            3.4344,
+            3.425
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@noisy_10db",
+          "wer_pair": [
+            0.8584,
+            0.9047
+          ],
+          "severity_pair": [
+            3.4344,
+            3.3281
+          ]
+        },
+        {
+          "pair": "whisper_tiny_auto@overlap_10db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            0.8584,
+            0.831
+          ],
+          "severity_pair": [
+            3.4344,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@clean vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            1.0804,
+            1.1599
+          ],
+          "severity_pair": [
+            3.4656,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@clean vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            1.0804,
+            0.831
+          ],
+          "severity_pair": [
+            3.4656,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@noisy_10db vs whisper_base_en_forced@noisy_3db",
+          "wer_pair": [
+            1.1431,
+            1.2036
+          ],
+          "severity_pair": [
+            3.6104,
+            3.576
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@noisy_10db vs whisper_base_en_forced@overlap_10db",
+          "wer_pair": [
+            1.1431,
+            1.1599
+          ],
+          "severity_pair": [
+            3.6104,
+            3.3938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@noisy_10db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            1.1431,
+            0.831
+          ],
+          "severity_pair": [
+            3.6104,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@noisy_3db vs whisper_base_auto@noisy_3db",
+          "wer_pair": [
+            1.2036,
+            1.1216
+          ],
+          "severity_pair": [
+            3.576,
+            3.5906
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@noisy_3db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            1.2036,
+            0.831
+          ],
+          "severity_pair": [
+            3.576,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@clean",
+          "wer_pair": [
+            1.1599,
+            0.9769
+          ],
+          "severity_pair": [
+            3.3938,
+            3.425
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@noisy_3db",
+          "wer_pair": [
+            1.1599,
+            1.1216
+          ],
+          "severity_pair": [
+            3.3938,
+            3.5906
+          ]
+        },
+        {
+          "pair": "whisper_base_en_forced@overlap_10db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            1.1599,
+            0.831
+          ],
+          "severity_pair": [
+            3.3938,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_auto@clean vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            0.9769,
+            0.831
+          ],
+          "severity_pair": [
+            3.425,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_auto@noisy_10db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            0.9047,
+            0.831
+          ],
+          "severity_pair": [
+            3.3281,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_base_auto@noisy_3db vs whisper_base_auto@overlap_10db",
+          "wer_pair": [
+            1.1216,
+            0.831
+          ],
+          "severity_pair": [
+            3.5906,
+            3.6938
+          ]
+        },
+        {
+          "pair": "whisper_small_auto@clean vs whisper_small_clinical_hinglish@noisy_3db",
+          "wer_pair": [
+            0.4044,
+            0.4427
+          ],
+          "severity_pair": [
+            2.7094,
+            1.9042
+          ]
+        },
+        {
+          "pair": "whisper_small_auto@noisy_3db vs whisper_small_auto@overlap_10db",
+          "wer_pair": [
+            0.5829,
+            0.5614
+          ],
+          "severity_pair": [
+            3.1875,
+            3.2875
+          ]
+        },
+        {
+          "pair": "whisper_small_clinical_hinglish@noisy_3db vs whisper_small_clinical_hinglish@overlap_10db",
+          "wer_pair": [
+            0.4427,
+            0.329
+          ],
+          "severity_pair": [
+            1.9042,
+            2.051
+          ]
+        }
+      ],
+      "ranking_by_plain_wer": [
+        "whisper_small_clinical_hinglish@clean",
+        "whisper_small_clinical_hinglish@noisy_10db",
+        "whisper_small_clinical_hinglish@overlap_10db",
+        "whisper_small_auto@clean",
+        "whisper_small_clinical_hinglish@noisy_3db",
+        "whisper_small_auto@noisy_10db",
+        "whisper_small_auto@overlap_10db",
+        "whisper_small_auto@noisy_3db",
+        "whisper_tiny_auto@clean",
+        "whisper_tiny_auto@noisy_10db",
+        "whisper_base_auto@overlap_10db",
+        "whisper_tiny_auto@overlap_10db",
+        "whisper_base_auto@noisy_10db",
+        "whisper_base_auto@clean",
+        "whisper_tiny_auto@noisy_3db",
+        "whisper_base_en_forced@clean",
+        "whisper_base_auto@noisy_3db",
+        "whisper_base_en_forced@noisy_10db",
+        "whisper_base_en_forced@overlap_10db",
+        "whisper_base_en_forced@noisy_3db"
+      ],
+      "ranking_by_clinical_severity": [
+        "whisper_small_clinical_hinglish@clean",
+        "whisper_small_clinical_hinglish@noisy_10db",
+        "whisper_small_clinical_hinglish@noisy_3db",
+        "whisper_small_clinical_hinglish@overlap_10db",
+        "whisper_small_auto@clean",
+        "whisper_small_auto@noisy_10db",
+        "whisper_small_auto@noisy_3db",
+        "whisper_small_auto@overlap_10db",
+        "whisper_base_auto@noisy_10db",
+        "whisper_base_en_forced@overlap_10db",
+        "whisper_tiny_auto@noisy_10db",
+        "whisper_base_auto@clean",
+        "whisper_tiny_auto@overlap_10db",
+        "whisper_base_en_forced@clean",
+        "whisper_tiny_auto@clean",
+        "whisper_base_en_forced@noisy_3db",
+        "whisper_base_auto@noisy_3db",
+        "whisper_base_en_forced@noisy_10db",
+        "whisper_base_auto@overlap_10db",
+        "whisper_tiny_auto@noisy_3db"
+      ]
+    },
+    "consult_level_n320_spearman": {
+      "spearman_rho": 0.6117,
+      "p_value": 0.0,
+      "pairwise_rank_inversion_count": 12440
+    }
+  }
+}

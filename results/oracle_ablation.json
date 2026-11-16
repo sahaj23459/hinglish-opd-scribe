@@ -1,0 +1,26 @@
+{
+  "constrained_hybrid": {
+    "num_test_consults": 16,
+    "mean_snomed_precision": 1.0,
+    "mean_snomed_recall": 1.0,
+    "mean_snomed_f1": 1.0,
+    "total_hallucinated_codes": 0,
+    "hallucination_rate_per_consult": 0.0,
+    "critical_clinical_error_rate_ccer": 0.0625,
+    "mean_clinical_severity_score": 0.0781,
+    "doctor_confirmation_mentions_flagged": 3,
+    "valid_fhir_bundles": 16
+  },
+  "unconstrained_baseline": {
+    "num_test_consults": 16,
+    "mean_snomed_precision": 0.9198,
+    "mean_snomed_recall": 0.9198,
+    "mean_snomed_f1": 0.9198,
+    "total_hallucinated_codes": 4,
+    "hallucination_rate_per_consult": 0.25,
+    "critical_clinical_error_rate_ccer": 0.875,
+    "mean_clinical_severity_score": 2.674,
+    "doctor_confirmation_mentions_flagged": 0,
+    "valid_fhir_bundles": 0
+  }
+}

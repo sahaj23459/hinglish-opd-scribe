@@ -1,0 +1,1376 @@
+{
+  "lexicon_name": "Hinglish-SNOMED-OPD-Core-v1",
+  "language": "hi-Latn / hi-Deva / en-IN",
+  "snomed_edition": "SNOMED CT International + NRCES India Subset",
+  "num_concepts": 106,
+  "concepts": [
+    {
+      "snomed_code": "386661006",
+      "preferred_term": "Fever",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "pyrexia",
+      "synonyms": [
+        "bukhar",
+        "tez bukhar",
+        "badan garam",
+        "halka bukhar",
+        "fever"
+      ]
+    },
+    {
+      "snomed_code": "43724002",
+      "preferred_term": "Chill",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "pyrexia",
+      "synonyms": [
+        "kapkapi",
+        "thand lagna",
+        "thand lag kar bukhar",
+        "chills",
+        "shivering"
+      ]
+    },
+    {
+      "snomed_code": "84229001",
+      "preferred_term": "Fatigue",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "malaise",
+      "synonyms": [
+        "kamzori",
+        "thakan",
+        "fatigue",
+        "weakness"
+      ],
+      "ambiguous_triggers": [
+        "badan tootna",
+        "badan toot raha"
+      ]
+    },
+    {
+      "snomed_code": "13791008",
+      "preferred_term": "Asthenia",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "malaise",
+      "synonyms": [
+        "bahut kamzori",
+        "uthne ki himmat nahi",
+        "debility"
+      ]
+    },
+    {
+      "snomed_code": "271807003",
+      "preferred_term": "Eruption of skin",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "derm",
+      "sub_branch": "exanthem",
+      "synonyms": [
+        "daane",
+        "lal daane",
+        "rash",
+        "skin rash",
+        "sharir par daane"
+      ]
+    },
+    {
+      "snomed_code": "52613005",
+      "preferred_term": "Excessive sweating",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "autonomic",
+      "synonyms": [
+        "paseena aana",
+        "raat ko paseena",
+        "thandha paseena"
+      ]
+    },
+    {
+      "snomed_code": "89362005",
+      "preferred_term": "Weight loss",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "nutrition",
+      "synonyms": [
+        "wazan kam hona",
+        "weight loss",
+        "wazan ghat gaya"
+      ]
+    },
+    {
+      "snomed_code": "161838008",
+      "preferred_term": "Loss of appetite",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "gi",
+      "sub_branch": "appetite",
+      "synonyms": [
+        "bhookh nahi lagti",
+        "bhookh kam hona",
+        "khane ka man nahi",
+        "loss of appetite"
+      ]
+    },
+    {
+      "snomed_code": "38362002",
+      "preferred_term": "Dengue",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "vector_borne",
+      "synonyms": [
+        "dengue",
+        "dengue bukhar"
+      ]
+    },
+    {
+      "snomed_code": "61462000",
+      "preferred_term": "Malaria",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "vector_borne",
+      "synonyms": [
+        "malaria",
+        "malaria bukhar"
+      ]
+    },
+    {
+      "snomed_code": "4834000",
+      "preferred_term": "Typhoid fever",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "enteric_infection",
+      "synonyms": [
+        "typhoid",
+        "motijhara"
+      ]
+    },
+    {
+      "snomed_code": "195662009",
+      "preferred_term": "Acute viral pharyngitis",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "viral throat infection",
+        "viral pharyngitis",
+        "gale ka viral"
+      ]
+    },
+    {
+      "snomed_code": "49727002",
+      "preferred_term": "Cough",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "cough",
+      "synonyms": [
+        "khansi",
+        "cough"
+      ]
+    },
+    {
+      "snomed_code": "11833005",
+      "preferred_term": "Dry cough",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "cough",
+      "synonyms": [
+        "sukhi khansi",
+        "dry cough"
+      ]
+    },
+    {
+      "snomed_code": "28743005",
+      "preferred_term": "Productive cough",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "cough",
+      "synonyms": [
+        "balgam wali khansi",
+        "wet cough",
+        "balgam aana"
+      ]
+    },
+    {
+      "snomed_code": "82272006",
+      "preferred_term": "Common cold",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "zukam",
+        "sardi zukam",
+        "common cold"
+      ]
+    },
+    {
+      "snomed_code": "64531003",
+      "preferred_term": "Nasal discharge",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "naak behna",
+        "runny nose",
+        "naak se pani"
+      ]
+    },
+    {
+      "snomed_code": "68235000",
+      "preferred_term": "Nasal congestion",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "naak band",
+        "blocked nose",
+        "band naak"
+      ]
+    },
+    {
+      "snomed_code": "162397003",
+      "preferred_term": "Pain in throat",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "gale mein dard",
+        "gale mein kharash",
+        "throat pain",
+        "sore throat",
+        "gala kharab"
+      ]
+    },
+    {
+      "snomed_code": "50219008",
+      "preferred_term": "Hoarse voice",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "awaaz baith gayi",
+        "hoarse voice"
+      ]
+    },
+    {
+      "snomed_code": "267036007",
+      "preferred_term": "Dyspnea",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "lower_respiratory",
+      "synonyms": [
+        "saans phoolna",
+        "saans phoolti",
+        "saans lene mein takleef",
+        "breathlessness",
+        "shortness of breath"
+      ]
+    },
+    {
+      "snomed_code": "56018004",
+      "preferred_term": "Wheezing",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "lower_respiratory",
+      "synonyms": [
+        "wheezing",
+        "saans mein seeti"
+      ]
+    },
+    {
+      "snomed_code": "195967001",
+      "preferred_term": "Asthma",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "lower_respiratory",
+      "synonyms": [
+        "dama",
+        "asthma"
+      ]
+    },
+    {
+      "snomed_code": "233604007",
+      "preferred_term": "Pneumonia",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "lower_respiratory",
+      "synonyms": [
+        "pneumonia",
+        "phephde mein infection"
+      ]
+    },
+    {
+      "snomed_code": "16001004",
+      "preferred_term": "Otalgia",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "ent",
+      "synonyms": [
+        "kaan mein dard",
+        "ear pain"
+      ]
+    },
+    {
+      "snomed_code": "398979000",
+      "preferred_term": "Red eye",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "neuro",
+      "sub_branch": "ophthalmic",
+      "synonyms": [
+        "aankh lal hona",
+        "red eye"
+      ]
+    },
+    {
+      "snomed_code": "36955009",
+      "preferred_term": "Loss of taste",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "neuro",
+      "sub_branch": "sensory",
+      "synonyms": [
+        "swaad nahi aata",
+        "loss of taste"
+      ]
+    },
+    {
+      "snomed_code": "44169009",
+      "preferred_term": "Loss of sense of smell",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "neuro",
+      "sub_branch": "sensory",
+      "synonyms": [
+        "khushboo nahi aati",
+        "loss of smell"
+      ]
+    },
+    {
+      "snomed_code": "44054006",
+      "preferred_term": "Diabetes mellitus type 2",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "diabetes",
+        "type 2 diabetes",
+        "sugar ki bimari",
+        "madhumeh"
+      ]
+    },
+    {
+      "snomed_code": "80394007",
+      "preferred_term": "Hyperglycemia",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "sugar high",
+        "sugar badh gayi",
+        "high blood sugar",
+        "fasting sugar high"
+      ],
+      "ambiguous_triggers": [
+        "sugar badha"
+      ]
+    },
+    {
+      "snomed_code": "302866003",
+      "preferred_term": "Hypoglycemia",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "sugar low",
+        "sugar gir gayi",
+        "low blood sugar"
+      ]
+    },
+    {
+      "snomed_code": "38341003",
+      "preferred_term": "Hypertensive disorder",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "blood_pressure",
+      "synonyms": [
+        "hypertension",
+        "bp high",
+        "high bp",
+        "bp ki bimari",
+        "uchch raktchaap"
+      ]
+    },
+    {
+      "snomed_code": "45007003",
+      "preferred_term": "Low blood pressure",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "blood_pressure",
+      "synonyms": [
+        "bp low",
+        "low bp",
+        "hypotension"
+      ]
+    },
+    {
+      "snomed_code": "29857009",
+      "preferred_term": "Chest pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "ischemic",
+      "synonyms": [
+        "seene mein dard",
+        "chhati mein dard",
+        "chest pain"
+      ]
+    },
+    {
+      "snomed_code": "80313002",
+      "preferred_term": "Palpitations",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "arrhythmia",
+      "synonyms": [
+        "dhadkan tez",
+        "dil ki dhadkan badhna",
+        "palpitations"
+      ],
+      "ambiguous_triggers": [
+        "ghabrahat"
+      ]
+    },
+    {
+      "snomed_code": "56265001",
+      "preferred_term": "Heart disease",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "ischemic",
+      "synonyms": [
+        "heart problem",
+        "dil ki bimari",
+        "heart disease",
+        "cardiac problem"
+      ]
+    },
+    {
+      "snomed_code": "13644009",
+      "preferred_term": "Hypercholesterolemia",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "lipid",
+      "synonyms": [
+        "high cholesterol",
+        "cholesterol badha hua"
+      ]
+    },
+    {
+      "snomed_code": "247355005",
+      "preferred_term": "Edema of foot",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "fluid_overload",
+      "synonyms": [
+        "paer mein sujan",
+        "paeron mein sujan",
+        "pedal edema",
+        "ankle swelling"
+      ]
+    },
+    {
+      "snomed_code": "28442001",
+      "preferred_term": "Polyuria",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "baar baar peshab",
+        "zyada peshab aana",
+        "polyuria"
+      ]
+    },
+    {
+      "snomed_code": "62106007",
+      "preferred_term": "Nocturia",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "raat ko baar baar peshab",
+        "nocturia"
+      ]
+    },
+    {
+      "snomed_code": "161832001",
+      "preferred_term": "Polydipsia",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "zyada pyaas lagna",
+        "gala sookhna",
+        "polydipsia"
+      ]
+    },
+    {
+      "snomed_code": "302226006",
+      "preferred_term": "Peripheral neuropathy",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "neuropathy",
+      "synonyms": [
+        "paer mein jhanjhanahat",
+        "paeron mein jhanjhanahat",
+        "tingling in feet",
+        "peripheral neuropathy"
+      ]
+    },
+    {
+      "snomed_code": "44077006",
+      "preferred_term": "Numbness",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "neuropathy",
+      "synonyms": [
+        "sunnapan",
+        "paer sunn hona",
+        "numbness"
+      ]
+    },
+    {
+      "snomed_code": "246636008",
+      "preferred_term": "Blurred vision",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "ophthalmic",
+      "synonyms": [
+        "dhundhla dikhna",
+        "blurred vision",
+        "nazar dhundhli"
+      ]
+    },
+    {
+      "snomed_code": "404640003",
+      "preferred_term": "Dizziness",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "vestibular",
+      "synonyms": [
+        "dizziness",
+        "sar ghoomna"
+      ],
+      "ambiguous_triggers": [
+        "chakkar aana",
+        "chakkar"
+      ]
+    },
+    {
+      "snomed_code": "399153001",
+      "preferred_term": "Vertigo",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "vestibular",
+      "synonyms": [
+        "kamra ghoomna",
+        "spinning vertigo"
+      ]
+    },
+    {
+      "snomed_code": "271594007",
+      "preferred_term": "Syncope",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "vestibular",
+      "synonyms": [
+        "behosh hona",
+        "fainting",
+        "chakkar kha kar girna"
+      ]
+    },
+    {
+      "snomed_code": "236425005",
+      "preferred_term": "Chronic kidney disease",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "systemic",
+      "sub_branch": "renal",
+      "synonyms": [
+        "kidney ki bimari",
+        "ckd",
+        "gurde kamzor"
+      ]
+    },
+    {
+      "snomed_code": "271737000",
+      "preferred_term": "Anemia",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "systemic",
+      "sub_branch": "hematologic",
+      "synonyms": [
+        "khoon ki kami",
+        "anemia",
+        "low hemoglobin"
+      ]
+    },
+    {
+      "snomed_code": "25064002",
+      "preferred_term": "Headache",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "neuro",
+      "sub_branch": "headache",
+      "synonyms": [
+        "sir mein dard",
+        "sir dard",
+        "headache"
+      ]
+    },
+    {
+      "snomed_code": "37796009",
+      "preferred_term": "Migraine",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "neuro",
+      "sub_branch": "headache",
+      "synonyms": [
+        "migraine",
+        "aadhe sir ka dard"
+      ]
+    },
+    {
+      "snomed_code": "193462001",
+      "preferred_term": "Insomnia",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "neuro",
+      "sub_branch": "sleep",
+      "synonyms": [
+        "neend nahi aati",
+        "insomnia",
+        "raat ko neend kharab"
+      ]
+    },
+    {
+      "snomed_code": "162076009",
+      "preferred_term": "Abdominal bloating",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "pet phoolna",
+        "abdominal bloating",
+        "pet bhari lagna"
+      ],
+      "ambiguous_triggers": [
+        "gas banti hai",
+        "pet mein gas",
+        "gas"
+      ]
+    },
+    {
+      "snomed_code": "249497008",
+      "preferred_term": "Flatulence",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "flatulence",
+        "gas paas hona"
+      ]
+    },
+    {
+      "snomed_code": "16331000",
+      "preferred_term": "Heartburn",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "seene mein jalan",
+        "acidity",
+        "pet mein jalan",
+        "heartburn"
+      ]
+    },
+    {
+      "snomed_code": "249496004",
+      "preferred_term": "Eructation",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "khatti dakar",
+        "dakar aana",
+        "sour belching"
+      ]
+    },
+    {
+      "snomed_code": "162031009",
+      "preferred_term": "Indigestion",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "badhazmi",
+        "khana hazam nahi hota",
+        "indigestion"
+      ]
+    },
+    {
+      "snomed_code": "21522001",
+      "preferred_term": "Abdominal pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "gi_pain",
+      "synonyms": [
+        "pet mein dard",
+        "pet dard",
+        "pet mein marod",
+        "abdominal pain"
+      ]
+    },
+    {
+      "snomed_code": "79922009",
+      "preferred_term": "Epigastric pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "gi_pain",
+      "synonyms": [
+        "upar pet mein dard",
+        "epigastric pain"
+      ]
+    },
+    {
+      "snomed_code": "422587007",
+      "preferred_term": "Nausea",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "emesis",
+      "synonyms": [
+        "ji machlana",
+        "matli",
+        "nausea",
+        "ulti jaisa lagna"
+      ]
+    },
+    {
+      "snomed_code": "422400008",
+      "preferred_term": "Vomiting",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "emesis",
+      "synonyms": [
+        "ulti",
+        "ulti hona",
+        "vomiting"
+      ]
+    },
+    {
+      "snomed_code": "62315008",
+      "preferred_term": "Diarrhea",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "bowel",
+      "synonyms": [
+        "dast",
+        "loose motion",
+        "patle dast",
+        "diarrhea"
+      ]
+    },
+    {
+      "snomed_code": "14760008",
+      "preferred_term": "Constipation",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "bowel",
+      "synonyms": [
+        "qabz",
+        "pet saaf nahi hota",
+        "constipation"
+      ]
+    },
+    {
+      "snomed_code": "4556007",
+      "preferred_term": "Gastritis",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "gastritis",
+        "pet mein sujan"
+      ]
+    },
+    {
+      "snomed_code": "235595009",
+      "preferred_term": "Gastroesophageal reflux disease",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "gerd",
+        "acid reflux"
+      ]
+    },
+    {
+      "snomed_code": "40739000",
+      "preferred_term": "Dysphagia",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "esophageal",
+      "synonyms": [
+        "nigalne mein takleef",
+        "difficulty swallowing"
+      ]
+    },
+    {
+      "snomed_code": "18165001",
+      "preferred_term": "Jaundice",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "hepatic",
+      "synonyms": [
+        "peeliya",
+        "jaundice"
+      ]
+    },
+    {
+      "snomed_code": "26284000",
+      "preferred_term": "Ulcer of mouth",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "oral",
+      "synonyms": [
+        "muh mein chhale",
+        "mouth ulcer"
+      ]
+    },
+    {
+      "snomed_code": "68962001",
+      "preferred_term": "Muscle pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "myalgia",
+      "synonyms": [
+        "badan dard",
+        "maanspeshiyon mein dard",
+        "body ache",
+        "myalgia"
+      ]
+    },
+    {
+      "snomed_code": "71315009",
+      "preferred_term": "Muscle cramp in leg",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "myalgia",
+      "synonyms": [
+        "pindli mein nas chadhna",
+        "leg cramps"
+      ]
+    },
+    {
+      "snomed_code": "57676002",
+      "preferred_term": "Joint pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "arthralgia",
+      "synonyms": [
+        "jodon mein dard",
+        "joint pain",
+        "arthralgia"
+      ]
+    },
+    {
+      "snomed_code": "30989003",
+      "preferred_term": "Knee pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "arthralgia",
+      "synonyms": [
+        "ghutne mein dard",
+        "knee pain"
+      ]
+    },
+    {
+      "snomed_code": "45326000",
+      "preferred_term": "Shoulder pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "arthralgia",
+      "synonyms": [
+        "kandhe mein dard",
+        "shoulder pain"
+      ]
+    },
+    {
+      "snomed_code": "161891005",
+      "preferred_term": "Backache",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "spine",
+      "synonyms": [
+        "kamar mein dard",
+        "peeth mein dard",
+        "backache",
+        "back pain"
+      ]
+    },
+    {
+      "snomed_code": "81680005",
+      "preferred_term": "Neck pain",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "spine",
+      "synonyms": [
+        "gardan mein dard",
+        "neck pain"
+      ]
+    },
+    {
+      "snomed_code": "396275006",
+      "preferred_term": "Osteoarthritis",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "musculoskeletal",
+      "sub_branch": "arthralgia",
+      "synonyms": [
+        "osteoarthritis",
+        "gathiya"
+      ]
+    },
+    {
+      "snomed_code": "49650001",
+      "preferred_term": "Dysuria",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "systemic",
+      "sub_branch": "urinary",
+      "synonyms": [
+        "peshab mein jalan",
+        "burning urination"
+      ]
+    },
+    {
+      "snomed_code": "68566005",
+      "preferred_term": "Urinary tract infection",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "systemic",
+      "sub_branch": "urinary",
+      "synonyms": [
+        "urine infection",
+        "uti"
+      ]
+    },
+    {
+      "snomed_code": "418290006",
+      "preferred_term": "Itching",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "derm",
+      "sub_branch": "pruritus",
+      "synonyms": [
+        "khujli",
+        "itching"
+      ]
+    },
+    {
+      "snomed_code": "126485001",
+      "preferred_term": "Urticaria",
+      "semantic_tag": "disorder",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "derm",
+      "sub_branch": "pruritus",
+      "synonyms": [
+        "pitti uchhalna",
+        "hives",
+        "urticaria"
+      ]
+    },
+    {
+      "snomed_code": "387517004",
+      "preferred_term": "Paracetamol",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "analgesic_antipyretic",
+      "synonyms": [
+        "paracetamol",
+        "dolo",
+        "crocin",
+        "calpol",
+        "pcm"
+      ]
+    },
+    {
+      "snomed_code": "387207008",
+      "preferred_term": "Ibuprofen",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "nsaid",
+      "synonyms": [
+        "ibuprofen",
+        "brufen",
+        "combiflam"
+      ]
+    },
+    {
+      "snomed_code": "703125008",
+      "preferred_term": "Diclofenac",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "nsaid",
+      "synonyms": [
+        "diclofenac",
+        "voveran"
+      ]
+    },
+    {
+      "snomed_code": "387531004",
+      "preferred_term": "Azithromycin",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antibiotic",
+      "synonyms": [
+        "azithromycin",
+        "azee",
+        "azithral"
+      ]
+    },
+    {
+      "snomed_code": "372687004",
+      "preferred_term": "Amoxicillin",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antibiotic",
+      "synonyms": [
+        "amoxicillin",
+        "augmentin",
+        "mox"
+      ]
+    },
+    {
+      "snomed_code": "372840008",
+      "preferred_term": "Ciprofloxacin",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antibiotic",
+      "synonyms": [
+        "ciprofloxacin",
+        "cifran"
+      ]
+    },
+    {
+      "snomed_code": "255631004",
+      "preferred_term": "Antibiotic",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antibiotic",
+      "synonyms": [
+        "antibiotic",
+        "antibiotics"
+      ]
+    },
+    {
+      "snomed_code": "372887000",
+      "preferred_term": "Cetirizine",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antihistamine",
+      "synonyms": [
+        "cetirizine",
+        "okacet",
+        "levocetirizine"
+      ]
+    },
+    {
+      "snomed_code": "372729009",
+      "preferred_term": "Montelukast",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "respiratory_drug",
+      "synonyms": [
+        "montelukast",
+        "montair"
+      ]
+    },
+    {
+      "snomed_code": "387475002",
+      "preferred_term": "Salbutamol",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "respiratory_drug",
+      "synonyms": [
+        "salbutamol",
+        "asthalin"
+      ]
+    },
+    {
+      "snomed_code": "372567009",
+      "preferred_term": "Metformin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antidiabetic",
+      "synonyms": [
+        "metformin",
+        "glycomet"
+      ]
+    },
+    {
+      "snomed_code": "373492002",
+      "preferred_term": "Glimepiride",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antidiabetic",
+      "synonyms": [
+        "glimepiride",
+        "amaryl"
+      ]
+    },
+    {
+      "snomed_code": "412261000",
+      "preferred_term": "Sitagliptin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antidiabetic",
+      "synonyms": [
+        "sitagliptin",
+        "januvia"
+      ]
+    },
+    {
+      "snomed_code": "67866001",
+      "preferred_term": "Insulin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antidiabetic",
+      "synonyms": [
+        "insulin"
+      ]
+    },
+    {
+      "snomed_code": "386864001",
+      "preferred_term": "Amlodipine",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antihypertensive",
+      "synonyms": [
+        "amlodipine",
+        "stamlo"
+      ]
+    },
+    {
+      "snomed_code": "373529000",
+      "preferred_term": "Telmisartan",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antihypertensive",
+      "synonyms": [
+        "telmisartan",
+        "telma"
+      ]
+    },
+    {
+      "snomed_code": "387094007",
+      "preferred_term": "Losartan",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antihypertensive",
+      "synonyms": [
+        "losartan"
+      ]
+    },
+    {
+      "snomed_code": "372733002",
+      "preferred_term": "Metoprolol",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antihypertensive",
+      "synonyms": [
+        "metoprolol"
+      ]
+    },
+    {
+      "snomed_code": "372912004",
+      "preferred_term": "Atorvastatin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "statin",
+      "synonyms": [
+        "atorvastatin",
+        "lipitor"
+      ]
+    },
+    {
+      "snomed_code": "387458008",
+      "preferred_term": "Aspirin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antiplatelet",
+      "synonyms": [
+        "aspirin",
+        "ecosprin"
+      ]
+    },
+    {
+      "snomed_code": "395821003",
+      "preferred_term": "Pantoprazole",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "ppi",
+      "synonyms": [
+        "pantoprazole",
+        "pan 40",
+        "pan d"
+      ]
+    },
+    {
+      "snomed_code": "387137007",
+      "preferred_term": "Omeprazole",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "ppi",
+      "synonyms": [
+        "omeprazole",
+        "omez"
+      ]
+    },
+    {
+      "snomed_code": "387311004",
+      "preferred_term": "Domperidone",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "antiemetic",
+      "synonyms": [
+        "domperidone"
+      ]
+    },
+    {
+      "snomed_code": "372487007",
+      "preferred_term": "Ondansetron",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "antiemetic",
+      "synonyms": [
+        "ondansetron",
+        "emeset"
+      ]
+    },
+    {
+      "snomed_code": "387077008",
+      "preferred_term": "Oral rehydration salts",
+      "semantic_tag": "medication",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "drug",
+      "sub_branch": "electrolyte",
+      "synonyms": [
+        "ors",
+        "electral"
+      ]
+    },
+    {
+      "snomed_code": "387086006",
+      "preferred_term": "Cyanocobalamin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "vitamin",
+      "synonyms": [
+        "vitamin b12",
+        "methylcobalamin",
+        "neurobion"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "patients": [
+    {
+      "patient_id": "SYN-PAT-001",
+      "persona": "54yo Male — Uncontrolled Type 2 Diabetes progressing to Neuropathy with Metformin titration",
+      "visits": [
+        {
+          "consult_id": "LONG-P1-V1",
+          "visit_date": "2026-08-10",
+          "transcript": "doctor sahab mujhe diabetes hai aur baar baar peshab aata hai metformin ek goli subah shaam le raha hoon"
+        },
+        {
+          "consult_id": "LONG-P1-V2",
+          "visit_date": "2026-09-22",
+          "transcript": "ab baar baar peshab nahi hai par sugar high hai aur chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"
+        },
+        {
+          "consult_id": "LONG-P1-V3",
+          "visit_date": "2026-11-05",
+          "transcript": "sugar high abhi bhi hai aur do hafte se paer mein jhanjhanahat shuru ho gayi hai metformin do goli aur vitamin b12 ek goli roz lijiye"
+        }
+      ]
+    },
+    {
+      "patient_id": "SYN-PAT-002",
+      "persona": "46yo Female — Hypertension + NSAID-induced Gastritis resolved after stopping Ibuprofen",
+      "visits": [
+        {
+          "consult_id": "LONG-P2-V1",
+          "visit_date": "2026-09-01",
+          "transcript": "mera bp high rehta hai aur ghutne mein dard hai amlodipine ek goli aur ibuprofen ek goli le rahi hoon"
+        },
+        {
+          "consult_id": "LONG-P2-V2",
+          "visit_date": "2026-10-04",
+          "transcript": "bp high theek nahi hua amlodipine dedh goli karein aur pet mein gas banti hai aur seene mein jalan hai ibuprofen mat lijiye pantoprazole ek goli subah lein"
+        },
+        {
+          "consult_id": "LONG-P2-V3",
+          "visit_date": "2026-11-10",
+          "transcript": "ab seene mein jalan nahi hai aur pet mein gas nahi hai amlodipine dedh goli jaari rakhein"
+        }
+      ]
+    },
+    {
+      "patient_id": "SYN-PAT-003",
+      "persona": "29yo Male — Acute Viral URI evolving to secondary bacterial cough vs resolved fever",
+      "visits": [
+        {
+          "consult_id": "LONG-P3-V1",
+          "visit_date": "2026-10-25",
+          "transcript": "teen din se bukhar aur sukhi khansi hai paracetamol ek goli lijiye antibiotic mat lijiye"
+        },
+        {
+          "consult_id": "LONG-P3-V2",
+          "visit_date": "2026-11-02",
+          "transcript": "bukhar nahi hai par balgam wali khansi aur saans phoolna hai amoxicillin ek goli subah shaam lijiye"
+        },
+        {
+          "consult_id": "LONG-P3-V3",
+          "visit_date": "2026-11-12",
+          "transcript": "ab balgam wali khansi nahi hai aur saans phoolna nahi hai amoxicillin mat lijiye"
+        }
+      ]
+    }
+  ]
+}

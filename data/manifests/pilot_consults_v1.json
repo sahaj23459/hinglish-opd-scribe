@@ -1,0 +1,1339 @@
+{
+  "version": "1.0",
+  "consults": [
+    {
+      "consult_id": "OPD-T01",
+      "split": "test",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "negation",
+        "fractional_dose",
+        "amr_stewardship"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "डॉक्टर साहब, मुझे तीन दिन से बुखार है, पर सिर में दर्द नहीं है।",
+          "text_ref": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Paracetamol डेढ़ गोली सुबह शाम लीजिए, viral में antibiotic मत लीजिए।",
+          "text_ref": "paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "25064002",
+          "preferred_term": "Headache",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.5
+        },
+        {
+          "snomed_code": "255631004",
+          "preferred_term": "Antibiotic",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T02",
+      "split": "test",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "negation",
+        "amr_stewardship"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "मुझे चार दिन से सूखी खांसी और गले में दर्द है, पर सांस फूलना नहीं है।",
+          "text_ref": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Cetirizine एक गोली रात को लें, Azithromycin मत लें।",
+          "text_ref": "cetirizine ek goli raat ko lein azithromycin mat lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "11833005",
+          "preferred_term": "Dry cough",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 4.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "162397003",
+          "preferred_term": "Pain in throat",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "267036007",
+          "preferred_term": "Dyspnea",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372887000",
+          "preferred_term": "Cetirizine",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        },
+        {
+          "snomed_code": "387531004",
+          "preferred_term": "Azithromycin",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T03",
+      "split": "test",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "negation",
+        "vector_borne"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "दो दिन से तेज़ बुखार और कपकपी है, लेकिन शरीर पर लाल दाने नहीं हैं।",
+          "text_ref": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Paracetamol एक गोली लीजिए और कल खून की जांच कराएं।",
+          "text_ref": "paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "43724002",
+          "preferred_term": "Chill",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "271807003",
+          "preferred_term": "Eruption of skin",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T04",
+      "split": "test",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "idiom",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "पांच दिन से सर्दी जुकाम है और बदन टूट रहा है, पर उल्टी नहीं है।",
+          "text_ref": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "भाप लीजिए और Paracetamol आधी गोली जरूरत पड़ने पर लें।",
+          "text_ref": "bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "82272006",
+          "preferred_term": "Common cold",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 5.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "84229001",
+          "preferred_term": "Fatigue",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "422400008",
+          "preferred_term": "Vomiting",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 0.5
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T05",
+      "split": "test",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "attendant_turn",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "attendant",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "डॉक्टर साहब, इनको तीन दिन से बलगम वाली खांसी है और भूख नहीं लगती।",
+          "text_ref": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti"
+        },
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "हाँ पर सीने में दर्द नहीं है।",
+          "text_ref": "haan par seene mein dard nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Amoxicillin एक गोली सुबह शाम पांच दिन तक लीजिए।",
+          "text_ref": "amoxicillin ek goli subah shaam paanch din tak lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "28743005",
+          "preferred_term": "Productive cough",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "161838008",
+          "preferred_term": "Loss of appetite",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "29857009",
+          "preferred_term": "Chest pain",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372687004",
+          "preferred_term": "Amoxicillin",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T06",
+      "split": "test",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "fractional_dose",
+        "idiom",
+        "ambiguous_chakkar"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "डॉक्टर साहब, दो महीने से शुगर बढ़ गई है और सुबह चक्कर आना होता है।",
+          "text_ref": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Metformin डेढ़ गोली सुबह शाम कर दीजिए।",
+          "text_ref": "metformin dedh goli subah shaam kar dijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "80394007",
+          "preferred_term": "Hyperglycemia",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "mo"
+        },
+        {
+          "snomed_code": "404640003",
+          "preferred_term": "Dizziness",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372567009",
+          "preferred_term": "Metformin",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.5
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T07",
+      "split": "test",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "fractional_dose_dhai",
+        "neuropathy",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "मुझे diabetes है, तीन महीने से पैर में झनझनाहट है पर पैर में सूजन नहीं है।",
+          "text_ref": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Metformin ढाई गोली मत लीजिए, सिर्फ दो गोली लें और Vitamin B12 एक गोली रोज लें।",
+          "text_ref": "metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "44054006",
+          "preferred_term": "Diabetes mellitus type 2",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "302226006",
+          "preferred_term": "Peripheral neuropathy",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "mo"
+        },
+        {
+          "snomed_code": "247355005",
+          "preferred_term": "Edema of foot",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372567009",
+          "preferred_term": "Metformin",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient",
+          "dose_value": 2.5
+        },
+        {
+          "snomed_code": "387086006",
+          "preferred_term": "Cyanocobalamin",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T08",
+      "split": "test",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "family_subject",
+        "fractional_dose",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "मेरे पिताजी को दिल की बीमारी थी, मेरा BP high रहता है पर सीने में दर्द नहीं है।",
+          "text_ref": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Amlodipine आधी गोली रोज सुबह लें और Telmisartan एक गोली जारी रखें।",
+          "text_ref": "amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "56265001",
+          "preferred_term": "Heart disease",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "family_member"
+        },
+        {
+          "snomed_code": "38341003",
+          "preferred_term": "Hypertensive disorder",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "29857009",
+          "preferred_term": "Chest pain",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "386864001",
+          "preferred_term": "Amlodipine",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 0.5
+        },
+        {
+          "snomed_code": "373529000",
+          "preferred_term": "Telmisartan",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T09",
+      "split": "test",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "polyuria",
+        "vision",
+        "statin"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "एक महीने से बार बार पेशाब आता है और धुंधला दिखना शुरू हुआ है।",
+          "text_ref": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Glimepiride एक गोली नाश्ते से पहले और Atorvastatin एक गोली रात को लें।",
+          "text_ref": "glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "28442001",
+          "preferred_term": "Polyuria",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 1.0,
+          "duration_unit": "mo"
+        },
+        {
+          "snomed_code": "246636008",
+          "preferred_term": "Blurred vision",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "373492002",
+          "preferred_term": "Glimepiride",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        },
+        {
+          "snomed_code": "372912004",
+          "preferred_term": "Atorvastatin",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T10",
+      "split": "test",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "palpitations",
+        "negation",
+        "fractional_dose"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "सात दिन से दिल की धड़कन बढ़ना महसूस होता है, पर बेहोश होना नहीं हुआ।",
+          "text_ref": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Metoprolol सवा गोली नहीं, सिर्फ आधी गोली सुबह लें।",
+          "text_ref": "metoprolol sawa goli nahi sirf aadhi goli subah lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "80313002",
+          "preferred_term": "Palpitations",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 7.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "271594007",
+          "preferred_term": "Syncope",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372733002",
+          "preferred_term": "Metoprolol",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient",
+          "dose_value": 1.25
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T11",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "idiom_gas",
+        "idiom_khatti_dakar",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "डॉक्टर साहब, दस दिन से पेट में गैस बनती है और खट्टी डकार आती है, पर उल्टी नहीं है।",
+          "text_ref": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Pantoprazole एक गोली सुबह खाली पेट लीजिए।",
+          "text_ref": "pantoprazole ek goli subah khaali pet lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "162076009",
+          "preferred_term": "Abdominal bloating",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 10.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "249496004",
+          "preferred_term": "Eructation",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "422400008",
+          "preferred_term": "Vomiting",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "395821003",
+          "preferred_term": "Pantoprazole",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T12",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "laterality_left",
+        "negation",
+        "cardiac_ruleout"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "दो हफ्ते से बाएं कंधे में दर्द है, पर सीने में जलन नहीं है।",
+          "text_ref": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Ibuprofen एक गोली खाने के बाद लें।",
+          "text_ref": "ibuprofen ek goli khane ke baad lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "45326000",
+          "preferred_term": "Shoulder pain",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "wk",
+          "laterality": "left"
+        },
+        {
+          "snomed_code": "16331000",
+          "preferred_term": "Heartburn",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387207008",
+          "preferred_term": "Ibuprofen",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T13",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "diarrhea",
+        "ors",
+        "amr_stewardship"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "कल से पतले दस्त और पेट में दर्द है, पर बुखार नहीं है।",
+          "text_ref": "kal se patle dast aur pet mein dard hai par bukhar nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "ORS पीजिए और Ciprofloxacin मत लीजिए।",
+          "text_ref": "ors pijiye aur ciprofloxacin mat lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "62315008",
+          "preferred_term": "Diarrhea",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "21522001",
+          "preferred_term": "Abdominal pain",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387077008",
+          "preferred_term": "Oral rehydration salts",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372840008",
+          "preferred_term": "Ciprofloxacin",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T14",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "laterality_right",
+        "fractional_dose"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "तीन महीने से दाएं घुटने में दर्द है और कमर में दर्द भी है।",
+          "text_ref": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Paracetamol डेढ़ गोली जरूरत पर लें, Diclofenac मत लीजिए।",
+          "text_ref": "paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "30989003",
+          "preferred_term": "Knee pain",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "mo",
+          "laterality": "right"
+        },
+        {
+          "snomed_code": "161891005",
+          "preferred_term": "Backache",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.5
+        },
+        {
+          "snomed_code": "703125008",
+          "preferred_term": "Diclofenac",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T15",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "nausea",
+        "constipation",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "छह दिन से कब्ज है और जी मचलाना रहता है, पर पीलिया नहीं है।",
+          "text_ref": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Ondansetron एक गोली सुबह लें और पानी ज्यादा पिएं।",
+          "text_ref": "ondansetron ek goli subah lein aur pani zyada piyein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "14760008",
+          "preferred_term": "Constipation",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 6.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "422587007",
+          "preferred_term": "Nausea",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "18165001",
+          "preferred_term": "Jaundice",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372487007",
+          "preferred_term": "Ondansetron",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-T16",
+      "split": "test",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "dysuria",
+        "family_subject",
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "चार दिन से पेशाब में जलन है, माताजी को diabetes है पर मुझे बुखार नहीं है।",
+          "text_ref": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Urine test कराइए और अभी antibiotic मत लीजिए।",
+          "text_ref": "urine test karaiye aur abhi antibiotic mat lijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "49650001",
+          "preferred_term": "Dysuria",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 4.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "44054006",
+          "preferred_term": "Diabetes mellitus type 2",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "family_member"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "255631004",
+          "preferred_term": "Antibiotic",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D01",
+      "split": "dev",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "negation"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "दो दिन से बुखार और खांसी है, पर सांस फूलना नहीं है।",
+          "text_ref": "do din se bukhar aur khansi hai par saans phoolna nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Paracetamol एक गोली लें।",
+          "text_ref": "paracetamol ek goli lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "49727002",
+          "preferred_term": "Cough",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "267036007",
+          "preferred_term": "Dyspnea",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D02",
+      "split": "dev",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "fractional_dose"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "मेरा BP high है और सिर में दर्द है।",
+          "text_ref": "mera bp high hai aur sir mein dard hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Amlodipine डेढ़ गोली सुबह लें।",
+          "text_ref": "amlodipine dedh goli subah lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "38341003",
+          "preferred_term": "Hypertensive disorder",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "25064002",
+          "preferred_term": "Headache",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "386864001",
+          "preferred_term": "Amlodipine",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.5
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D03",
+      "split": "dev",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "idiom_gas"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "तीन दिन से पेट में गैस और सीने में जलन है।",
+          "text_ref": "teen din se pet mein gas aur seene mein jalan hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Omeprazole एक गोली सुबह लें।",
+          "text_ref": "omeprazole ek goli subah lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "162076009",
+          "preferred_term": "Abdominal bloating",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "16331000",
+          "preferred_term": "Heartburn",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387137007",
+          "preferred_term": "Omeprazole",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D04",
+      "split": "dev",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "amr_stewardship"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "तीन दिन से नाक बहना और गले में दर्द है।",
+          "text_ref": "teen din se naak behna aur gale mein dard hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Cetirizine एक गोली लें, antibiotic मत लें।",
+          "text_ref": "cetirizine ek goli lein antibiotic mat lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "64531003",
+          "preferred_term": "Nasal discharge",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "162397003",
+          "preferred_term": "Pain in throat",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372887000",
+          "preferred_term": "Cetirizine",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        },
+        {
+          "snomed_code": "255631004",
+          "preferred_term": "Antibiotic",
+          "semantic_tag": "medication",
+          "polarity": "negated",
+          "subject": "patient"
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D05",
+      "split": "dev",
+      "domain": "cardiometabolic",
+      "stress_tags": [
+        "hypoglycemia"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "आज सुबह शुगर कम हो गई और पसीना आना हुआ।",
+          "text_ref": "aaj subah sugar low aur paseena aana hua"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Glimepiride आधी गोली कर दीजिए।",
+          "text_ref": "glimepiride aadhi goli kar dijiye"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "302866003",
+          "preferred_term": "Hypoglycemia",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "52613005",
+          "preferred_term": "Excessive sweating",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "373492002",
+          "preferred_term": "Glimepiride",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 0.5
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D06",
+      "split": "dev",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "neck_pain"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "पांच दिन से गर्दन में दर्द है पर सुन्नपन नहीं है।",
+          "text_ref": "paanch din se gardan mein dard hai par sunnapan nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Paracetamol एक गोली लें।",
+          "text_ref": "paracetamol ek goli lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "81680005",
+          "preferred_term": "Neck pain",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 5.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "44077006",
+          "preferred_term": "Numbness",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387517004",
+          "preferred_term": "Paracetamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D07",
+      "split": "dev",
+      "domain": "acute_febrile_amr",
+      "stress_tags": [
+        "asthma"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-SwaraNeural",
+          "text_tts": "मुझे दमा है और दो दिन से सांस फूलना बढ़ गया है, पर बुखार नहीं है।",
+          "text_ref": "mujhe dama hai aur do din se saans phoolna badh gaya hai par bukhar nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-PrabhatNeural",
+          "text_tts": "Salbutamol लीजिए और Montelukast एक गोली रात को लें।",
+          "text_ref": "salbutamol lijiye aur montelukast ek goli raat ko lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "195967001",
+          "preferred_term": "Asthma",
+          "semantic_tag": "disorder",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "267036007",
+          "preferred_term": "Dyspnea",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 2.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "387475002",
+          "preferred_term": "Salbutamol",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372729009",
+          "preferred_term": "Montelukast",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    },
+    {
+      "consult_id": "OPD-D08",
+      "split": "dev",
+      "domain": "gi_musculoskeletal",
+      "stress_tags": [
+        "pruritus"
+      ],
+      "turns": [
+        {
+          "speaker": "patient",
+          "voice": "hi-IN-MadhurNeural",
+          "text_tts": "तीन दिन से खुजली और लाल दाने हैं, पर बुखार नहीं है।",
+          "text_ref": "teen din se khujli aur lal daane hai par bukhar nahi hai"
+        },
+        {
+          "speaker": "doctor",
+          "voice": "en-IN-NeerjaNeural",
+          "text_tts": "Cetirizine एक गोली रात को लें।",
+          "text_ref": "cetirizine ek goli raat ko lein"
+        }
+      ],
+      "gold_annotations": [
+        {
+          "snomed_code": "418290006",
+          "preferred_term": "Itching",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "duration_value": 3.0,
+          "duration_unit": "d"
+        },
+        {
+          "snomed_code": "271807003",
+          "preferred_term": "Eruption of skin",
+          "semantic_tag": "finding",
+          "polarity": "affirmed",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "386661006",
+          "preferred_term": "Fever",
+          "semantic_tag": "finding",
+          "polarity": "negated",
+          "subject": "patient"
+        },
+        {
+          "snomed_code": "372887000",
+          "preferred_term": "Cetirizine",
+          "semantic_tag": "medication",
+          "polarity": "affirmed",
+          "subject": "patient",
+          "dose_value": 1.0
+        }
+      ]
+    }
+  ]
+}

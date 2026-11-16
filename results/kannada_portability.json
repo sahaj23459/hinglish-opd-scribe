@@ -1,0 +1,51 @@
+{
+  "core_code_lines_changed_for_kannada": 0,
+  "lexicon_swapped": "data/lexicon/kannada_snomed_lexicon.json",
+  "oracle_kannada_mean_snomed_f1": 1.0,
+  "oracle_kannada_mean_severity_score": 0.0,
+  "whisper_small_kannada_mean_nwer": 1.7522,
+  "whisper_small_kannada_mean_snomed_f1": 0.0,
+  "honest_finding": "Swapping ONLY the lexicon achieves high SNOMED F1 on Oracle Kannada text with zero FHIR/evaluator code changes, whereas off-the-shelf Whisper-Small degrades substantially on Kannada speech—motivating IndicConformer/Parrotlet + native Kannada speaker review for Karnataka deployment.",
+  "examples": [
+    {
+      "consult_id": "KN-OPD-01",
+      "kannada_script_input": "ಡಾಕ್ಟರ್ ನನಗೆ ಮೂರು ದಿನದಿಂದ ಜ್ವರ ಇದೆ ಆದರೆ ತಲೆನೋವು ಇಲ್ಲ ಪ್ಯಾರಾಸಿಟಮಾಲ್ ಒಂದೂವರೆ ಮಾತ್ರೆ",
+      "whisper_small_raw_output": "ಅತೇರೂವೆ ಆನಾಸಿನ ಸೊರಿಟರೆ ಡಿದರು ಪೆತೆ ಮ್ದಲಿನೆ ವಳಾಸಿ ನಿನಷಿ ಬಟೆ ಫುಗೆ ಸಿನನೆ ಸೊರಗಗಳು ಹೆತ್ರೆ ಸಿಷೆ ಮೆರೆ ಹೆಕೆ ಹುವಳು ಮುವಳಲಲಲಲ ಸಿಳಾಂವ್Ыಂತೆ, ಮ್ತರಾ�",
+      "oracle_snomed_f1": 1.0,
+      "asr_cascaded_snomed_f1": 0.0,
+      "asr_normalized_wer": 1.6667
+    },
+    {
+      "consult_id": "KN-OPD-02",
+      "kannada_script_input": "ನನಗೆ ಕೆಮ್ಮು ಮತ್ತು ಶೀತ ಇದೆ ಆದರೆ ಜ್ವರ ಇಲ್ಲ ಆಂಟಿಬಯೋಟಿಕ್ ಬೇಡ",
+      "whisper_small_raw_output": "ಆಂಟ್ರೆ ಪ್ಯಾರೆ ಬಿತೇಡೆ ಆದರೆ ವಿಂದ್ರಿಗೆ ಈಳ ದೈರೆ ಸಾಸ್ತೂವೆ ಕೆರರಿಕ್ ವಾತ್ಯಿಕೆ ಮೆದೆರಾ ಸಾರೆ ಮಾವ್ನು ಬುವತ್ಲ ಟಾವತು ಡೈಟುಲ אומרದರರೆ ಅಣನ ಮಾರ್ಬಾಡರೇತು ಪ್ಿಯ ಗ",
+      "oracle_snomed_f1": 1.0,
+      "asr_cascaded_snomed_f1": 0.0,
+      "asr_normalized_wer": 2.1
+    },
+    {
+      "consult_id": "KN-OPD-03",
+      "kannada_script_input": "ನನಗೆ ಸಕ್ಕರೆ ಕಾಯಿಲೆ ಮತ್ತು ತಲೆಸುತ್ತು ಇದೆ ಮೆಟ್ಫಾರ್ಮಿನ್ ಎರಡು ಮಾತ್ರೆ",
+      "whisper_small_raw_output": "ಕಾರಲೆ ಸಾಪಾಸೇಟಾನಿ ಬಣಾಳೆಯೆ ತಾತ್ಯಾಕೆರಂತೆ ಬಿಸಾರಾಪೆರೆ ಮಾಸೆಹಿ ಬಾರ ನೀದೆಯಿನೀತಿಸೆ ಮಾಸೆರ್ಯಿದಿ ಮಿಸಿಯಾರೆಯಾ ಸಿಸೋರತಿರಂ... ಜಿಕಳ್ತಾತು ಮಾರಿಸಿಕೆ�",
+      "oracle_snomed_f1": 1.0,
+      "asr_cascaded_snomed_f1": 0.0,
+      "asr_normalized_wer": 1.4444
+    },
+    {
+      "consult_id": "KN-OPD-04",
+      "kannada_script_input": "ನನಗೆ ಹೊಟ್ಟೆ ಉಬ್ಬರ ಮತ್ತು ಎದೆ ಉರಿ ಇದೆ ಆದರೆ ವಾಂತಿ ಇಲ್ಲ",
+      "whisper_small_raw_output": "ಅಣಿನೋಯು ಇಲಾವೇಸಿ ಮಾನು ಮಾರ್ನು ಡಿದ್ನು ನಾನು ಸಾರ್ನು ಮಾರ್ಸಿ ಸಿರುರಾಸ್, ಹೊಮು ವಾನು ವಳನಿನಿತೆ ಹಾರುಗನಿಂವ ಮಾಯಾರ್ತ್ರು ಮೆತ್ಯಾರು ಮಿದೆ ಶಿರುತೆ ಬಾರುದರಿ",
+      "oracle_snomed_f1": 1.0,
+      "asr_cascaded_snomed_f1": 0.0,
+      "asr_normalized_wer": 1.8
+    },
+    {
+      "consult_id": "KN-OPD-05",
+      "kannada_script_input": "ನನಗೆ ಎರಡು ದಿನದಿಂದ ಭೇದಿ ಇದೆ ಆದರೆ ಜ್ವರ ಇಲ್ಲ",
+      "whisper_small_raw_output": "ಳಾನುವಾರ ಮಾನುದಿದು ವಾನಗಿಜಾರೆ ಎತೆಗಿರುcling� ವಾತೆಂಯಿ ಮಾಕದಿಗಿಲ್ ಮಲಿಟವು ಬಾತುರುಲಾ ಎತ್ಲಿಕುಯಾರಿ ಪಾರ್ಡುದು ಬಾರ್ತಿಂದ್ ಬಾರುಳಳಿಂ ರಾರುನು ಮಾಾಟರಿಜನು",
+      "oracle_snomed_f1": 1.0,
+      "asr_cascaded_snomed_f1": 0.0,
+      "asr_normalized_wer": 1.75
+    }
+  ]
+}

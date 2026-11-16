@@ -1,0 +1,383 @@
+{
+  "num_documented_cases": 26,
+  "cases": [
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T01",
+      "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye",
+      "asr_raw": "दोक्तर साहब, मुझे तीन दिन से बुखार है, पर सिर में दर्ध नहीं है. परसीट मोल देड गोली सुभा शाम लीजे, वाईरल में आंटिभायोटिक मैत लीजे.",
+      "asr_normalized": "doktar sahab mujhe teen din se bukhar hai par sir mein dardh nahi hai parasit mol dedh goli subah shaam lije vaeeral mein aantibhayotik mait lije",
+      "normalized_wer": 0.36,
+      "clinical_severity_score": 2.5,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004).",
+        "Missed/swapped medication Antibiotic (255631004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T02",
+      "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein",
+      "asr_raw": "मुझे चार दिन से सुखी खासी और गले में दर्द है, पर सास पूलना नहीं है. सेटरसीन एक गोली रात को लेन आजत्रमाइसन मैत लेन",
+      "asr_normalized": "mujhe chaar din se sukhi khansi aur gale mein dard hai par sas poolana nahi hai setarasin ek goli raat ko len aajatramaisan mait len",
+      "normalized_wer": 0.28,
+      "clinical_severity_score": 2.6,
+      "critical_errors": [
+        "Missed/swapped medication Cetirizine (372887000).",
+        "Missed/swapped medication Azithromycin (387531004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T03",
+      "reference": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein",
+      "asr_raw": "तो दिन से तेस भुखार और कपक पी है, लेकिन शरीर पर लाल दाने नहीं है. परसीट माल एक गोली लीजिये और कल खुन की जाटकर आई.",
+      "asr_normalized": "toh din se tes bhukhar aur kapak pi hai lekin sharir par lal daane nahi hai parasit mal ek goli lijiye aur kal khun ki jatakar aaee",
+      "normalized_wer": 0.4,
+      "clinical_severity_score": 2.75,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T04",
+      "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein",
+      "asr_raw": "पाच दिन से सर्दी जुकाम है, और बदन तूट रहा है, पर उल्टी नहीं है बाप लीजिये और पैरसीटमाल आदी गोली जुरुरत परने पर लें",
+      "asr_normalized": "pach din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bap lijiye aur pairasitamal aadi goli jururat parane par len",
+      "normalized_wer": 0.28,
+      "clinical_severity_score": 2.0,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T06",
+      "reference": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye",
+      "asr_raw": "दोक्तर साहब दो महीने से सुगर बदगगगे है, और सुभा चक्कर आना होता है. मेट फर्मिन देड गोली सुभा शामकर दिजे.",
+      "asr_normalized": "doktar sahab do mahine se sugar badagagage hai aur subah chakkar aana hota hai met pharmin dedh goli subah shamakar dije",
+      "normalized_wer": 0.3636,
+      "clinical_severity_score": 2.6667,
+      "critical_errors": [
+        "Missed/swapped medication Metformin (372567009)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T07",
+      "reference": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein",
+      "asr_raw": "मुझे डाईबीटीज है, ती महीने से पैर में जंजनाहत है, पर पैर में सुजन नहीं है. मेट्फोम लिए दाई गोली मत लीजिये, सर्फ दो गोली लेन और वाइटमन भी च्वल्फ एग गोली रोज लेन.",
+      "asr_normalized": "mujhe daeebitij hai ti mahine se paer mein janjanahat hai par paer mein sujan nahi hai metphom lie daee goli mat lijiye sarph do goli len aur vaitaman bhi chvalph eg goli roj len",
+      "normalized_wer": 0.4375,
+      "clinical_severity_score": 3.2,
+      "critical_errors": [
+        "Missed/swapped medication Metformin (372567009).",
+        "Missed/swapped medication Cyanocobalamin (387086006)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T11",
+      "reference": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye",
+      "asr_raw": "दोक्तर साहब दस दिन से पेट में गास बनती है और खत्ती डखार आती है, पर उल्ती नहीं है. आन्टो प्रजोल एक गोली सुबा खाली पेट लीजे.",
+      "asr_normalized": "doktar sahab das din se pet mein gas banati hai aur khatti dakhar aati hai par ulti nahi hai aanto prajol ek goli suba khaali pet lije",
+      "normalized_wer": 0.2692,
+      "clinical_severity_score": 1.25,
+      "critical_errors": [
+        "Missed/swapped medication Pantoprazole (395821003)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T12",
+      "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein",
+      "asr_raw": "तो हबते से बाए कंदे में दर्द है, पर सीने में जलन नहीं है. आप्यो प्रोफेन एक गोली खाने के बाद लें.",
+      "asr_normalized": "toh habate se bae kande mein dard hai par seene mein jalan nahi hai aapyo prophen ek goli khane ke baad len",
+      "normalized_wer": 0.3333,
+      "clinical_severity_score": 3.6667,
+      "critical_errors": [
+        "Missed/swapped medication Ibuprofen (387207008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T13",
+      "reference": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye",
+      "asr_raw": "कल से पत्ले दस्त और पेट में दर्द है, पर भुखार नहीं है.",
+      "asr_normalized": "kal se patle dast aur pet mein dard hai par bhukhar nahi hai",
+      "normalized_wer": 0.3684,
+      "clinical_severity_score": 2.0,
+      "critical_errors": [
+        "Missed/swapped medication Oral rehydration salts (387077008).",
+        "Missed/swapped medication Ciprofloxacin (372840008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T14",
+      "reference": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye",
+      "asr_raw": "तीन महीने से दाए गुटने में दर्द है, और कमर में दर्द भी है. पैरसी तमाल देड गोली ज्रूरत पर लें दिकलोफनाक मैत लीजे.",
+      "asr_normalized": "teen mahine se dae gutane mein dard hai aur kamar mein dard bhi hai pairasi tamal dedh goli jroorat par len dikalophanak mait lije",
+      "normalized_wer": 0.3913,
+      "clinical_severity_score": 3.25,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004).",
+        "Missed/swapped medication Diclofenac (703125008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T16",
+      "reference": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye",
+      "asr_raw": "चार दिन से पेशाब में जलन है, माताजी को दायबीटीज है, पर मुझे बुखार नहीं है. योरेंट तेस कराए और वी आन्टबायोटिक मात लीजे.",
+      "asr_normalized": "chaar din se peshab mein jalan hai mataji ko dayabitij hai par mujhe bukhar nahi hai yorent tes karae aur vi aantabayotik mat lije",
+      "normalized_wer": 0.2917,
+      "clinical_severity_score": 3.25,
+      "critical_errors": [
+        "Subject flip on Dysuria: gold='patient' vs pred='family_member'.",
+        "Missed/swapped medication Antibiotic (255631004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T01",
+      "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye",
+      "asr_raw": "दोक्तर साहव, मुझे तीं दिन से बुखार है, पर सिर में दर्ध नहीं है पैरा सीट मोल देड भोली सुभा, शाम लीजिये, विरल में आंटिभायोटिक मैत लीजिये",
+      "asr_normalized": "doktar sahav mujhe tin din se bukhar hai par sir mein dardh nahi hai paira sit mol dedh bholi subah shaam lijiye viral mein aantibhayotik mait lijiye",
+      "normalized_wer": 0.4,
+      "clinical_severity_score": 3.25,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004).",
+        "Missed/swapped medication Antibiotic (255631004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T02",
+      "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein",
+      "asr_raw": "मुझे चार दिन से सुखी खासी और गले में दर्द है, पर सांस पूलना नहीं है। सेटिरसीं एक गोली राद पूलनेर आजद्रमाइसं मैतलें",
+      "asr_normalized": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans poolana nahi hai setirasin ek goli rad poolaner aajadramaisan maitalen",
+      "normalized_wer": 0.32,
+      "clinical_severity_score": 2.0,
+      "critical_errors": [
+        "Missed/swapped medication Cetirizine (372887000).",
+        "Missed/swapped medication Azithromycin (387531004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T04",
+      "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein",
+      "asr_raw": "पाच दिन से सर्दी जुकाम है और बदन तुट रहा है पर उल्टी नहीं है भाप लीजिये और पारे सीटमाल आदी गोली जुर्ड़ पनने पर लें",
+      "asr_normalized": "pach din se sardi zukam hai aur badan tut raha hai par ulti nahi hai bhap lijiye aur pare sitamal aadi goli jurd panane par len",
+      "normalized_wer": 0.36,
+      "clinical_severity_score": 2.0,
+      "critical_errors": [
+        "Missed/swapped medication Paracetamol (387517004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T11",
+      "reference": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye",
+      "asr_raw": "डौक्तर साहब, दस दिन से पेट में गास बनती है, और खत्ती डखार आती है, पर उल्ती नहीं है. आन्टो प्रजोल एक बोली सुबा खाली पेट लीजी.",
+      "asr_normalized": "dauktar sahab das din se pet mein gas banati hai aur khatti dakhar aati hai par ulti nahi hai aanto prajol ek boli suba khaali pet liji",
+      "normalized_wer": 0.3077,
+      "clinical_severity_score": 1.25,
+      "critical_errors": [
+        "Missed/swapped medication Pantoprazole (395821003)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T12",
+      "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein",
+      "asr_raw": "तो हबते से बाए कंदे में दर्द है, पर सीने में जलन नहीं है आईभी प्रोफेन एक गोली खाने के बाद लें",
+      "asr_normalized": "toh habate se bae kande mein dard hai par seene mein jalan nahi hai aaeebhi prophen ek goli khane ke baad len",
+      "normalized_wer": 0.3333,
+      "clinical_severity_score": 3.6667,
+      "critical_errors": [
+        "Missed/swapped medication Ibuprofen (387207008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_10db",
+      "consult_id": "OPD-T16",
+      "reference": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye",
+      "asr_raw": "चार दिन से पेशाब में जलन है माताजी को दायबी टीज है पर मुझे बुखार नहीं है योरें पेस कराए और अभी आंटिभायोटिक माच लीजे",
+      "asr_normalized": "chaar din se peshab mein jalan hai mataji ko dayabi tij hai par mujhe bukhar nahi hai yoren pes karae aur abhi aantibhayotik mach lije",
+      "normalized_wer": 0.3333,
+      "clinical_severity_score": 3.25,
+      "critical_errors": [
+        "Subject flip on Dysuria: gold='patient' vs pred='family_member'.",
+        "Missed/swapped medication Antibiotic (255631004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_3db",
+      "consult_id": "OPD-T07",
+      "reference": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein",
+      "asr_raw": "मुझे डाएबीटीज है, ती महीने से पैर में जंजनाहत है, पर पैर में सुजन नहीं है. मेट्फोमिं दाई गोली मत लीजिये, सुझ दो गोली लेन और वाइटमन भी त्वल्पे गोली रोज लेन.",
+      "asr_normalized": "mujhe daebitij hai ti mahine se paer mein janjanahat hai par paer mein sujan nahi hai metphomin daee goli mat lijiye sujh do goli len aur vaitaman bhi tvalpe goli roj len",
+      "normalized_wer": 0.375,
+      "clinical_severity_score": 3.2,
+      "critical_errors": [
+        "Missed/swapped medication Metformin (372567009).",
+        "Missed/swapped medication Cyanocobalamin (387086006)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "noisy_3db",
+      "consult_id": "OPD-T12",
+      "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein",
+      "asr_raw": "तो हबते से बाए कंधे में दर्द है, फर सीने में जलन नहीं है. अईद्व प्रोखन एक भोली खाने के बाद फीश?",
+      "asr_normalized": "toh habate se bae kandhe mein dard hai phar seene mein jalan nahi hai aeedv prokhan ek bholi khane ke baad phish",
+      "normalized_wer": 0.381,
+      "clinical_severity_score": 5.3333,
+      "critical_errors": [
+        "Negation flip on Shoulder pain (45326000): gold='affirmed' vs pred='negated'.",
+        "Missed/swapped medication Ibuprofen (387207008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "overlap_10db",
+      "consult_id": "OPD-T01",
+      "reference": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye",
+      "asr_raw": "दोक्तर साहव, मुझे तीं दिन से बुखार है, पर सिर में दरने रहा है। तरसे तमोल देड गोली सुबा शाम लीजिये भाईडल में अंटिभायोटिक मैत लीजिये",
+      "asr_normalized": "doktar sahav mujhe tin din se bukhar hai par sir mein darane raha hai tarase tamol dedh goli suba shaam lijiye bhaeedal mein antibhayotik mait lijiye",
+      "normalized_wer": 0.44,
+      "clinical_severity_score": 4.5,
+      "critical_errors": [
+        "Negation flip on Headache (25064002): gold='negated' vs pred='affirmed'.",
+        "Missed/swapped medication Paracetamol (387517004).",
+        "Missed/swapped medication Antibiotic (255631004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "overlap_10db",
+      "consult_id": "OPD-T02",
+      "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein",
+      "asr_raw": "मुजे चार दिन से सुखी खासी और गले में दर्द है, पर सांस खुलना नहीं है।",
+      "asr_normalized": "muje chaar din se sukhi khansi aur gale mein dard hai par saans khulana nahi hai",
+      "normalized_wer": 0.44,
+      "clinical_severity_score": 2.6,
+      "critical_errors": [
+        "Missed/swapped medication Cetirizine (372887000).",
+        "Missed/swapped medication Azithromycin (387531004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "overlap_10db",
+      "consult_id": "OPD-T04",
+      "reference": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein",
+      "asr_raw": "पाच दिन से सर्दी जुकाम है और बदन तूट रहा है पर उल्टी नी है बाद लीजे और पारो सीटमोल आदी गोली जुरुड़ पनने पर लिए",
+      "asr_normalized": "pach din se sardi zukam hai aur badan toot raha hai par ulti ni hai baad lije aur paro sitamol aadi goli jurud panane par lie",
+      "normalized_wer": 0.4,
+      "clinical_severity_score": 3.25,
+      "critical_errors": [
+        "Negation flip on Vomiting (422400008): gold='negated' vs pred='affirmed'.",
+        "Missed/swapped medication Paracetamol (387517004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_auto",
+      "acoustic_condition": "overlap_10db",
+      "consult_id": "OPD-T12",
+      "reference": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein",
+      "asr_raw": "तो हबते से बाए कनदे में दर्ख है, पर सीने में जलन नहीं आपनी प्रुषन एक गोली खाने के बाद लेई",
+      "asr_normalized": "toh habate se bae kanade mein darkh hai par seene mein jalan nahi aapani prushan ek goli khane ke baad leee",
+      "normalized_wer": 0.381,
+      "clinical_severity_score": 3.6667,
+      "critical_errors": [
+        "Missed/swapped medication Ibuprofen (387207008)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_clinical_hinglish",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T02",
+      "reference": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein",
+      "asr_raw": "mujhe char din se sukhi khansi aur gale mein dard hai, par sahas phulna nahi hai. Ceterazine aig goli raath ko lain Azithromycin mat lain.",
+      "asr_normalized": "mujhe char din se sukhi khansi aur gale mein dard hai par sahas phulna nahi hai ceterazine aig goli raath ko lain azithromycin mat lain",
+      "normalized_wer": 0.32,
+      "clinical_severity_score": 1.8,
+      "critical_errors": [
+        "Missed/swapped medication Azithromycin (387531004)."
+      ]
+    },
+    {
+      "type": "LOW_MODERATE_WER_BUT_CRITICAL_CLINICAL_RISK",
+      "arm_id": "whisper_small_clinical_hinglish",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T05",
+      "reference": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye",
+      "asr_raw": "Doctor sahab, inko teen din se bulgam wali, khansi hai, aur bhook nahi lakti. Ha, paar sine mein dard nahi hai, amoxyceelin ek goli suba, sham paach din tak lijiye.",
+      "asr_normalized": "doctor sahab inko teen din se bulgam wali khansi hai aur bhook nahi lakti ha paar sine mein dard nahi hai amoxyceelin ek goli suba shaam paach din tak lijiye",
+      "normalized_wer": 0.3,
+      "clinical_severity_score": 2.5,
+      "critical_errors": [
+        "Negation flip on Loss of appetite (161838008): gold='affirmed' vs pred='negated'.",
+        "Missed/swapped medication Amoxicillin (372687004)."
+      ]
+    },
+    {
+      "type": "ELEVATED_WER_ZERO_CLINICAL_HARM",
+      "arm_id": "whisper_small_clinical_hinglish",
+      "acoustic_condition": "clean",
+      "consult_id": "OPD-T10",
+      "reference": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein",
+      "asr_raw": "Saat din se dil ki dharkan badhana mahhsus hota hai, par bhihosh hona nahi hua. Metoprolol sawa goli nahi, sirf aadhi goli subahle.",
+      "asr_normalized": "saat din se dil ki dharkan badhana mahhsus hota hai par bhihosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subahle",
+      "normalized_wer": 0.25,
+      "clinical_severity_score": 0.0,
+      "note": "Lexical/filler/script differences inflated WER while all SNOMED concepts, negations, and doses remained intact."
+    }
+  ]
+}

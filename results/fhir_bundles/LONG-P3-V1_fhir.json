@@ -1,0 +1,346 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-LONG-P3-V1",
+  "type": "collection",
+  "timestamp": "2026-10-25T10:30:00+05:30",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-SYN-PAT-003",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "SYN-PAT-003",
+        "meta": {
+          "profile": [
+            "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+          ],
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HTEST",
+              "display": "test health data (synthetic consented)"
+            }
+          ]
+        },
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-LONG-P3-V1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-LONG-P3-V1",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "period": {
+          "start": "2026-10-25",
+          "end": "2026-10-25"
+        },
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/visit-sequence",
+            "valueInteger": 1
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-LONG-P3-V1-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-LONG-P3-V1-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386661006",
+              "display": "Fever"
+            }
+          ],
+          "text": "Fever"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P3-V1"
+        },
+        "recordedDate": "2026-10-25",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "bukhar"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 12
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 18
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-dur-LONG-P3-V1-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-dur-LONG-P3-V1-1",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103335007",
+              "display": "Duration of clinical finding"
+            }
+          ],
+          "text": "Duration of Fever"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P3-V1"
+        },
+        "focus": [
+          {
+            "reference": "Condition/cond-LONG-P3-V1-1"
+          }
+        ],
+        "effectiveDateTime": "2026-10-25",
+        "valueQuantity": {
+          "value": 3.0,
+          "unit": "d",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-LONG-P3-V1-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-LONG-P3-V1-2",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "11833005",
+              "display": "Dry cough"
+            }
+          ],
+          "text": "Dry cough"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P3-V1"
+        },
+        "recordedDate": "2026-10-25",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "sukhi khansi"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 23
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 35
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-LONG-P3-V1-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-LONG-P3-V1-3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387517004",
+              "display": "Paracetamol"
+            }
+          ],
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "context": {
+          "reference": "Encounter/enc-LONG-P3-V1"
+        },
+        "effectiveDateTime": "2026-10-25",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "paracetamol"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 40
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 51
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-LONG-P3-V1-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-LONG-P3-V1-4",
+        "status": "not-taken",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "255631004",
+              "display": "Antibiotic"
+            }
+          ],
+          "text": "Antibiotic"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-003"
+        },
+        "context": {
+          "reference": "Encounter/enc-LONG-P3-V1"
+        },
+        "effectiveDateTime": "2026-10-25",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "antibiotic"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 67
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 77
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "gpu_policy": "STRICT_ZERO_UNAPPROVED_CLOUD_GPUS",
+  "storage_residency": "ap-south-1 (Mumbai) with lifecycle auto-delete <= 14 days",
+  "scenarios": [
+    {
+      "scenario_name": "Mid-Semester Pilot Execution (Apple M4 Local Compute Only)",
+      "num_consults": 30,
+      "avg_consult_minutes": 0.45,
+      "total_audio_minutes": 13.5,
+      "aws_transcribe_passes": 0,
+      "transcribe_cost_usd": 0.0,
+      "s3_storage_cost_usd": 0.0,
+      "constrained_llm_cost_usd": 0.0,
+      "ec2_gpu_instances_used": 0,
+      "total_estimated_usd": 0.0,
+      "region": "local-apple-m4",
+      "within_budget_cap": true
+    },
+    {
+      "scenario_name": "150-Consult Hinglish Benchmark (1x AWS Transcribe + Local Open ASR)",
+      "num_consults": 150,
+      "avg_consult_minutes": 2.0,
+      "total_audio_minutes": 300.0,
+      "aws_transcribe_passes": 1,
+      "transcribe_cost_usd": 7.2,
+      "s3_storage_cost_usd": 0.02,
+      "constrained_llm_cost_usd": 0.06,
+      "ec2_gpu_instances_used": 0,
+      "total_estimated_usd": 7.28,
+      "region": "ap-south-1",
+      "within_budget_cap": true
+    },
+    {
+      "scenario_name": "200-Consult Hinglish Benchmark (2x AWS Transcribe + Local Open ASR)",
+      "num_consults": 200,
+      "avg_consult_minutes": 2.0,
+      "total_audio_minutes": 400.0,
+      "aws_transcribe_passes": 2,
+      "transcribe_cost_usd": 19.2,
+      "s3_storage_cost_usd": 0.02,
+      "constrained_llm_cost_usd": 0.08,
+      "ec2_gpu_instances_used": 0,
+      "total_estimated_usd": 19.3,
+      "region": "ap-south-1",
+      "within_budget_cap": true
+    }
+  ]
+}

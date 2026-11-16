@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/
+data/audio/stems/
+~$*.pptx
+C4M_Lecture_9_2026_FHIR_AMR-1-17.pdf
+.DS_Store

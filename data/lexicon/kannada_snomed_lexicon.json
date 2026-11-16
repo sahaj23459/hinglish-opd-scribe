@@ -1,0 +1,186 @@
+{
+  "lexicon_name": "Kannada-SNOMED-Portability-Plugin-v1",
+  "language": "kn-IN",
+  "num_concepts": 14,
+  "concepts": [
+    {
+      "snomed_code": "386661006",
+      "preferred_term": "Fever",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "systemic",
+      "sub_branch": "pyrexia",
+      "synonyms": [
+        "jvara",
+        "ಜ್ವರ",
+        "fever"
+      ]
+    },
+    {
+      "snomed_code": "49727002",
+      "preferred_term": "Cough",
+      "semantic_tag": "finding",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "cough",
+      "synonyms": [
+        "kemmu",
+        "ಕೆಮ್ಮು",
+        "cough"
+      ]
+    },
+    {
+      "snomed_code": "82272006",
+      "preferred_term": "Common cold",
+      "semantic_tag": "disorder",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "respiratory",
+      "sub_branch": "upper_respiratory",
+      "synonyms": [
+        "sheeta",
+        "ಶೀತ",
+        "cold"
+      ]
+    },
+    {
+      "snomed_code": "25064002",
+      "preferred_term": "Headache",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "neuro",
+      "sub_branch": "headache",
+      "synonyms": [
+        "talenovu",
+        "ತಲೆನೋವು",
+        "headache"
+      ]
+    },
+    {
+      "snomed_code": "162076009",
+      "preferred_term": "Abdominal bloating",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "hotte ubbara",
+        "ಹೊಟ್ಟೆ ಉಬ್ಬರ"
+      ],
+      "ambiguous_triggers": [
+        "gas",
+        "ಗ್ಯಾಸ್"
+      ]
+    },
+    {
+      "snomed_code": "16331000",
+      "preferred_term": "Heartburn",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "dyspepsia_gas",
+      "synonyms": [
+        "ede uri",
+        "ಎದೆ ಉರಿ",
+        "acidity"
+      ]
+    },
+    {
+      "snomed_code": "404640003",
+      "preferred_term": "Dizziness",
+      "semantic_tag": "finding",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "neuro",
+      "sub_branch": "vestibular",
+      "synonyms": [
+        "talesuttu",
+        "ತಲೆಸುತ್ತು"
+      ]
+    },
+    {
+      "snomed_code": "422400008",
+      "preferred_term": "Vomiting",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "emesis",
+      "synonyms": [
+        "vaanti",
+        "ವಾಂತಿ"
+      ]
+    },
+    {
+      "snomed_code": "62315008",
+      "preferred_term": "Diarrhea",
+      "semantic_tag": "finding",
+      "clinical_domain": "gi_musculoskeletal",
+      "organ_branch": "gi",
+      "sub_branch": "bowel",
+      "synonyms": [
+        "bhedi",
+        "ಭೇದಿ"
+      ]
+    },
+    {
+      "snomed_code": "44054006",
+      "preferred_term": "Diabetes mellitus type 2",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "endocrine",
+      "sub_branch": "glycemic",
+      "synonyms": [
+        "sakkare kaayile",
+        "ಸಕ್ಕರೆ ಕಾಯಿಲೆ",
+        "diabetes"
+      ]
+    },
+    {
+      "snomed_code": "38341003",
+      "preferred_term": "Hypertensive disorder",
+      "semantic_tag": "disorder",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "cardiac",
+      "sub_branch": "blood_pressure",
+      "synonyms": [
+        "bp",
+        "ಬಿಪಿ",
+        "high bp"
+      ]
+    },
+    {
+      "snomed_code": "387517004",
+      "preferred_term": "Paracetamol",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "analgesic_antipyretic",
+      "synonyms": [
+        "paracetamol",
+        "ಪ್ಯಾರಾಸಿಟಮಾಲ್"
+      ]
+    },
+    {
+      "snomed_code": "372567009",
+      "preferred_term": "Metformin",
+      "semantic_tag": "medication",
+      "clinical_domain": "cardiometabolic",
+      "organ_branch": "drug",
+      "sub_branch": "antidiabetic",
+      "synonyms": [
+        "metformin",
+        "ಮೆಟ್ಫಾರ್ಮಿನ್"
+      ]
+    },
+    {
+      "snomed_code": "255631004",
+      "preferred_term": "Antibiotic",
+      "semantic_tag": "medication",
+      "clinical_domain": "acute_febrile_amr",
+      "organ_branch": "drug",
+      "sub_branch": "antibiotic",
+      "synonyms": [
+        "antibiotic",
+        "ಆಂಟಿಬಯೋಟಿಕ್"
+      ]
+    }
+  ]
+}

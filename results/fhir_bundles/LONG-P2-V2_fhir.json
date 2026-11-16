@@ -1,0 +1,445 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-LONG-P2-V2",
+  "type": "collection",
+  "timestamp": "2026-10-04T10:30:00+05:30",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-SYN-PAT-002",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "SYN-PAT-002",
+        "meta": {
+          "profile": [
+            "https://nrces.in/ndhm/fhir/r4/StructureDefinition/Patient"
+          ],
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HTEST",
+              "display": "test health data (synthetic consented)"
+            }
+          ]
+        },
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-LONG-P2-V2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-LONG-P2-V2",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "period": {
+          "start": "2026-10-04",
+          "end": "2026-10-04"
+        },
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/visit-sequence",
+            "valueInteger": 2
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-LONG-P2-V2-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-LONG-P2-V2-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "inactive"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "refuted"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertensive disorder"
+            }
+          ],
+          "text": "Hypertensive disorder"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "recordedDate": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "bp high"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 0
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 7
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-LONG-P2-V2-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-LONG-P2-V2-2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386864001",
+              "display": "Amlodipine"
+            }
+          ],
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "context": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "effectiveDateTime": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "hua amlodipine"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 19
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 33
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.855
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.5,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-LONG-P2-V2-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-LONG-P2-V2-3",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "162076009",
+              "display": "Abdominal bloating"
+            }
+          ],
+          "text": "Abdominal bloating"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "recordedDate": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "pet mein gas"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 55
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 67
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.74
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-LONG-P2-V2-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-LONG-P2-V2-4",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "16331000",
+              "display": "Heartburn"
+            }
+          ],
+          "text": "Heartburn"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "recordedDate": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "seene mein jalan"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 82
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 98
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-LONG-P2-V2-5",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-LONG-P2-V2-5",
+        "status": "not-taken",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387207008",
+              "display": "Ibuprofen"
+            }
+          ],
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "context": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "effectiveDateTime": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "ibuprofen"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 103
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 112
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-LONG-P2-V2-6",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-LONG-P2-V2-6",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "395821003",
+              "display": "Pantoprazole"
+            }
+          ],
+          "text": "Pantoprazole"
+        },
+        "subject": {
+          "reference": "Patient/SYN-PAT-002"
+        },
+        "context": {
+          "reference": "Encounter/enc-LONG-P2-V2"
+        },
+        "effectiveDateTime": "2026-10-04",
+        "extension": [
+          {
+            "url": "https://hinglish-scribe.example.org/fhir/StructureDefinition/transcript-span",
+            "extension": [
+              {
+                "url": "matchedText",
+                "valueString": "pantoprazole"
+              },
+              {
+                "url": "charStart",
+                "valueInteger": 124
+              },
+              {
+                "url": "charEnd",
+                "valueInteger": 136
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.96
+              }
+            ]
+          }
+        ],
+        "dosage": [
+          {
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

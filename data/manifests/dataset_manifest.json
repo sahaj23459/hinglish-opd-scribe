@@ -1,0 +1,1713 @@
+{
+  "dataset_name": "Hinglish-OPD-Scribe-Midsem-Pilot-v1",
+  "phi_status": "ZERO_REAL_PATIENT_DATA_100_PERCENT_SYNTHETIC_CONSENTED",
+  "sample_rate_hz": 16000,
+  "random_seed": 42,
+  "total_audio_files": 77,
+  "total_duration_sec": 653.08,
+  "records": [
+    {
+      "consult_id": "OPD-T01",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T01.wav",
+      "duration_sec": 10.07,
+      "sha256": "365ea1bced2eed5315e988ffad5a236250d7f5d774864623b5eb21b293f5d0f3",
+      "turn_spans": [
+        [
+          0.0,
+          4.896
+        ],
+        [
+          5.176,
+          10.07
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T01",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T01.wav",
+      "duration_sec": 10.07,
+      "sha256": "ec13ddfd7dfbf05cc63a658a92311f0b5ac8d5854fed50e0b6d75fac4bf6a1a2",
+      "turn_spans": [
+        [
+          0.0,
+          4.896
+        ],
+        [
+          5.176,
+          10.07
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T01",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T01.wav",
+      "duration_sec": 10.07,
+      "sha256": "8fdd6ef951028425cf7c6a335f91d249a25e37eb4629d3d85516ef97b0616bf0",
+      "turn_spans": [
+        [
+          0.0,
+          4.896
+        ],
+        [
+          5.176,
+          10.07
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T01",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T01.wav",
+      "duration_sec": 8.89,
+      "sha256": "b7af09b4865c005cc938800911f61a85e9017918bbe49b57c28ca78cdc0e7a44",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.996,
+          4.896
+        ]
+      ],
+      "reference_transcript": "doctor sahab mujhe teen din se bukhar hai par sir mein dard nahi hai paracetamol dedh goli subah shaam lijiye viral mein antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T02",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T02.wav",
+      "duration_sec": 9.212,
+      "sha256": "b818887bdfcc3f94470747e419d9611a8bee689a4793209f0f4c84a02758b9e1",
+      "turn_spans": [
+        [
+          0.0,
+          5.037
+        ],
+        [
+          5.317,
+          9.212
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein"
+    },
+    {
+      "consult_id": "OPD-T02",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T02.wav",
+      "duration_sec": 9.212,
+      "sha256": "485a32ee00e660e532903a8843998686d24c83be82b963811aa2d166269d02b4",
+      "turn_spans": [
+        [
+          0.0,
+          5.037
+        ],
+        [
+          5.317,
+          9.212
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein"
+    },
+    {
+      "consult_id": "OPD-T02",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T02.wav",
+      "duration_sec": 9.212,
+      "sha256": "71210138da8d559ba44a70e5d6260c1037030d4e4dbf2219c3b45063e29545bd",
+      "turn_spans": [
+        [
+          0.0,
+          5.037
+        ],
+        [
+          5.317,
+          9.212
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein"
+    },
+    {
+      "consult_id": "OPD-T02",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T02.wav",
+      "duration_sec": 8.032,
+      "sha256": "0decc577c6f984aacf3fe168b757e38260f9132471955214ffbb9e84a371f5a2",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.137,
+          5.037
+        ]
+      ],
+      "reference_transcript": "mujhe chaar din se sukhi khansi aur gale mein dard hai par saans phoolna nahi hai cetirizine ek goli raat ko lein azithromycin mat lein"
+    },
+    {
+      "consult_id": "OPD-T03",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T03.wav",
+      "duration_sec": 9.069,
+      "sha256": "26a3fe5f456f85985b473d982b7a744f0271940155c43edd1ce07ab1fff6cd7c",
+      "turn_spans": [
+        [
+          0.0,
+          4.978
+        ],
+        [
+          5.258,
+          9.069
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"
+    },
+    {
+      "consult_id": "OPD-T03",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T03.wav",
+      "duration_sec": 9.069,
+      "sha256": "efe94ca01a2c17b71647cf7c317373ec45077216f39fc6aec95be7346592812c",
+      "turn_spans": [
+        [
+          0.0,
+          4.978
+        ],
+        [
+          5.258,
+          9.069
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"
+    },
+    {
+      "consult_id": "OPD-T03",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T03.wav",
+      "duration_sec": 9.069,
+      "sha256": "c0c8b63734a56ec98154f49011360eb4523e20a1a4b2314f967099dda7e8e3ec",
+      "turn_spans": [
+        [
+          0.0,
+          4.978
+        ],
+        [
+          5.258,
+          9.069
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"
+    },
+    {
+      "consult_id": "OPD-T03",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T03.wav",
+      "duration_sec": 7.889,
+      "sha256": "5f1db98d0abde65e4f7adfc9d684c9e2cdb165db4f07902237c528568354444f",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.078,
+          4.978
+        ]
+      ],
+      "reference_transcript": "do din se tez bukhar aur kapkapi hai lekin sharir par lal daane nahi hai paracetamol ek goli lijiye aur kal khoon ki jaanch karayein"
+    },
+    {
+      "consult_id": "OPD-T04",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T04.wav",
+      "duration_sec": 9.297,
+      "sha256": "73705d623ce5a5b0f530d9591e2a6ece4b8537784c4084ea5eebae77ff642e5f",
+      "turn_spans": [
+        [
+          0.0,
+          4.889
+        ],
+        [
+          5.169,
+          9.297
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"
+    },
+    {
+      "consult_id": "OPD-T04",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T04.wav",
+      "duration_sec": 9.297,
+      "sha256": "4c10fda9d0f8ea498f1a910c94ec355211b0425bdca8a0565477c10b162ffcae",
+      "turn_spans": [
+        [
+          0.0,
+          4.889
+        ],
+        [
+          5.169,
+          9.297
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"
+    },
+    {
+      "consult_id": "OPD-T04",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T04.wav",
+      "duration_sec": 9.297,
+      "sha256": "baa9c2c377174ce3832bbd509cf6570fca91ace7007ea5a6b287af6215521109",
+      "turn_spans": [
+        [
+          0.0,
+          4.889
+        ],
+        [
+          5.169,
+          9.297
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"
+    },
+    {
+      "consult_id": "OPD-T04",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T04.wav",
+      "duration_sec": 8.117,
+      "sha256": "0069276fff45b8ae75608904b1126cb4ba4df1c940bb878385c4bfa1b4b26116",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.989,
+          4.889
+        ]
+      ],
+      "reference_transcript": "paanch din se sardi zukam hai aur badan toot raha hai par ulti nahi hai bhaap lijiye aur paracetamol aadhi goli zaroorat padne par lein"
+    },
+    {
+      "consult_id": "OPD-T05",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T05.wav",
+      "duration_sec": 11.696,
+      "sha256": "a91b66af83a1962a62cc198e9368d9a93a4dfdc91ef9863608c8d11306ead0d6",
+      "turn_spans": [
+        [
+          0.0,
+          5.508
+        ],
+        [
+          5.788,
+          7.638
+        ],
+        [
+          7.918,
+          11.696
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye"
+    },
+    {
+      "consult_id": "OPD-T05",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T05.wav",
+      "duration_sec": 11.696,
+      "sha256": "3f0493c5c021e9a1a4e2f7d54dbdd29bec9de771ead0861fe0092c0b959bdf39",
+      "turn_spans": [
+        [
+          0.0,
+          5.508
+        ],
+        [
+          5.788,
+          7.638
+        ],
+        [
+          7.918,
+          11.696
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye"
+    },
+    {
+      "consult_id": "OPD-T05",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T05.wav",
+      "duration_sec": 11.696,
+      "sha256": "aacc3ef5fe29f19ab59e0caa81b391a03ef3634a9f506feb4892491b0ebb6c86",
+      "turn_spans": [
+        [
+          0.0,
+          5.508
+        ],
+        [
+          5.788,
+          7.638
+        ],
+        [
+          7.918,
+          11.696
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye"
+    },
+    {
+      "consult_id": "OPD-T05",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T05.wav",
+      "duration_sec": 9.718,
+      "sha256": "af9999d2eb3b4a66dd6ad82cf13565a06acc799ffc33543805b59feed4a8b354",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.608,
+          5.508
+        ],
+        [
+          5.94,
+          6.458
+        ]
+      ],
+      "reference_transcript": "doctor sahab inko teen din se balgam wali khansi hai aur bhookh nahi lagti haan par seene mein dard nahi hai amoxicillin ek goli subah shaam paanch din tak lijiye"
+    },
+    {
+      "consult_id": "OPD-T06",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T06.wav",
+      "duration_sec": 8.37,
+      "sha256": "40a34e5a6a51c789b96700cc06030947fc4c40a8f1f324e04391de42e57c8642",
+      "turn_spans": [
+        [
+          0.0,
+          5.238
+        ],
+        [
+          5.518,
+          8.37
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"
+    },
+    {
+      "consult_id": "OPD-T06",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T06.wav",
+      "duration_sec": 8.37,
+      "sha256": "60e3b239510c0c2a87a0c9f1e7cb0a74dd5d7b41e558aca83e7290ca44f397b1",
+      "turn_spans": [
+        [
+          0.0,
+          5.238
+        ],
+        [
+          5.518,
+          8.37
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"
+    },
+    {
+      "consult_id": "OPD-T06",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T06.wav",
+      "duration_sec": 8.37,
+      "sha256": "f97f528d5bfcad38ce722f28a7441c6c173ed48dfb144dbb99f545fb8d5b7337",
+      "turn_spans": [
+        [
+          0.0,
+          5.238
+        ],
+        [
+          5.518,
+          8.37
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"
+    },
+    {
+      "consult_id": "OPD-T06",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T06.wav",
+      "duration_sec": 7.19,
+      "sha256": "1bfb91c359d85bbc522d66ed6acd2caf7528d373442e2a9d3f7141113c67f0d2",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.338,
+          5.238
+        ]
+      ],
+      "reference_transcript": "doctor sahab do mahine se sugar badh gayi hai aur subah chakkar aana hota hai metformin dedh goli subah shaam kar dijiye"
+    },
+    {
+      "consult_id": "OPD-T07",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T07.wav",
+      "duration_sec": 11.974,
+      "sha256": "5767a99a6a796e18175b409b568c80592fa21420f00dab19597d207a93746bb6",
+      "turn_spans": [
+        [
+          0.0,
+          5.596
+        ],
+        [
+          5.876,
+          11.974
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"
+    },
+    {
+      "consult_id": "OPD-T07",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T07.wav",
+      "duration_sec": 11.974,
+      "sha256": "02390057e18b17a078333ade3f6bc3e20acbe23a9baa4351eb56bcf17cfb9fa8",
+      "turn_spans": [
+        [
+          0.0,
+          5.596
+        ],
+        [
+          5.876,
+          11.974
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"
+    },
+    {
+      "consult_id": "OPD-T07",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T07.wav",
+      "duration_sec": 11.974,
+      "sha256": "24c5b9401e967fa1d769e28d36b51ca0422b8b216f4863c1688ea656a5381a0c",
+      "turn_spans": [
+        [
+          0.0,
+          5.596
+        ],
+        [
+          5.876,
+          11.974
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"
+    },
+    {
+      "consult_id": "OPD-T07",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T07.wav",
+      "duration_sec": 10.794,
+      "sha256": "f88375106b559de98f5394eff5fb2ef45e7da7c10500545088ed9d50df50362e",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.696,
+          5.596
+        ]
+      ],
+      "reference_transcript": "mujhe diabetes hai teen mahine se paer mein jhanjhanahat hai par paer mein sujan nahi hai metformin dhai goli mat lijiye sirf do goli lein aur vitamin b12 ek goli roz lein"
+    },
+    {
+      "consult_id": "OPD-T08",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T08.wav",
+      "duration_sec": 11.341,
+      "sha256": "47b1570270d788151c887d33be3d96741d090a48007160caebcf66795bb168c1",
+      "turn_spans": [
+        [
+          0.0,
+          5.956
+        ],
+        [
+          6.236,
+          11.341
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"
+    },
+    {
+      "consult_id": "OPD-T08",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T08.wav",
+      "duration_sec": 11.341,
+      "sha256": "cb70ff554b9a0c4e66da16352a18c79bd44d4b45405c5dfb2c4dcdd5a8adaabd",
+      "turn_spans": [
+        [
+          0.0,
+          5.956
+        ],
+        [
+          6.236,
+          11.341
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"
+    },
+    {
+      "consult_id": "OPD-T08",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T08.wav",
+      "duration_sec": 11.341,
+      "sha256": "f6ed123e9458674390f0c22696bcd46624947a6f8cd79b12ff62a40ca150cc80",
+      "turn_spans": [
+        [
+          0.0,
+          5.956
+        ],
+        [
+          6.236,
+          11.341
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"
+    },
+    {
+      "consult_id": "OPD-T08",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T08.wav",
+      "duration_sec": 10.161,
+      "sha256": "584ef66adcd8cfd4e1857fd3d2109a9437c36c1dc4b635597f07dadd29ad64ba",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          5.056,
+          5.956
+        ]
+      ],
+      "reference_transcript": "mere pitaji ko dil ki bimari thi mera bp high rehta hai par seene mein dard nahi hai amlodipine aadhi goli roz subah lein aur telmisartan ek goli jaari rakhein"
+    },
+    {
+      "consult_id": "OPD-T09",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T09.wav",
+      "duration_sec": 10.019,
+      "sha256": "588dd5bfcaba3da4e2a194cb53500f7628d9dbd870e349a85db9e9a51d106df0",
+      "turn_spans": [
+        [
+          0.0,
+          4.63
+        ],
+        [
+          4.91,
+          10.019
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"
+    },
+    {
+      "consult_id": "OPD-T09",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T09.wav",
+      "duration_sec": 10.019,
+      "sha256": "4e124386b2743657ca40870ac70afb3dc6fe04c5f0413ad57e48f1db33280f0b",
+      "turn_spans": [
+        [
+          0.0,
+          4.63
+        ],
+        [
+          4.91,
+          10.019
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"
+    },
+    {
+      "consult_id": "OPD-T09",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T09.wav",
+      "duration_sec": 10.019,
+      "sha256": "3a714a9de9d57ec6253f8bef358aa2f3480ec714c50a10d26d256f52169272e7",
+      "turn_spans": [
+        [
+          0.0,
+          4.63
+        ],
+        [
+          4.91,
+          10.019
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"
+    },
+    {
+      "consult_id": "OPD-T09",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T09.wav",
+      "duration_sec": 8.839,
+      "sha256": "deb3218c677301721ecb6a69be3c8c1742f7bde67ddc6b74f73547c3e8a46e4e",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.73,
+          4.63
+        ]
+      ],
+      "reference_transcript": "ek mahine se baar baar peshab aata hai aur dhundhla dikhna shuru hua hai glimepiride ek goli naashte se pehle aur atorvastatin ek goli raat ko lein"
+    },
+    {
+      "consult_id": "OPD-T10",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T10.wav",
+      "duration_sec": 8.878,
+      "sha256": "f6459a02ebed28d742320030b5a2e49a303d3f5ce4d2061d278650608d2ded23",
+      "turn_spans": [
+        [
+          0.0,
+          4.969
+        ],
+        [
+          5.249,
+          8.878
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein"
+    },
+    {
+      "consult_id": "OPD-T10",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T10.wav",
+      "duration_sec": 8.878,
+      "sha256": "b7f0165da23569a7e4dd50530415d8ef3800d69720cc1e88c22dad63e95c7328",
+      "turn_spans": [
+        [
+          0.0,
+          4.969
+        ],
+        [
+          5.249,
+          8.878
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein"
+    },
+    {
+      "consult_id": "OPD-T10",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T10.wav",
+      "duration_sec": 8.878,
+      "sha256": "2ca953bcf66a6af9e10b55b3b17b8921249258cbaabd49c82b6f5b01c6d7eee8",
+      "turn_spans": [
+        [
+          0.0,
+          4.969
+        ],
+        [
+          5.249,
+          8.878
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein"
+    },
+    {
+      "consult_id": "OPD-T10",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T10.wav",
+      "duration_sec": 7.698,
+      "sha256": "086bf747cd88ee08be6889ed4cc7d6e05419c13b4c7c75d4ae6d85c707c61dfc",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          4.069,
+          4.969
+        ]
+      ],
+      "reference_transcript": "saat din se dil ki dhadkan badhna mehsoos hota hai par behosh hona nahi hua metoprolol sawa goli nahi sirf aadhi goli subah lein"
+    },
+    {
+      "consult_id": "OPD-T11",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T11.wav",
+      "duration_sec": 9.981,
+      "sha256": "3645b7929f609dced1b4ebbbfc8ce628fa603510cbda0956f7b3c83fccb2c9fe",
+      "turn_spans": [
+        [
+          0.0,
+          6.458
+        ],
+        [
+          6.738,
+          9.981
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye"
+    },
+    {
+      "consult_id": "OPD-T11",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T11.wav",
+      "duration_sec": 9.981,
+      "sha256": "28f3b60949e7b025b629f4c46eecbaeb8798a40f63ac4365a44c238d4ad637ca",
+      "turn_spans": [
+        [
+          0.0,
+          6.458
+        ],
+        [
+          6.738,
+          9.981
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye"
+    },
+    {
+      "consult_id": "OPD-T11",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T11.wav",
+      "duration_sec": 9.981,
+      "sha256": "887f2b09789280754e8e2c1d66e7d92dc7f88d61fe38f9e3e4b97185fdbbd35d",
+      "turn_spans": [
+        [
+          0.0,
+          6.458
+        ],
+        [
+          6.738,
+          9.981
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye"
+    },
+    {
+      "consult_id": "OPD-T11",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T11.wav",
+      "duration_sec": 8.801,
+      "sha256": "2f45d209cb16b0a818438c7099f71a632b14a7cb83aee851816b71bebc417d32",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          5.558,
+          6.458
+        ]
+      ],
+      "reference_transcript": "doctor sahab das din se pet mein gas banti hai aur khatti dakar aati hai par ulti nahi hai pantoprazole ek goli subah khaali pet lijiye"
+    },
+    {
+      "consult_id": "OPD-T12",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T12.wav",
+      "duration_sec": 6.968,
+      "sha256": "b8ba19c4f620c1b1edb5fe4810a42d4f5e4204947690be97ad799efa54459b62",
+      "turn_spans": [
+        [
+          0.0,
+          4.115
+        ],
+        [
+          4.395,
+          6.968
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein"
+    },
+    {
+      "consult_id": "OPD-T12",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T12.wav",
+      "duration_sec": 6.968,
+      "sha256": "1e5e28921d64eb1d8719955eaafab9c8fbae6e8a824aa42ef93fff44be66630e",
+      "turn_spans": [
+        [
+          0.0,
+          4.115
+        ],
+        [
+          4.395,
+          6.968
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein"
+    },
+    {
+      "consult_id": "OPD-T12",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T12.wav",
+      "duration_sec": 6.968,
+      "sha256": "0450c3306d53fb5736c21eb766477342e11d041c46bb3b9c5ecfdaa624f80cc4",
+      "turn_spans": [
+        [
+          0.0,
+          4.115
+        ],
+        [
+          4.395,
+          6.968
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein"
+    },
+    {
+      "consult_id": "OPD-T12",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T12.wav",
+      "duration_sec": 5.788,
+      "sha256": "85775e0bafe9647e09eb43a964cb02d6d212944409d771d8fdb2edf893f1f904",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.215,
+          4.115
+        ]
+      ],
+      "reference_transcript": "do hafte se baayein kandhe mein dard hai par seene mein jalan nahi hai ibuprofen ek goli khane ke baad lein"
+    },
+    {
+      "consult_id": "OPD-T13",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T13.wav",
+      "duration_sec": 7.269,
+      "sha256": "04ad3c5f336639087ce0e439eb95a65db9ba1705a250230463f6197d41bff517",
+      "turn_spans": [
+        [
+          0.0,
+          3.825
+        ],
+        [
+          4.105,
+          7.269
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T13",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T13.wav",
+      "duration_sec": 7.269,
+      "sha256": "c6cb763919163745714a70d79d5029271e7833aa59d5add38032720e795f1af6",
+      "turn_spans": [
+        [
+          0.0,
+          3.825
+        ],
+        [
+          4.105,
+          7.269
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T13",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T13.wav",
+      "duration_sec": 7.269,
+      "sha256": "a06c9d2605021b90fe7c9ed3e2cab12112535c4742fc16b05cc4690b2c4ae488",
+      "turn_spans": [
+        [
+          0.0,
+          3.825
+        ],
+        [
+          4.105,
+          7.269
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T13",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T13.wav",
+      "duration_sec": 6.089,
+      "sha256": "7c2e2dd42018a72d4d91c5687941f8c09cda93fd4ff42c7da77ef4469645a028",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          2.925,
+          3.825
+        ]
+      ],
+      "reference_transcript": "kal se patle dast aur pet mein dard hai par bukhar nahi hai ors pijiye aur ciprofloxacin mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T14",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T14.wav",
+      "duration_sec": 8.527,
+      "sha256": "21d779285af5fe9e1b83843c2ed99425072544e2c29a0146a1b8cb10bbfb4cbd",
+      "turn_spans": [
+        [
+          0.0,
+          4.082
+        ],
+        [
+          4.362,
+          8.527
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T14",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T14.wav",
+      "duration_sec": 8.527,
+      "sha256": "8800dc1727fe4fb3332cb7b47a4c3febaae00395a3a90ef25785c02183ed043d",
+      "turn_spans": [
+        [
+          0.0,
+          4.082
+        ],
+        [
+          4.362,
+          8.527
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T14",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T14.wav",
+      "duration_sec": 8.527,
+      "sha256": "fe03da712d20781434f3a7721beaba107baf555b6a8ece90854dc46ee41179d3",
+      "turn_spans": [
+        [
+          0.0,
+          4.082
+        ],
+        [
+          4.362,
+          8.527
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T14",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T14.wav",
+      "duration_sec": 7.347,
+      "sha256": "19d53d0a46a979b10005ad53885700a65606ae5e9edb6f4d01fc6f37f127db66",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.182,
+          4.082
+        ]
+      ],
+      "reference_transcript": "teen mahine se daayein ghutne mein dard hai aur kamar mein dard bhi hai paracetamol dedh goli zaroorat par lein diclofenac mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T15",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T15.wav",
+      "duration_sec": 8.429,
+      "sha256": "c3075986dd8015bdcee8c18f446da5a42096731b117a698066555d4d3d8aa2c9",
+      "turn_spans": [
+        [
+          0.0,
+          4.351
+        ],
+        [
+          4.631,
+          8.429
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai ondansetron ek goli subah lein aur pani zyada piyein"
+    },
+    {
+      "consult_id": "OPD-T15",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T15.wav",
+      "duration_sec": 8.429,
+      "sha256": "e78fe0e7a2d61afec9225dda0539ab2ee1d83546f25cfd2f46f857fc8cee27a0",
+      "turn_spans": [
+        [
+          0.0,
+          4.351
+        ],
+        [
+          4.631,
+          8.429
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai ondansetron ek goli subah lein aur pani zyada piyein"
+    },
+    {
+      "consult_id": "OPD-T15",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T15.wav",
+      "duration_sec": 8.429,
+      "sha256": "3d997a6c215177e69dc478cc25198183041558856d915f99af2c3541e8c66755",
+      "turn_spans": [
+        [
+          0.0,
+          4.351
+        ],
+        [
+          4.631,
+          8.429
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai ondansetron ek goli subah lein aur pani zyada piyein"
+    },
+    {
+      "consult_id": "OPD-T15",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T15.wav",
+      "duration_sec": 7.249,
+      "sha256": "4ec8c05894a8b8f2d79ba1a895df8eb215c3cf62c6f322398033bf719893cd2a",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          3.451,
+          4.351
+        ]
+      ],
+      "reference_transcript": "chhah din se qabz hai aur ji machlana rehta hai par peeliya nahi hai ondansetron ek goli subah lein aur pani zyada piyein"
+    },
+    {
+      "consult_id": "OPD-T16",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-T16.wav",
+      "duration_sec": 9.74,
+      "sha256": "814744f8ce13c2ecaaa1c5f365a078b3a7f47192fd05b8fffb57fd97d05c436c",
+      "turn_spans": [
+        [
+          0.0,
+          5.937
+        ],
+        [
+          6.217,
+          9.74
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T16",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/noisy_10db/OPD-T16.wav",
+      "duration_sec": 9.74,
+      "sha256": "5943505b2f6b85a7aaab575c24f7bd104d87c903dc1ad5d9641ed9c64096e159",
+      "turn_spans": [
+        [
+          0.0,
+          5.937
+        ],
+        [
+          6.217,
+          9.74
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T16",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "noisy_3db",
+      "snr_db": 3.0,
+      "wav_path": "data/audio/noisy_3db/OPD-T16.wav",
+      "duration_sec": 9.74,
+      "sha256": "54dc403a0d0d93ce60ef899e4a2b0cdc74f56a059bdad4f7d809e94b65a017a6",
+      "turn_spans": [
+        [
+          0.0,
+          5.937
+        ],
+        [
+          6.217,
+          9.74
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-T16",
+      "split": "test",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "overlap_10db",
+      "snr_db": 10.0,
+      "wav_path": "data/audio/overlap_10db/OPD-T16.wav",
+      "duration_sec": 8.56,
+      "sha256": "b229bd5d6d59878cc5a468a46c703f9562d2d935525232dba5c05dd8b8436cc5",
+      "turn_spans": [],
+      "overlap_spans": [
+        [
+          5.037,
+          5.937
+        ]
+      ],
+      "reference_transcript": "chaar din se peshab mein jalan hai mataji ko diabetes hai par mujhe bukhar nahi hai urine test karaiye aur abhi antibiotic mat lijiye"
+    },
+    {
+      "consult_id": "OPD-D01",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D01.wav",
+      "duration_sec": 6.261,
+      "sha256": "1b890aa5c96ff361385550d213aec80c9e1334e2f45ec4ef442ab990b89dcf31",
+      "turn_spans": [
+        [
+          0.0,
+          4.073
+        ],
+        [
+          4.353,
+          6.261
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "do din se bukhar aur khansi hai par saans phoolna nahi hai paracetamol ek goli lein"
+    },
+    {
+      "consult_id": "OPD-D02",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D02.wav",
+      "duration_sec": 5.324,
+      "sha256": "4725605bacb990f14879e31e2526bad4027d96860fe1e3cdb90890a89658688b",
+      "turn_spans": [
+        [
+          0.0,
+          2.808
+        ],
+        [
+          3.088,
+          5.324
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mera bp high hai aur sir mein dard hai amlodipine dedh goli subah lein"
+    },
+    {
+      "consult_id": "OPD-D03",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D03.wav",
+      "duration_sec": 5.428,
+      "sha256": "7a451106e42938738c197b083ddfc9ba7f1fa2262081f8f18c3401161f6a6dba",
+      "turn_spans": [
+        [
+          0.0,
+          2.924
+        ],
+        [
+          3.204,
+          5.428
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen din se pet mein gas aur seene mein jalan hai omeprazole ek goli subah lein"
+    },
+    {
+      "consult_id": "OPD-D04",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D04.wav",
+      "duration_sec": 6.411,
+      "sha256": "f3eec7328f35113b1de5bb8640205f9cb7f776a0cd055cd60e1d381e7762a475",
+      "turn_spans": [
+        [
+          0.0,
+          2.863
+        ],
+        [
+          3.143,
+          6.411
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen din se naak behna aur gale mein dard hai cetirizine ek goli lein antibiotic mat lein"
+    },
+    {
+      "consult_id": "OPD-D05",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "cardiometabolic",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D05.wav",
+      "duration_sec": 5.89,
+      "sha256": "573c24b0943998ae60dc4979f71a56aa486341d5f0288e5bf4431f24929400c2",
+      "turn_spans": [
+        [
+          0.0,
+          3.214
+        ],
+        [
+          3.494,
+          5.89
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "aaj subah sugar low aur paseena aana hua glimepiride aadhi goli kar dijiye"
+    },
+    {
+      "consult_id": "OPD-D06",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D06.wav",
+      "duration_sec": 5.544,
+      "sha256": "fb0a335a48acf7498b4a35edcea2a97eae50639e3afc0585009968f992b62792",
+      "turn_spans": [
+        [
+          0.0,
+          3.321
+        ],
+        [
+          3.601,
+          5.544
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "paanch din se gardan mein dard hai par sunnapan nahi hai paracetamol ek goli lein"
+    },
+    {
+      "consult_id": "OPD-D07",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "acute_febrile_amr",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D07.wav",
+      "duration_sec": 9.271,
+      "sha256": "bf85eaf0bd96c02b4a4ebaae7a2acbf76d3c62d09690f3a28f76820ac68bafaf",
+      "turn_spans": [
+        [
+          0.0,
+          5.102
+        ],
+        [
+          5.382,
+          9.271
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "mujhe dama hai aur do din se saans phoolna badh gaya hai par bukhar nahi hai salbutamol lijiye aur montelukast ek goli raat ko lein"
+    },
+    {
+      "consult_id": "OPD-D08",
+      "split": "dev",
+      "language": "hinglish",
+      "domain": "gi_musculoskeletal",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/clean/OPD-D08.wav",
+      "duration_sec": 6.382,
+      "sha256": "9a7bdfefd0dcbb30bb441fa10ae29d2dd5af9d834e19b96a083cd9c0d6a64227",
+      "turn_spans": [
+        [
+          0.0,
+          3.789
+        ],
+        [
+          4.069,
+          6.382
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "teen din se khujli aur lal daane hai par bukhar nahi hai cetirizine ek goli raat ko lein"
+    },
+    {
+      "consult_id": "KN-OPD-01",
+      "split": "kannada_portability",
+      "language": "kn-IN",
+      "domain": "portability",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/kannada_clean/KN-OPD-01.wav",
+      "duration_sec": 5.104,
+      "sha256": "97b486be0a7ad54427581820c38758c87b37af1d00e3952ffcfd60a55ed7b615",
+      "turn_spans": [
+        [
+          0.0,
+          5.104
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "doctor nanage mooru dinadinda jvara ide aadare talenovu illa paracetamol onduvare maatre"
+    },
+    {
+      "consult_id": "KN-OPD-02",
+      "split": "kannada_portability",
+      "language": "kn-IN",
+      "domain": "portability",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/kannada_clean/KN-OPD-02.wav",
+      "duration_sec": 3.716,
+      "sha256": "99c2b7905776b421539af7d742209a97c9ed9d9a2d2453e8e98d4abe6065101e",
+      "turn_spans": [
+        [
+          0.0,
+          3.716
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "nanage kemmu mattu sheeta ide aadare jvara illa antibiotic beda"
+    },
+    {
+      "consult_id": "KN-OPD-03",
+      "split": "kannada_portability",
+      "language": "kn-IN",
+      "domain": "portability",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/kannada_clean/KN-OPD-03.wav",
+      "duration_sec": 3.754,
+      "sha256": "8a314ca1d613dbeaff7976a7959d8c0b4e4e9ab1481275836ee1d302fc5a4801",
+      "turn_spans": [
+        [
+          0.0,
+          3.754
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "nanage sakkare kaayile mattu talesuttu ide metformin eradu maatre"
+    },
+    {
+      "consult_id": "KN-OPD-04",
+      "split": "kannada_portability",
+      "language": "kn-IN",
+      "domain": "portability",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/kannada_clean/KN-OPD-04.wav",
+      "duration_sec": 3.145,
+      "sha256": "3e7534b0101a2d9af2faa5b9c60e127f9c4ee2b83c593057b18e0f050d27dcb7",
+      "turn_spans": [
+        [
+          0.0,
+          3.145
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "nanage hotte ubbara mattu ede uri ide aadare vaanti illa"
+    },
+    {
+      "consult_id": "KN-OPD-05",
+      "split": "kannada_portability",
+      "language": "kn-IN",
+      "domain": "portability",
+      "acoustic_condition": "clean",
+      "snr_db": null,
+      "wav_path": "data/audio/kannada_clean/KN-OPD-05.wav",
+      "duration_sec": 3.163,
+      "sha256": "cc8f2fb0ef3ddd9cb89232aadcb4714097dbceb449880b632e84fbe486ea3686",
+      "turn_spans": [
+        [
+          0.0,
+          3.163
+        ]
+      ],
+      "overlap_spans": [],
+      "reference_transcript": "nanage eradu dinadinda bhedi ide aadare jvara illa"
+    }
+  ]
+}
